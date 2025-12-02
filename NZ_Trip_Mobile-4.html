@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="NZ Trip">
+  <title>NZ Adventure 2025</title>
+  <style>
+    :root {
+      --primary: #1a5f7a;
+      --secondary: #2e86ab;
+      --accent: #f39c12;
+      --success: #27ae60;
+      --warning: #d35400;
+      --purple: #8e44ad;
+      --bg: #f5f7fa;
+      --card: #ffffff;
+      --text: #2c3e50;
+      --muted: #7f8c8d;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+      background: var(--bg); 
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.5;
+      padding-bottom: 80px;
+    }
+    
+    /* Page system */
+    .page { display: none; }
+    .page.active { display: block; }
+    
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 25px 20px 15px;
+      text-align: center;
+    }
+    .header h1 { font-size: 22px; margin-bottom: 3px; }
+    .header .dates { font-size: 13px; opacity: 0.9; }
+    .header .weather { font-size: 12px; opacity: 0.8; margin-top: 5px; }
+    
+    /* Sticky Navigation */
+    .nav-container {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .nav {
+      display: flex;
+      overflow-x: auto;
+      padding: 10px 15px;
+      gap: 8px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a {
+      flex-shrink: 0;
+      padding: 8px 12px;
+      background: var(--bg);
+      border-radius: 20px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 500;
+      border: 2px solid transparent;
+    }
+    .nav a.today { 
+      background: #fff3e0; 
+      border-color: var(--warning);
+      color: var(--warning);
+      font-weight: 700;
+    }
+    
+    /* Search bar */
+    .search-container {
+      padding: 8px 15px 10px;
+      background: white;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--bg);
+      border-radius: 20px;
+      padding: 8px 15px;
+      gap: 8px;
+    }
+    .search-box input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-size: 14px;
+      outline: none;
+    }
+    .search-box .icon { color: var(--muted); }
+    .search-results {
+      display: none;
+      padding: 10px 15px;
+      background: white;
+      border-bottom: 1px solid #e0e0e0;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .search-results.active { display: block; }
+    .search-result-item {
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 5px;
+      background: var(--bg);
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .search-result-item:active { background: #e0e0e0; }
+    .search-result-item .day { font-size: 11px; color: var(--primary); font-weight: 600; }
+    
+    /* Day sections */
+    .day {
+      margin: 15px;
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    .day-header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 15px 18px;
+    }
+    .day-header .date { font-size: 20px; font-weight: 700; }
+    .day-header .title { font-size: 13px; opacity: 0.9; margin-top: 2px; }
+    .day-header .weather-small { font-size: 11px; opacity: 0.8; margin-top: 5px; }
+    
+    /* Day mini-nav */
+    .day-nav {
+      display: flex;
+      gap: 8px;
+      padding: 10px 15px;
+      background: #f8f9fa;
+      border-bottom: 1px solid #eee;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .day-nav::-webkit-scrollbar { display: none; }
+    .day-nav a {
+      flex-shrink: 0;
+      padding: 5px 10px;
+      background: white;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 11px;
+      border: 1px solid #e0e0e0;
+    }
+    
+    .day-content { padding: 15px; }
+    
+    /* Section anchors */
+    .section-anchor { 
+      scroll-margin-top: 130px;
+      padding-top: 5px;
+    }
+    .section-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid var(--primary);
+    }
+    
+    /* Timeline items */
+    .timeline-item {
+      display: flex;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .time {
+      width: 65px;
+      flex-shrink: 0;
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--primary);
+    }
+    .content { flex: 1; }
+    .content .main { font-weight: 500; font-size: 15px; }
+    .content .sub { font-size: 13px; color: var(--muted); margin-top: 3px; }
+    .content .drive-time { 
+      font-size: 11px; 
+      color: white; 
+      background: var(--secondary);
+      padding: 2px 8px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-top: 5px;
+    }
+    
+    /* Links */
+    a.map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--secondary);
+      text-decoration: none;
+      font-size: 12px;
+      padding: 4px 10px;
+      background: #e3f2fd;
+      border-radius: 15px;
+      margin-top: 6px;
+    }
+    
+    a.book-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: white;
+      background: var(--success);
+      text-decoration: none;
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 15px;
+      margin-top: 6px;
+    }
+    
+    /* Alert boxes */
+    .alert {
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      margin: 10px 0;
+    }
+    .alert-warning { background: #fef9e7; border-left: 4px solid var(--warning); }
+    .alert-info { background: #ebf5fb; border-left: 4px solid var(--secondary); }
+    .alert-purple { background: #f5eef8; border-left: 4px solid var(--purple); }
+    .alert-success { background: #e8f6f3; border-left: 4px solid var(--success); }
+    
+    /* Elderly box */
+    .elderly-box {
+      background: #e8f6f3;
+      border: 2px solid #1abc9c;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 12px 0;
+    }
+    .elderly-box .title { color: #148f77; font-weight: 600; margin-bottom: 8px; font-size: 14px; }
+    .elderly-box ul { margin-left: 18px; font-size: 13px; }
+    .elderly-box li { margin: 5px 0; }
+    
+    /* Hike options */
+    .hike-box {
+      background: #e3f2fd;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 12px 0;
+    }
+    .hike-box .title { color: #1565c0; font-weight: 600; margin-bottom: 10px; font-size: 14px; }
+    .hike-option {
+      background: white;
+      border-radius: 10px;
+      padding: 12px;
+      margin: 8px 0;
+    }
+    .hike-option .name { font-weight: 600; font-size: 14px; }
+    .hike-option .stats { font-size: 12px; color: var(--muted); margin-top: 3px; }
+    
+    /* Parking tip */
+    .parking-tip {
+      background: #e8f5e9;
+      border-left: 4px solid var(--success);
+      border-radius: 0 10px 10px 0;
+      padding: 12px;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+    .parking-tip strong { color: #2e7d32; }
+    
+    /* Restaurant highlight */
+    .restaurant {
+      background: #fff8e1;
+      padding: 4px 10px;
+      border-radius: 8px;
+      border: 1px solid #ffca28;
+      font-weight: 500;
+    }
+    
+    /* Hotel card */
+    .hotel-card {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border-radius: 12px;
+      padding: 12px 15px;
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .hotel-card .name { font-weight: 600; font-size: 14px; }
+    .hotel-card a { 
+      color: white; 
+      background: rgba(255,255,255,0.2); 
+      padding: 6px 12px; 
+      border-radius: 15px; 
+      text-decoration: none;
+      font-size: 12px;
+    }
+    
+    /* Summary sections */
+    .summary-section {
+      margin: 15px;
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    .summary-header {
+      background: var(--primary);
+      color: white;
+      padding: 12px 18px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .summary-content { padding: 15px; }
+    .summary-item {
+      padding: 12px;
+      background: var(--bg);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+    .summary-item:last-child { margin-bottom: 0; }
+    .summary-item .date { font-weight: 600; color: var(--primary); }
+    
+    /* Driving guide */
+    .driving-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .driving-card {
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 12px;
+      border-left: 4px solid var(--secondary);
+    }
+    .driving-card .title { font-weight: 600; font-size: 12px; color: var(--primary); margin-bottom: 5px; }
+    .driving-card .content { font-size: 12px; color: var(--muted); }
+    
+    /* Collapsible - more obvious */
+    details { margin: 10px 0; }
+    summary {
+      cursor: pointer;
+      padding: 12px;
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      border-radius: 10px;
+      font-weight: 500;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      border: 1px solid #dee2e6;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::before { content: "▶"; font-size: 10px; transition: transform 0.2s; color: var(--primary); }
+    summary::after { content: "tap to expand"; font-size: 10px; color: var(--muted); margin-left: auto; }
+    details[open] summary::before { transform: rotate(90deg); }
+    details[open] summary::after { content: "tap to close"; }
+    details .detail-content { padding: 12px; background: #fafafa; border-radius: 0 0 10px 10px; margin-top: -5px; }
+    
+    /* Bottom nav */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 1px solid #e0e0e0;
+      display: flex;
+      justify-content: space-around;
+      padding: 8px 0;
+      padding-bottom: max(8px, env(safe-area-inset-bottom));
+      z-index: 1000;
+    }
+    .bottom-nav a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 10px;
+    }
+    .bottom-nav a .icon { font-size: 20px; }
+    
+    /* Viewpoints list */
+    .viewpoints { margin: 10px 0; }
+    .viewpoint-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 13px;
+    }
+    .viewpoint-item:last-child { border-bottom: none; }
+    
+    /* Group box */
+    .group-box {
+      background: #fff3e0;
+      border: 2px solid #ff9800;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 12px 0;
+    }
+    .group-box .title { color: #e65100; font-weight: 600; margin-bottom: 8px; font-size: 14px; }
+    .group-box ul { margin-left: 18px; font-size: 13px; }
+    .group-box li { margin: 5px 0; }
+    
+    /* Help page styles */
+    .help-section {
+      margin: 15px;
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .help-section h2 {
+      color: var(--primary);
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .help-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+    .help-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .help-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .help-icon.yellow { background: #fef9e7; }
+    .help-icon.green { background: #e8f6f3; }
+    .help-icon.blue { background: #ebf5fb; }
+    .help-icon.orange { background: #fff3e0; }
+    .help-icon.purple { background: #f5eef8; }
+    .help-text h3 { font-size: 14px; margin-bottom: 3px; }
+    .help-text p { font-size: 13px; color: var(--muted); }
+    
+    .back-btn {
+      display: block;
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 20px 15px;
+      font-size: 15px;
+    }
+    
+    /* Offline note */
+    .offline-note {
+      background: #fff3e0;
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin: 10px 0;
+      font-size: 12px;
+      color: #e65100;
+    }
+    
+    /* Print styles */
+    @media print {
+      body { padding: 0; background: white; font-size: 10pt; }
+      .nav-container, .search-container, .bottom-nav, .day-nav { display: none !important; }
+      .page { display: block !important; }
+      .day { break-inside: avoid; margin: 10px 0; box-shadow: none; border: 1px solid #ddd; }
+      .header { position: relative; padding: 15px; }
+      details { display: block; }
+      details[open] summary::after, summary::after { display: none; }
+      .detail-content { display: block !important; }
+      a.map-link, a.book-link { border: 1px solid currentColor; }
+      .alert, .elderly-box, .group-box, .hike-box { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- MAIN PAGE -->
+<div class="page active" id="main-page">
+
+<div class="header">
+  <h1>🇳🇿 New Zealand Adventure</h1>
+  <div class="dates">April 10 – 19, 2025</div>
+  <div class="weather">🌡️ South Island April: 5-15°C — Pack layers & rain jacket!</div>
+</div>
+
+<div class="nav-container">
+  <nav class="nav">
+    <a href="#day10" onclick="scrollToDay('day10'); return false;">Fri 10</a>
+    <a href="#day11" onclick="scrollToDay('day11'); return false;">Sat 11</a>
+    <a href="#day12" onclick="scrollToDay('day12'); return false;">Sun 12</a>
+    <a href="#day13" onclick="scrollToDay('day13'); return false;">Mon 13</a>
+    <a href="#day14" onclick="scrollToDay('day14'); return false;">Tue 14</a>
+    <a href="#day15" onclick="scrollToDay('day15'); return false;">Wed 15</a>
+    <a href="#day16" onclick="scrollToDay('day16'); return false;">Thu 16</a>
+    <a href="#day17" onclick="scrollToDay('day17'); return false;">Fri 17</a>
+    <a href="#day18" onclick="scrollToDay('day18'); return false;">Sat 18</a>
+    <a href="#day19" onclick="scrollToDay('day19'); return false;">Sun 19</a>
+  </nav>
+  <div class="search-container">
+    <div class="search-box">
+      <span class="icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search restaurants, places..." oninput="handleSearch(this.value)">
+    </div>
+  </div>
+  <div class="search-results" id="searchResults"></div>
+</div>
+
+<!-- Day 10 - FRIDAY -->
+<div class="day" id="day10">
+  <div class="day-header">
+    <div class="date">Friday, April 10</div>
+    <div class="title">✈️ Departure from Bangkok</div>
+  </div>
+  <div class="day-content">
+    <div class="timeline-item">
+      <div class="time">7:40 PM</div>
+      <div class="content">
+        <div class="main">TG 645: Bangkok → Melbourne</div>
+        <div class="sub">Arrives 7:40 AM next day (+1)</div>
+        <div class="drive-time">Flight: ~9 hours</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Day 11 - SATURDAY -->
+<div class="day" id="day11">
+  <div class="day-header">
+    <div class="date">Saturday, April 11</div>
+    <div class="title">🛬 Arrival & Drive to Tekapo</div>
+    <div class="weather-small">🌡️ Tekapo: 3-12°C, possibly clear for stargazing</div>
+  </div>
+  <div class="day-nav">
+    <a href="#" onclick="scrollToSection('day11-flights'); return false;">✈️ Flights</a>
+    <a href="#" onclick="scrollToSection('day11-groups'); return false;">👥 Groups</a>
+    <a href="#" onclick="scrollToSection('day11-drive'); return false;">🚗 Drive</a>
+  </div>
+  <div class="day-content">
+    
+    <div id="day11-flights" class="section-anchor">
+      <div class="section-title">✈️ Flights & Arrival</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">9:10 AM</div>
+      <div class="content">
+        <div class="main">NZ 214: Melbourne → Christchurch</div>
+        <div class="sub">Arrives 2:35 PM local time</div>
+        <div class="drive-time">Flight: 3h 25m</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">3:30 PM</div>
+      <div class="content">
+        <div class="main">🚗 Pick up rental car</div>
+        <div class="sub">At Christchurch Airport</div>
+      </div>
+    </div>
+    
+    <div id="day11-groups" class="section-anchor">
+      <div class="section-title">👥 Group Split</div>
+    </div>
+    
+    <div class="group-box">
+      <div class="title">👥 Groups Split Here</div>
+      <ul>
+        <li><strong>Elderly Group:</strong> Stop for Thai food at <span class="restaurant">Chang Thai</span> in Christchurch
+          <a href="https://maps.app.goo.gl/ESq2oy4tq2YyciubA" class="map-link">📍 Map</a>
+        </li>
+        <li><strong>Other Group:</strong> Drive directly to Tekapo, check in, buy pizza from Dolce</li>
+      </ul>
+    </div>
+    
+    <div id="day11-drive" class="section-anchor">
+      <div class="section-title">🚗 Drive to Tekapo</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">4:00 PM</div>
+      <div class="content">
+        <div class="main">Drive to Lake Tekapo</div>
+        <div class="drive-time">🚗 3h 30min (280km)</div>
+        <a href="https://maps.app.goo.gl/pnAhuMmRHFtgidE67" class="map-link">📍 Get Directions</a>
+        <div class="offline-note">💾 Save this route offline in Google Maps before leaving!</div>
+      </div>
+    </div>
+    
+    <div class="alert alert-success">✅ Hotel confirmed — no need to call</div>
+    <div class="alert alert-purple">🌌 Aurora opportunity tonight — check aurora forecast!</div>
+    
+    <div class="hotel-card">
+      <div class="name">🏨 Amore Tekapo</div>
+      <a href="https://maps.app.goo.gl/pnAhuMmRHFtgidE67">Map</a>
+    </div>
+  </div>
+</div>
+
+<!-- Day 12 - SUNDAY -->
+<div class="day" id="day12">
+  <div class="day-header">
+    <div class="date">Sunday, April 12</div>
+    <div class="title">🏔️ Mount Cook Day Trip</div>
+    <div class="weather-small">🌡️ Mt Cook: 0-8°C, can be windy — dress warm!</div>
+  </div>
+  <div class="day-nav">
+    <a href="#" onclick="scrollToSection('day12-morning'); return false;">🌅 Morning</a>
+    <a href="#" onclick="scrollToSection('day12-activities'); return false;">🚤 Activities</a>
+    <a href="#" onclick="scrollToSection('day12-hikes'); return false;">🥾 Hikes</a>
+    <a href="#" onclick="scrollToSection('day12-dinner'); return false;">🍽️ Dinner</a>
+  </div>
+  <div class="day-content">
+    <div class="alert alert-warning">👵 Cook/prepare breakfast for grandma — wake up earlier!</div>
+    
+    <div id="day12-morning" class="section-anchor">
+      <div class="section-title">🌅 Morning</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">8:30 AM</div>
+      <div class="content">
+        <div class="main">Depart for Mount Cook</div>
+        <div class="drive-time">🚗 1h 30min to Salmon Farm</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">9:00 AM</div>
+      <div class="content">
+        <div class="main">🐟 Stop at High Country Salmon</div>
+        <div class="sub">Buy smoked salmon for lunch + fresh sashimi!</div>
+        <a href="https://maps.app.goo.gl/5Cfdqyd9vVPhiX1m7" class="map-link">📍 Salmon Farm</a>
+        <div class="drive-time" style="margin-top: 8px;">🚗 45min to Mt Cook from here</div>
+      </div>
+    </div>
+    
+    <div id="day12-activities" class="section-anchor">
+      <div class="section-title">🚤 Boat Tour & Elderly Options</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">11:30 AM</div>
+      <div class="content">
+        <div class="main">Glacier Explorers Boat Tour</div>
+        <div class="sub">Until ~2:30 PM</div>
+        <a href="https://www.hermitage.co.nz/experience/glacier-explorers/" class="book-link">📅 Book Tour</a>
+      </div>
+    </div>
+    <div class="alert alert-warning">⚠️ Requires 1.5km walk (two-way) to reach boat — not suitable for elderly</div>
+    
+    <div class="elderly-box">
+      <div class="title">👴 Elderly / Non-boat Group</div>
+      <ul>
+        <li>Go to <strong>Chamois Bar & Grill</strong> at The Hermitage</li>
+        <li>Order: <strong>Grilled Salmon</strong> or <strong>Fish & Chips</strong></li>
+        <li>Relax with mountain views while others do boat tour</li>
+      </ul>
+      <a href="https://maps.app.goo.gl/o3VkWFvj23EBZJqT9" class="map-link">📍 Chamois Bar</a>
+    </div>
+    
+    <div id="day12-hikes" class="section-anchor">
+      <div class="section-title">🥾 Afternoon Hikes</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">3:00 PM</div>
+      <div class="content"><div class="main">Hike to viewpoint — choose your level</div></div>
+    </div>
+    
+    <div class="hike-box">
+      <div class="title">🥾 Choose Your Hike</div>
+      <div class="hike-option">
+        <div class="name">🟢 Easy: Kea Point Track</div>
+        <div class="stats">3km return • 1hr • 95m elevation</div>
+        <div class="stats">Great for most fitness levels</div>
+        <a href="https://maps.app.goo.gl/4prRFiL5uS6ppHeo7" class="map-link">📍 Open Map</a>
+      </div>
+      <div class="hike-option">
+        <div class="name">🔴 Hard: Sealy Tarns Track</div>
+        <div class="stats">5.3km • 3+ hrs • 550m • 2,200 steps!</div>
+        <div class="stats">Very steep — fit hikers only</div>
+        <a href="https://maps.app.goo.gl/y9rqS8DtcPEBeKfL9" class="map-link">📍 Open Map</a>
+      </div>
+    </div>
+    
+    <div class="elderly-box">
+      <div class="title">👴 Elderly Alternative — Skip Hikes</div>
+      <ul>
+        <li>Enjoy scenic viewpoint on drive back (easy roadside stop):</li>
+      </ul>
+      <a href="https://maps.app.goo.gl/MGY3CpDTB2ns6PPL9" class="map-link">📍 Easy Viewpoint</a>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">5:00 PM</div>
+      <div class="content">
+        <div class="main">Return to Tekapo</div>
+        <div class="drive-time">🚗 1h 15min back</div>
+      </div>
+    </div>
+    
+    <div id="day12-dinner" class="section-anchor">
+      <div class="section-title">🍽️ Dinner Options</div>
+    </div>
+    
+    <details open>
+      <summary>🍽️ Dinner Options in Tekapo</summary>
+      <div class="detail-content">
+        <div style="margin-bottom: 15px;">
+          <strong>Option 1: The Better Batter NZ</strong> (Fish & Chips)<br>
+          <span style="font-size: 13px; color: #d35400;">⚠️ Closes at 6PM — must return on time!</span><br>
+          <a href="https://maps.app.goo.gl/59VmG9HtZTtKgBUn9" class="map-link">📍 Location</a>
+        </div>
+        <div style="margin-bottom: 15px;">
+          <strong>Option 2: 25 Degrees Burger Bar</strong><br>
+          <span style="font-size: 13px; color: #666;">Good backup if running late</span><br>
+          <a href="https://maps.app.goo.gl/TXJhW7QMay6ahSJDA" class="map-link">📍 Location</a>
+        </div>
+        <div>
+          <strong>Option 3: Dolce Pizza</strong><br>
+          <span style="font-size: 13px; color: #666;">Try the Pesto Pizza!</span><br>
+          <a href="https://www.google.com/maps/place/Dolce+Pizza/@-44.0051095,170.4781315,17z" class="map-link">📍 Location</a>
+        </div>
+      </div>
+    </details>
+    
+    <details>
+      <summary>🌌 Night Activity: Stargazing (Optional)</summary>
+      <div class="detail-content">
+        <strong>Dark Sky Project</strong><br>
+        <span style="font-size: 13px; color: #666;">World-class stargazing at Mt John Observatory</span><br>
+        <span style="font-size: 12px; color: #d35400;">⚠️ Booking required!</span><br>
+        <a href="https://maps.app.goo.gl/fshoSBkXoutZyT6D8" class="map-link">📍 Location</a>
+        <a href="https://www.darkskyproject.co.nz/experiences/dark-sky-experience/" class="book-link">📅 Book</a>
+      </div>
+    </details>
+    
+    <div class="alert alert-purple">🌌 Aurora opportunity — Lake Tekapo is a Dark Sky Reserve!</div>
+    
+    <div class="hotel-card">
+      <div class="name">🏨 Amore Tekapo</div>
+      <a href="https://maps.app.goo.gl/pnAhuMmRHFtgidE67">Map</a>
+    </div>
+  </div>
+</div>
+
+<!-- Day 13 - MONDAY -->
+<div class="day" id="day13">
+  <div class="day-header">
+    <div class="date">Monday, April 13</div>
+    <div class="title">🚗 Scenic Drive to Queenstown</div>
+    <div class="weather-small">🌡️ Queenstown: 4-14°C</div>
+  </div>
+  <div class="day-nav">
+    <a href="#" onclick="scrollToSection('day13-drive'); return false;">🚗 Drive</a>
+    <a href="#" onclick="scrollToSection('day13-glenorchy'); return false;">🌿 Glenorchy</a>
+    <a href="#" onclick="scrollToSection('day13-dinner'); return false;">🍽️ Dinner</a>
+  </div>
+  <div class="day-content">
+    <div class="alert alert-warning">👵 Cook/prepare breakfast for grandma — wake up earlier!</div>
+    
+    <div id="day13-drive" class="section-anchor">
+      <div class="section-title">🚗 Drive to Queenstown</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">9:00 AM</div>
+      <div class="content">
+        <div class="main">Check out & drive to Queenstown</div>
+        <div class="drive-time">🚗 3h total with stops (280km)</div>
+        <div class="offline-note">💾 Save route offline — some areas have no signal!</div>
+      </div>
+    </div>
+    
+    <details open>
+      <summary>📍 Scenic Stops (5 viewpoints + lunch)</summary>
+      <div class="detail-content">
+        <div class="viewpoints">
+          <div class="viewpoint-item">Viewpoint 1 <span style="color: #666; font-size: 11px;">+15min</span> <a href="https://maps.app.goo.gl/135foDw7PTCpxxnL7" class="map-link">Map</a></div>
+          <div class="viewpoint-item">Viewpoint 2 <span style="color: #666; font-size: 11px;">+10min</span> <a href="https://maps.app.goo.gl/AoospPqUuhkLSoMLA" class="map-link">Map</a></div>
+          <div class="viewpoint-item">Lunch Stop <span style="color: #666; font-size: 11px;">+45min</span> <a href="https://maps.app.goo.gl/LF4CDPVhasafajGs6" class="map-link">Map</a></div>
+          <div class="viewpoint-item">Viewpoint 3 <span style="color: #666; font-size: 11px;">+10min</span> <a href="https://maps.app.goo.gl/Ahi5eQqzWPsj9GdaA" class="map-link">Map</a></div>
+          <div class="viewpoint-item">Viewpoint 4 <span style="color: #666; font-size: 11px;">+10min</span> <a href="https://maps.app.goo.gl/4N4sksffGHG7vSSMA" class="map-link">Map</a></div>
+          <div class="viewpoint-item">Viewpoint 5 <span style="color: #666; font-size: 11px;">+10min</span> <a href="https://maps.app.goo.gl/hjYLLSmrsZpL4wqy8" class="map-link">Map</a></div>
+        </div>
+      </div>
+    </details>
+    
+    <div class="timeline-item">
+      <div class="time">3:00 PM</div>
+      <div class="content"><div class="main">Arrive Queenstown & check in</div></div>
+    </div>
+    
+    <div class="elderly-box">
+      <div class="title">👴 Elderly Alternative</div>
+      <ul>
+        <li>Check in at 3PM and rest at hotel</li>
+        <li>Skip Glenorchy drive if tired</li>
+        <li>Explore Queenstown town at relaxed pace</li>
+      </ul>
+    </div>
+    
+    <div id="day13-glenorchy" class="section-anchor">
+      <div class="section-title">🌿 Glenorchy (Optional)</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">4:00 PM</div>
+      <div class="content">
+        <div class="main">Glenorchy scenic drive + walks</div>
+        <div class="drive-time">🚗 45min each way</div>
+      </div>
+    </div>
+    <div class="alert alert-info">📌 Optional — only if not too tired! Adds 1.5hrs driving.</div>
+    
+    <details>
+      <summary>🌿 Glenorchy Stops</summary>
+      <div class="detail-content">
+        <div class="viewpoints">
+          <div class="viewpoint-item">Nature Trail <a href="https://maps.app.goo.gl/DsJSnCWZRK12RGwP6" class="map-link">Map</a></div>
+          <div class="viewpoint-item">Viewpoint <a href="https://maps.app.goo.gl/jdEEJTeg4QMfXTcB8" class="map-link">Map</a></div>
+        </div>
+      </div>
+    </details>
+    
+    <div id="day13-dinner" class="section-anchor">
+      <div class="section-title">🍽️ Dinner</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">6:00 PM</div>
+      <div class="content">
+        <div class="main">🍽️ Dinner at <span class="restaurant">SUNDAYS</span></div>
+        <div class="sub">Wood-fired pizza in a restored 1933 church!</div>
+        <div class="sub">Neapolitan-style sourdough pizza, European shared plates. Kid-friendly, wheelchair accessible.</div>
+        <div class="sub" style="color: #d35400; font-weight: 500;">⚠️ Email required for 10+ people!</div>
+        <a href="https://maps.app.goo.gl/Y7dK5sskvQfXL5eCA" class="map-link">📍 Location</a>
+        <a href="https://bookings.nowbookit.com/?accountid=50dd0057-ef77-4282-b302-3f538933db0b&venueid=11053&theme=light&colors=hex,000000" class="book-link">📅 Book</a>
+      </div>
+    </div>
+    
+    <div class="alert alert-purple">🌌 Aurora opportunity tonight</div>
+    
+    <div class="hotel-card">
+      <div class="name">🏨 Highview Retreat</div>
+      <a href="https://maps.app.goo.gl/3jmGYCfhcN3wW88p7">Map</a>
+    </div>
+  </div>
+</div>
+
+<!-- Day 14 - TUESDAY -->
+<div class="day" id="day14">
+  <div class="day-header">
+    <div class="date">Tuesday, April 14</div>
+    <div class="title">🎢 Queenstown Adventures</div>
+    <div class="weather-small">🌡️ Queenstown: 4-14°C</div>
+  </div>
+  <div class="day-nav">
+    <a href="#" onclick="scrollToSection('day14-morning'); return false;">🌅 Morning</a>
+    <a href="#" onclick="scrollToSection('day14-gondola'); return false;">🚡 Gondola</a>
+    <a href="#" onclick="scrollToSection('day14-dinner'); return false;">🍽️ Dinner</a>
+  </div>
+  <div class="day-content">
+    <div class="alert alert-warning">👵 Cook/prepare breakfast for grandma — wake up earlier!</div>
+    
+    <div id="day14-morning" class="section-anchor">
+      <div class="section-title">🌅 Morning Activities</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">9:30 AM</div>
+      <div class="content">
+        <div class="main">🚤 Shotover Jet</div>
+        <div class="sub">~25 min thrill ride through canyons</div>
+        <a href="https://book.shotoverjet.com/activity/selection?workingDate=2025-04-14&filter=ProdGroup-SOJALL" class="book-link">📅 Book Now</a>
+      </div>
+    </div>
+    <div class="alert alert-info">📌 Short activity (~25 min) — non-participants can wait at café</div>
+    
+    <div class="timeline-item">
+      <div class="time">11:00 AM</div>
+      <div class="content"><div class="main">🍔 Lunch in Queenstown CBD</div></div>
+    </div>
+    
+    <details open>
+      <summary>🍽️ Lunch Options</summary>
+      <div class="detail-content">
+        <div style="margin-bottom: 15px;">
+          <strong>Fergburger</strong> — Famous Queenstown burgers<br>
+          <span style="font-size: 12px; color: #666;">42 Shotover St • 8AM–5AM • Expect queues!</span><br>
+          <a href="https://fergburger.com/" class="map-link">🌐 Website</a>
+        </div>
+        <div>
+          <strong>Erik's Fish & Chips</strong> — Local favourite<br>
+          <span style="font-size: 12px; color: #666;">13 Earl St • 11:30AM–9PM • GF & Halal options</span><br>
+          <a href="https://www.eriksfishandchips.co.nz/" class="map-link">🌐 Website</a>
+        </div>
+      </div>
+    </details>
+    
+    <div class="parking-tip">
+      🅿️ <strong>Queenstown Parking Tips</strong><br>
+      • <strong>Man Street</strong> — 500 spaces, underground, $3.50/30min<br>
+      • <strong>Boundary St</strong> — Cheaper, 5-10 min walk<br>
+      • <strong>Free after 6PM</strong> in council areas!
+    </div>
+    
+    <div id="day14-gondola" class="section-anchor">
+      <div class="section-title">🚡 Gondola & Cruise</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">12:30 PM</div>
+      <div class="content">
+        <div class="main">🚡 Skyline Gondola & Luge</div>
+        <div class="sub">Until ~3PM</div>
+      </div>
+    </div>
+    <div class="alert alert-warning">⚠️ Luge requires balance — younger participants only</div>
+    
+    <div class="elderly-box">
+      <div class="title">👴 Elderly Alternative</div>
+      <ul>
+        <li>Wait at café during Shotover Jet</li>
+        <li>Join Gondola ride — scenic & accessible</li>
+        <li>Enjoy café at top with panoramic views</li>
+        <li>Skip Luge — take Gondola back down</li>
+      </ul>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">3:00 PM</div>
+      <div class="content">
+        <div class="main">🚢 TSS Earnslaw Lake Cruise</div>
+        <div class="sub">Historic steamship on Lake Wakatipu</div>
+      </div>
+    </div>
+    
+    <div id="day14-dinner" class="section-anchor">
+      <div class="section-title">🍽️ Dinner & Shopping</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">6:00 PM</div>
+      <div class="content">
+        <div class="main">🍽️ Dinner at <span class="restaurant">Bronze Elephant Thai</span></div>
+        <div class="sub">Frankton area — authentic Thai</div>
+        <a href="https://maps.app.goo.gl/tqTh4bZE9Qanzkjj8" class="map-link">📍 Restaurant</a>
+      </div>
+    </div>
+    
+    <div class="parking-tip">
+      🛒 <strong>Shopping Stop — Important!</strong><br>
+      Park at <strong>Kmart Queenstown</strong> — buy ingredients for grandma's breakfast!<br>
+      <a href="https://maps.app.goo.gl/BwYMgt3BhLtBH91e7" class="map-link">📍 Kmart Location</a>
+    </div>
+    
+    <div class="alert alert-purple">🌌 Aurora opportunity tonight</div>
+    
+    <div class="hotel-card">
+      <div class="name">🏨 Highview Retreat</div>
+      <a href="https://maps.app.goo.gl/3jmGYCfhcN3wW88p7">Map</a>
+    </div>
+  </div>
+</div>
+
+<!-- Day 15 - WEDNESDAY -->
+<div class="day" id="day15">
+  <div class="day-header">
+    <div class="date">Wednesday, April 15</div>
+    <div class="title">✨ Te Anau & Glowworm Caves</div>
+    <div class="weather-small">🌡️ Te Anau: 3-12°C — Cave is cool inside!</div>
+  </div>
+  <div class="day-nav">
+    <a href="#" onclick="scrollToSection('day15-drive'); return false;">🚗 Drive</a>
+    <a href="#" onclick="scrollToSection('day15-caves'); return false;">✨ Caves</a>
+    <a href="#" onclick="scrollToSection('day15-dinner'); return false;">🍽️ Dinner</a>
+  </div>
+  <div class="day-content">
+    <div class="alert alert-warning">👵 Cook/prepare breakfast for grandma — wake up earlier!</div>
+    
+    <div id="day15-drive" class="section-anchor">
+      <div class="section-title">🚗 Drive to Te Anau</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">8:30 AM</div>
+      <div class="content">
+        <div class="main">Depart for Te Anau</div>
+        <div class="drive-time">🚗 2h (170km)</div>
+        <a href="https://maps.app.goo.gl/9Rupg8dyrTPw4yHS8" class="map-link">📍 Scenic viewpoint en route</a>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">11:00 AM</div>
+      <div class="content">
+        <div class="main">🥧 Lunch at <span class="restaurant">Miles Better Pies</span></div>
+        <div class="sub">17 Town Centre • 6AM–6PM</div>
+        <div class="sub">Try: Venison & Plum, Lamb & Mint!</div>
+      </div>
+    </div>
+    
+    <div id="day15-caves" class="section-anchor">
+      <div class="section-title">✨ Glowworm Caves</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">12:45 PM</div>
+      <div class="content">
+        <div class="main">✨ Te Anau Glowworm Caves</div>
+        <div class="sub">Magical underground boat ride to see glowworms</div>
+        <a href="https://www.realnz.com/en/experiences/glowworm-caves/te-anau-glowworm-caves/" class="book-link">📅 Book 12:45 Session</a>
+      </div>
+    </div>
+    <div class="alert alert-warning">⚠️ Booking required — max 12 per group</div>
+    <div class="alert alert-warning">⚠️ Low ceilings — requires significant crouching!</div>
+    
+    <div class="elderly-box">
+      <div class="title">👴 Elderly Alternative — Skip Caves</div>
+      <ul>
+        <li>Cave requires lots of crouching — not for mobility issues</li>
+        <li>Instead: Relax at Te Anau Lake beach</li>
+        <li>Or: Rest at hotel and enjoy scenery</li>
+      </ul>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">3:30 PM</div>
+      <div class="content"><div class="main">Check in hotel</div></div>
+    </div>
+    
+    <div id="day15-dinner" class="section-anchor">
+      <div class="section-title">🍽️ Dinner Options</div>
+    </div>
+    
+    <details open>
+      <summary>🍽️ Dinner Options</summary>
+      <div class="detail-content">
+        <div style="margin-bottom: 15px;">
+          <strong>Thai Option: Thai Anau Restaurant</strong><br>
+          <span style="font-size: 12px; color: #666;">Take away possible</span><br>
+          <a href="https://maps.app.goo.gl/ozdcnoWas9Ez9wTm6" class="map-link">📍 Location</a>
+        </div>
+        <div>
+          <strong>⭐ Recommended: Redcliff Restaurant & Bar</strong><br>
+          <span style="font-size: 12px; color: #666;">Local NZ cuisine — book for 12 people</span><br>
+          <span style="font-size: 12px; color: #d35400;">⚠️ Booking needed!</span><br>
+          <a href="https://maps.app.goo.gl/YzWaXrxEmeZJ7iGg8" class="map-link">📍 Location</a>
+        </div>
+      </div>
+    </details>
+    
+    <div class="alert alert-purple">🌌 Aurora opportunity tonight</div>
+    
+    <div class="hotel-card">
+      <div class="name">🏨 Anua Holiday Home</div>
+      <a href="https://maps.app.goo.gl/q7Rbe3KT53yfYdbj7">Map</a>
+    </div>
+  </div>
+</div>
+
+<!-- Day 16 - THURSDAY -->
+<div class="day" id="day16">
+  <div class="day-header">
+    <div class="date">Thursday, April 16</div>
+    <div class="title">⛵ Milford Sound Cruise</div>
+    <div class="weather-small">🌡️ Milford: 5-12°C, often rainy — waterfalls spectacular in rain!</div>
+  </div>
+  <div class="day-nav">
+    <a href="#" onclick="scrollToSection('day16-morning'); return false;">🌅 Early Start</a>
+    <a href="#" onclick="scrollToSection('day16-cruise'); return false;">⛵ Cruise</a>
+    <a href="#" onclick="scrollToSection('day16-dinner'); return false;">🍽️ Dinner</a>
+  </div>
+  <div class="day-content">
+    <div class="alert alert-warning">👵 Cook/prepare breakfast for grandma — wake up earlier!</div>
+    
+    <div id="day16-morning" class="section-anchor">
+      <div class="section-title">🌅 Early Morning</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">6:00 AM</div>
+      <div class="content">
+        <div class="main">🥧 Grab pies from <span class="restaurant">Miles Better Pies</span></div>
+        <div class="sub">Opens 6AM — eat in car!</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">7:30 AM</div>
+      <div class="content">
+        <div class="main">Drive to Milford Sound</div>
+        <div class="drive-time">🚗 2h (120km) — stunning drive!</div>
+        <div class="offline-note">💾 No cell service — download maps offline!</div>
+      </div>
+    </div>
+    
+    <div id="day16-cruise" class="section-anchor">
+      <div class="section-title">⛵ Milford Sound</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">10:30 AM</div>
+      <div class="content">
+        <div class="main">⛵ Milford Sound Signature Cruise</div>
+        <div class="sub">Until ~1PM — waterfalls, seals, maybe dolphins!</div>
+        <a href="https://www.realnz.com/en/experiences/day-cruises/milford-sound-signature-cruise/" class="book-link">📅 Book Cruise</a>
+      </div>
+    </div>
+    
+    <div class="parking-tip">
+      🅿️ <strong>Milford Parking — IMPORTANT!</strong><br>
+      • Use <strong>FREE parking</strong> — <a href="https://maps.app.goo.gl/cbM4Z8kftusCmPsY6" style="color: #2e7d32; font-weight: bold;">This car park</a> (10 min walk)<br>
+      • ❌ <strong>Do NOT</strong> park at visitor centre — $25+!<br>
+      • 💡 Drop elderly at pier, young ones walk
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">1:00 PM</div>
+      <div class="content">
+        <div class="main">🍽️ Lunch at <span class="restaurant">Pio Pio Restaurant</span></div>
+        <div class="sub" style="color: #d35400;">⚠️ Needs booking via email</div>
+        <a href="https://maps.app.goo.gl/ujiTdAfHv7Zexc2T6" class="map-link">📍 Location</a>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">2:00 PM</div>
+      <div class="content">
+        <div class="main">Return drive with optional stops</div>
+        <div class="drive-time">🚗 2h back to Te Anau</div>
+      </div>
+    </div>
+    
+    <details>
+      <summary>📍 Optional Stops on Return</summary>
+      <div class="detail-content">
+        <div class="viewpoints">
+          <div class="viewpoint-item">Nature Walk <span style="color: #666; font-size: 11px;">+30min</span> <a href="https://maps.app.goo.gl/XULdpuupFETk4rCF6" class="map-link">Map</a></div>
+          <div class="viewpoint-item">Viewpoint <span style="color: #666; font-size: 11px;">+15min</span> <a href="https://maps.app.goo.gl/w69926XYbWQwm29W7" class="map-link">Map</a></div>
+        </div>
+      </div>
+    </details>
+    
+    <div class="elderly-box">
+      <div class="title">👴 Elderly Note</div>
+      <ul>
+        <li>Milford cruise is accessible — everyone join!</li>
+        <li>Skip stops if tired</li>
+        <li>Return directly for early rest</li>
+      </ul>
+    </div>
+    
+    <div id="day16-dinner" class="section-anchor">
+      <div class="section-title">🍽️ Dinner</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">6:00 PM</div>
+      <div class="content">
+        <div class="main">🍽️ Dinner at <span class="restaurant">Ditto</span></div>
+        <div class="sub">Vietnamese Food</div>
+        <div class="sub" style="color: #d35400;">⚠️ Booking required</div>
+        <a href="https://maps.app.goo.gl/p8EdqQUfGFKmLGPE7" class="map-link">📍 Location</a>
+      </div>
+    </div>
+    
+    <div class="alert alert-purple">🌌 Aurora opportunity tonight</div>
+    
+    <div class="hotel-card">
+      <div class="name">🏨 Anua Holiday Home</div>
+      <a href="https://maps.app.goo.gl/q7Rbe3KT53yfYdbj7">Map</a>
+    </div>
+  </div>
+</div>
+
+<!-- Day 17 - FRIDAY -->
+<div class="day" id="day17">
+  <div class="day-header">
+    <div class="date">Friday, April 17</div>
+    <div class="title">🚗 Drive to Dunedin</div>
+    <div class="weather-small">🌡️ Dunedin: 6-14°C — coastal breeze</div>
+  </div>
+  <div class="day-nav">
+    <a href="#" onclick="scrollToSection('day17-drive'); return false;">🚗 Drive</a>
+    <a href="#" onclick="scrollToSection('day17-afternoon'); return false;">🦭 Afternoon</a>
+    <a href="#" onclick="scrollToSection('day17-dinner'); return false;">🍽️ Dinner</a>
+  </div>
+  <div class="day-content">
+    <div class="alert alert-warning">👵 Cook/prepare breakfast for grandma — wake up earlier!</div>
+    
+    <div id="day17-drive" class="section-anchor">
+      <div class="section-title">🚗 Drive via Gore</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">9:00 AM</div>
+      <div class="content">
+        <div class="main">Drive to Dunedin via Gore</div>
+        <div class="drive-time">🚗 3h 30min total (290km)</div>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">🥐</div>
+      <div class="content">
+        <div class="main">Stop in Gore: <span class="restaurant">Oven Fresh Bakery</span></div>
+        <div class="sub">Get pastries & snacks!</div>
+        <a href="https://maps.app.goo.gl/fniapuRGd6mPxqrX7" class="map-link">📍 Bakery</a>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">12:00 PM</div>
+      <div class="content">
+        <div class="main">🍽️ Lunch at <span class="restaurant">Howl at the Moon</span></div>
+        <div class="sub">Gore — good stop to stretch legs</div>
+        <a href="https://maps.app.goo.gl/gqGdHrkTZwapUkAN7" class="map-link">📍 Location</a>
+        <div class="drive-time" style="margin-top: 8px;">🚗 1h 15min to Dunedin</div>
+      </div>
+    </div>
+    
+    <div id="day17-afternoon" class="section-anchor">
+      <div class="section-title">🦭 Free Afternoon</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">PM</div>
+      <div class="content">
+        <div class="main">🦭 Free afternoon — explore Dunedin!</div>
+        <div class="sub">See seals, visit museums, explore coast</div>
+        <div class="sub">Everyone research your own plans!</div>
+        <a href="https://maps.app.goo.gl/Cra8STUHpZta8Nod6" class="map-link">📍 Coastal Area</a>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">4:00 PM</div>
+      <div class="content"><div class="main">Check in hotel & regroup</div></div>
+    </div>
+    
+    <div id="day17-dinner" class="section-anchor">
+      <div class="section-title">🍽️ Dinner Options</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">4:00 PM</div>
+      <div class="content">
+        <div class="main">🍽️ Early dinner: <span class="restaurant">Thai Land</span></div>
+        <div class="sub">Right next to hotel!</div>
+        <div class="sub">💡 Someone can take grandma here at 4PM</div>
+        <a href="https://maps.app.goo.gl/uJaT5bmsW2FCPwB27" class="map-link">📍 Location</a>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">After</div>
+      <div class="content">
+        <div class="main">🍺 Option: <span class="restaurant">Emerson's Brewery</span></div>
+        <div class="sub">For craft beer lovers!</div>
+        <div class="sub">🛒 Stop at supermarket for grandma's breakfast</div>
+        <a href="https://maps.app.goo.gl/uTUAcXQCmtQfksp88" class="map-link">📍 Brewery</a>
+      </div>
+    </div>
+    
+    <div class="alert alert-purple">🌌 Aurora opportunity tonight</div>
+    
+    <div class="hotel-card">
+      <div class="name">🏨 Beechwood Boutique</div>
+      <a href="https://maps.app.goo.gl/FH629uuXpt3EVXX96">Map</a>
+    </div>
+  </div>
+</div>
+
+<!-- Day 18 - SATURDAY -->
+<div class="day" id="day18">
+  <div class="day-header">
+    <div class="date">Saturday, April 18</div>
+    <div class="title">🚗 Coastal Drive to Christchurch</div>
+    <div class="weather-small">🌡️ Christchurch: 7-16°C</div>
+  </div>
+  <div class="day-nav">
+    <a href="#" onclick="scrollToSection('day18-drive'); return false;">🚗 Drive</a>
+    <a href="#" onclick="scrollToSection('day18-stops'); return false;">📍 Stops</a>
+    <a href="#" onclick="scrollToSection('day18-dinner'); return false;">🍽️ Dinner</a>
+  </div>
+  <div class="day-content">
+    <div class="alert alert-warning">👵 Cook/prepare breakfast for grandma — wake up earlier!</div>
+    
+    <div id="day18-drive" class="section-anchor">
+      <div class="section-title">🚗 Coastal Drive</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">9:00 AM</div>
+      <div class="content">
+        <div class="main">Drive to Christchurch</div>
+        <div class="drive-time">🚗 5h total with stops (360km)</div>
+      </div>
+    </div>
+    
+    <div id="day18-stops" class="section-anchor">
+      <div class="section-title">📍 Scenic Stops</div>
+    </div>
+    
+    <details open>
+      <summary>📍 Stops Along the Way</summary>
+      <div class="detail-content">
+        <div class="viewpoints">
+          <div class="viewpoint-item">Moeraki Boulders <span style="color: #666; font-size: 11px;">+45min</span> <a href="https://maps.app.goo.gl/Hku57edSSswiA8S68" class="map-link">Map</a></div>
+          <div class="viewpoint-item">Oamaru (Town + Penguins) <span style="color: #666; font-size: 11px;">+1h</span> <a href="https://maps.app.goo.gl/poDNcJqrkveqUvxM8" class="map-link">Map</a></div>
+        </div>
+      </div>
+    </details>
+    
+    <div class="timeline-item">
+      <div class="time">12:30 PM</div>
+      <div class="content">
+        <div class="main">🍽️ Lunch in Oamaru</div>
+        <div class="sub" style="color: #d35400;">⚠️ Booking needed!</div>
+        <a href="https://maps.app.goo.gl/eTmV83uBpMVvcN1v6" class="map-link">📍 Location</a>
+      </div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">5:00 PM</div>
+      <div class="content"><div class="main">Arrive Christchurch & check in</div></div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">🚗</div>
+      <div class="content"><div class="main"><strong>Return rental car</strong> at airport</div></div>
+    </div>
+    
+    <div id="day18-dinner" class="section-anchor">
+      <div class="section-title">🍽️ Final Dinner</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">6:30 PM</div>
+      <div class="content">
+        <div class="main">🥩 Dinner at <span class="restaurant">The Avonhead Tavern</span></div>
+        <div class="sub">One Good Horse Restaurant — Big steaks!</div>
+        <div class="sub">🅿️ Big parking lot — easy access</div>
+        <a href="https://maps.app.goo.gl/BqB1oP5wqPeZsDwu9" class="map-link">📍 Location</a>
+      </div>
+    </div>
+    
+    <div class="hotel-card">
+      <div class="name">🏨 Novotel CHC Airport</div>
+      <a href="https://maps.app.goo.gl/JEYYCoDpWJHKH4Q18">Map</a>
+    </div>
+  </div>
+</div>
+
+<!-- Day 19 - SUNDAY -->
+<div class="day" id="day19">
+  <div class="day-header">
+    <div class="date">Sunday, April 19</div>
+    <div class="title">✈️ Return to Bangkok</div>
+  </div>
+  <div class="day-content">
+    <div class="alert alert-warning">⏰ <strong>EARLY START!</strong> Wake up at 3:00 AM!</div>
+    <div class="timeline-item">
+      <div class="time">6:00 AM</div>
+      <div class="content">
+        <div class="main">✈️ NZ 213: Christchurch → Melbourne</div>
+        <div class="sub">Arrives 7:35 AM local</div>
+        <div class="drive-time">Flight: 3h 35min</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="time">1:30 PM</div>
+      <div class="content">
+        <div class="main">✈️ TG 466: Melbourne → Bangkok</div>
+        <div class="sub">Arrives 8:00 PM same day</div>
+        <div class="drive-time">Flight: 9h 30min</div>
+      </div>
+    </div>
+    <div class="alert alert-success">🎉 Welcome home! What an adventure!</div>
+  </div>
+</div>
+
+<!-- Bookings Section -->
+<div class="summary-section" id="bookings">
+  <div class="summary-header">📋 All Bookings Required</div>
+  <div class="summary-content">
+    <div class="summary-item"><span class="date">Apr 12</span> — Glacier Explorers Boat Tour</div>
+    <div class="summary-item"><span class="date">Apr 12</span> — Dark Sky Project (Optional)</div>
+    <div class="summary-item"><span class="date">Apr 13</span> — SUNDAYS Restaurant (Email for 10+)</div>
+    <div class="summary-item"><span class="date">Apr 14</span> — Shotover Jet</div>
+    <div class="summary-item"><span class="date">Apr 15</span> — Glowworm Caves (12:45 PM)</div>
+    <div class="summary-item"><span class="date">Apr 15</span> — Redcliff Restaurant (book for 12)</div>
+    <div class="summary-item"><span class="date">Apr 16</span> — Milford Sound Cruise</div>
+    <div class="summary-item"><span class="date">Apr 16</span> — Pio Pio Restaurant (email)</div>
+    <div class="summary-item"><span class="date">Apr 16</span> — Ditto Vietnamese</div>
+    <div class="summary-item"><span class="date">Apr 18</span> — Oamaru Lunch</div>
+  </div>
+</div>
+
+<!-- Hotels Section -->
+<div class="summary-section" id="hotels">
+  <div class="summary-header">🏨 All Hotels</div>
+  <div class="summary-content">
+    <div class="summary-item"><span class="date">Apr 11-12</span> — Amore Tekapo (2 nights) <a href="https://maps.app.goo.gl/pnAhuMmRHFtgidE67" class="map-link">Map</a></div>
+    <div class="summary-item"><span class="date">Apr 13-14</span> — Highview Retreat, Queenstown (2 nights) <a href="https://maps.app.goo.gl/3jmGYCfhcN3wW88p7" class="map-link">Map</a></div>
+    <div class="summary-item"><span class="date">Apr 15-16</span> — Anua Holiday Home, Te Anau (2 nights) <a href="https://maps.app.goo.gl/q7Rbe3KT53yfYdbj7" class="map-link">Map</a></div>
+    <div class="summary-item"><span class="date">Apr 17</span> — Beechwood Boutique, Dunedin <a href="https://maps.app.goo.gl/FH629uuXpt3EVXX96" class="map-link">Map</a></div>
+    <div class="summary-item"><span class="date">Apr 18</span> — Novotel Christchurch Airport <a href="https://maps.app.goo.gl/JEYYCoDpWJHKH4Q18" class="map-link">Map</a></div>
+  </div>
+</div>
+
+<!-- Driving Section -->
+<div class="summary-section" id="driving">
+  <div class="summary-header">🚗 Driving Quick Guide</div>
+  <div class="summary-content">
+    <div class="driving-grid">
+      <div class="driving-card">
+        <div class="title">🚦 Speed Limits</div>
+        <div class="content">Town: 50 km/h<br>Open: 100<br>Roadworks: 30-50</div>
+      </div>
+      <div class="driving-card">
+        <div class="title">🔄 Roundabouts</div>
+        <div class="content">Go clockwise<br>Yield to right<br>Signal left to exit</div>
+      </div>
+      <div class="driving-card">
+        <div class="title">🌉 1-Lane Bridges</div>
+        <div class="content">Big arrow = Go<br>Small arrow = Wait</div>
+      </div>
+      <div class="driving-card">
+        <div class="title">🅿️ Parking Signs</div>
+        <div class="content">P60 = 1hr max<br>P120 = 2hr max<br>Yellow = No park</div>
+      </div>
+    </div>
+    <div class="offline-note" style="margin-top: 15px;">
+      💾 <strong>Download offline maps!</strong> Many scenic routes have no cell service.
+    </div>
+  </div>
+</div>
+
+<div class="bottom-nav">
+  <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"><span class="icon">⬆️</span>Top</a>
+  <a href="#" onclick="scrollToElement('bookings'); return false;"><span class="icon">📋</span>Bookings</a>
+  <a href="#" onclick="scrollToElement('hotels'); return false;"><span class="icon">🏨</span>Hotels</a>
+  <a href="#" onclick="showHelp(); return false;"><span class="icon">❓</span>Help</a>
+</div>
+
+</div><!-- End main page -->
+
+<!-- HELP PAGE -->
+<div class="page" id="help-page">
+  <div class="header">
+    <h1>❓ Quick Reference</h1>
+    <div class="dates">Understanding This Guide</div>
+  </div>
+  
+  <div class="help-section">
+    <h2>🎨 What the Colors Mean</h2>
+    
+    <div class="help-item">
+      <div class="help-icon yellow">⚠️</div>
+      <div class="help-text">
+        <h3>Yellow Box = Warning/Reminder</h3>
+        <p>Important things you must not forget — times, bookings, early wake-ups</p>
+      </div>
+    </div>
+    
+    <div class="help-item">
+      <div class="help-icon green">👴</div>
+      <div class="help-text">
+        <h3>Green Box = Elderly Options</h3>
+        <p>Alternative plans for grandma or anyone wanting an easier activity</p>
+      </div>
+    </div>
+    
+    <div class="help-item">
+      <div class="help-icon blue">📌</div>
+      <div class="help-text">
+        <h3>Blue Box = Optional Activity</h3>
+        <p>You can skip this if tired or short on time</p>
+      </div>
+    </div>
+    
+    <div class="help-item">
+      <div class="help-icon orange">👥</div>
+      <div class="help-text">
+        <h3>Orange Box = Group Split</h3>
+        <p>Different people going different places</p>
+      </div>
+    </div>
+    
+    <div class="help-item">
+      <div class="help-icon purple">🌌</div>
+      <div class="help-text">
+        <h3>Purple Box = Aurora/Night Sky</h3>
+        <p>Good chance to see Southern Lights if clear</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="help-section">
+    <h2>📍 Using the Buttons</h2>
+    
+    <div class="help-item">
+      <div class="help-icon blue">📍</div>
+      <div class="help-text">
+        <h3>Blue "Map" Button</h3>
+        <p>Opens Google Maps with directions from your location</p>
+      </div>
+    </div>
+    
+    <div class="help-item">
+      <div class="help-icon green">📅</div>
+      <div class="help-text">
+        <h3>Green "Book" Button</h3>
+        <p>Opens the booking website for that activity</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="help-section">
+    <h2>📱 Navigation Tips</h2>
+    
+    <div class="help-item">
+      <div class="help-icon" style="background: #f5f5f5;">🔍</div>
+      <div class="help-text">
+        <h3>Search Bar</h3>
+        <p>Type a restaurant or place name to find it quickly</p>
+      </div>
+    </div>
+    
+    <div class="help-item">
+      <div class="help-icon" style="background: #f5f5f5;">▶️</div>
+      <div class="help-text">
+        <h3>Expandable Sections</h3>
+        <p>Tap boxes with arrows to show/hide details</p>
+      </div>
+    </div>
+    
+    <div class="help-item">
+      <div class="help-icon" style="background: #f5f5f5;">📅</div>
+      <div class="help-text">
+        <h3>Day Buttons</h3>
+        <p>Tap dates at top to jump to that day</p>
+      </div>
+    </div>
+    
+    <div class="help-item">
+      <div class="help-icon" style="background: #f5f5f5;">💾</div>
+      <div class="help-text">
+        <h3>Works Offline!</h3>
+        <p>This file works without internet (but map links need data)</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="help-section">
+    <h2>🖨️ Printing This Guide</h2>
+    <p style="font-size: 14px; color: var(--muted);">
+      To print a paper backup: Open in Safari → Tap Share → Print. The guide will format nicely for paper.
+    </p>
+  </div>
+  
+  <a href="#" class="back-btn" onclick="showMain(); return false;">← Back to Itinerary</a>
+</div>
+
+<script>
+// Search data
+const searchData = [
+  { name: "Fergburger", day: "Apr 14", section: "day14" },
+  { name: "Erik's Fish & Chips", day: "Apr 14", section: "day14" },
+  { name: "SUNDAYS", day: "Apr 13", section: "day13" },
+  { name: "Bronze Elephant Thai", day: "Apr 14", section: "day14" },
+  { name: "Miles Better Pies", day: "Apr 15-16", section: "day15" },
+  { name: "Redcliff Restaurant", day: "Apr 15", section: "day15" },
+  { name: "Thai Anau", day: "Apr 15", section: "day15" },
+  { name: "Ditto Vietnamese", day: "Apr 16", section: "day16" },
+  { name: "Pio Pio Restaurant", day: "Apr 16", section: "day16" },
+  { name: "Thai Land Dunedin", day: "Apr 17", section: "day17" },
+  { name: "Emerson's Brewery", day: "Apr 17", section: "day17" },
+  { name: "Howl at the Moon", day: "Apr 17", section: "day17" },
+  { name: "The Avonhead Tavern", day: "Apr 18", section: "day18" },
+  { name: "Chang Thai", day: "Apr 11", section: "day11" },
+  { name: "High Country Salmon", day: "Apr 12", section: "day12" },
+  { name: "Chamois Bar", day: "Apr 12", section: "day12" },
+  { name: "Dark Sky Project", day: "Apr 12", section: "day12" },
+  { name: "Glacier Explorers", day: "Apr 12", section: "day12" },
+  { name: "Shotover Jet", day: "Apr 14", section: "day14" },
+  { name: "Skyline Gondola", day: "Apr 14", section: "day14" },
+  { name: "Luge", day: "Apr 14", section: "day14" },
+  { name: "TSS Earnslaw", day: "Apr 14", section: "day14" },
+  { name: "Glowworm Caves", day: "Apr 15", section: "day15" },
+  { name: "Milford Sound", day: "Apr 16", section: "day16" },
+  { name: "Moeraki Boulders", day: "Apr 18", section: "day18" },
+  { name: "Kea Point", day: "Apr 12", section: "day12" },
+  { name: "Sealy Tarns", day: "Apr 12", section: "day12" },
+  { name: "Glenorchy", day: "Apr 13", section: "day13" },
+  { name: "Kmart", day: "Apr 14", section: "day14" },
+  { name: "Oven Fresh Bakery", day: "Apr 17", section: "day17" },
+  { name: "Amore Tekapo", day: "Apr 11-12", section: "day11" },
+  { name: "Highview Retreat", day: "Apr 13-14", section: "day13" },
+  { name: "Anua Holiday Home", day: "Apr 15-16", section: "day15" },
+  { name: "Beechwood Boutique", day: "Apr 17", section: "day17" },
+  { name: "Novotel", day: "Apr 18", section: "day18" },
+  { name: "Dolce Pizza", day: "Apr 12", section: "day12" },
+  { name: "Better Batter", day: "Apr 12", section: "day12" },
+  { name: "25 Degrees Burger", day: "Apr 12", section: "day12" },
+];
+
+function handleSearch(query) {
+  const results = document.getElementById('searchResults');
+  if (query.length < 2) {
+    results.classList.remove('active');
+    return;
+  }
+  
+  const matches = searchData.filter(item => 
+    item.name.toLowerCase().includes(query.toLowerCase())
+  );
+  
+  if (matches.length > 0) {
+    results.innerHTML = matches.slice(0, 5).map(item => 
+      `<div class="search-result-item" onclick="goToResult('${item.section}')">
+        <div class="day">${item.day}</div>
+        <div>${item.name}</div>
+      </div>`
+    ).join('');
+    results.classList.add('active');
+  } else {
+    results.innerHTML = '<div class="search-result-item">No results found</div>';
+    results.classList.add('active');
+  }
+}
+
+function goToResult(section) {
+  document.getElementById('searchResults').classList.remove('active');
+  document.getElementById('searchInput').value = '';
+  document.getElementById(section).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function scrollToDay(dayId) {
+  document.getElementById(dayId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function scrollToSection(sectionId) {
+  document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function scrollToElement(elementId) {
+  document.getElementById(elementId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function showHelp() {
+  document.getElementById('main-page').classList.remove('active');
+  document.getElementById('help-page').classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function showMain() {
+  document.getElementById('help-page').classList.remove('active');
+  document.getElementById('main-page').classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// Close search when clicking outside
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.search-container') && !e.target.closest('.search-results')) {
+    document.getElementById('searchResults').classList.remove('active');
+  }
+});
+</script>
+
+</body>
+</html>
