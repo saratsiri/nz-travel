@@ -554,9 +554,12 @@
 <div id="tripStatus" class="trip-status" style="display: none;"></div>
 
 <div class="header">
-  <h1>🇳🇿 New Zealand Adventure</h1>
-  <div class="dates">April 10 – 19, 2026</div>
-  <div class="weather">🌡️ South Island April: 5-15°C — Pack layers & rain jacket!</div>
+  <div style="position: absolute; top: 15px; right: 15px;">
+    <button id="langToggle" onclick="toggleLanguage()" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; padding: 6px 12px; border-radius: 15px; font-size: 12px; cursor: pointer;">🌐 TH</button>
+  </div>
+  <h1>🇳🇿 <span data-en="New Zealand Adventure" data-th="ผจญภัยนิวซีแลนด์">New Zealand Adventure</span></h1>
+  <div class="dates"><span data-en="April 10 – 19, 2026" data-th="10 – 19 เมษายน 2026">April 10 – 19, 2026</span></div>
+  <div class="weather">🌡️ <span data-en="South Island April: 5-15°C — Pack layers & rain jacket!" data-th="เกาะใต้ เมษายน: 5-15°C — เตรียมเสื้อหลายชั้น & เสื้อกันฝน!">South Island April: 5-15°C — Pack layers & rain jacket!</span></div>
 </div>
 
 <div class="nav-container">
@@ -584,30 +587,30 @@
 <!-- Pre-Trip Checklist -->
 <div id="preTripChecklist" class="day" style="display: none; border: 2px solid #27ae60;">
   <div class="day-header" style="background: linear-gradient(135deg, #27ae60, #2ecc71);">
-    <div class="date">📋 Before You Go</div>
-    <div class="title">Pre-Trip Checklist</div>
+    <div class="date">📋 <span data-en="Before You Go" data-th="ก่อนออกเดินทาง">Before You Go</span></div>
+    <div class="title"><span data-en="Pre-Trip Checklist" data-th="รายการเตรียมตัว">Pre-Trip Checklist</span></div>
   </div>
   <div class="day-content">
     <div style="padding: 5px 0;">
       <label style="display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid #eee; cursor: pointer;">
         <input type="checkbox" style="width: 22px; height: 22px; accent-color: #27ae60;">
-        <span style="font-size: 15px;"><strong>📱 Download offline maps</strong> — Google Maps → South Island → Download</span>
+        <span style="font-size: 15px;"><strong>📱 <span data-en="Download offline maps" data-th="ดาวน์โหลดแผนที่ออฟไลน์">Download offline maps</span></strong> — <span data-en="Google Maps → South Island → Download" data-th="Google Maps → South Island → ดาวน์โหลด">Google Maps → South Island → Download</span></span>
       </label>
       <label style="display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid #eee; cursor: pointer;">
         <input type="checkbox" style="width: 22px; height: 22px; accent-color: #27ae60;">
-        <span style="font-size: 15px;"><strong>🎫 Book activities</strong> — Glacier Explorers, Te Anau Caves, Milford Cruise</span>
+        <span style="font-size: 15px;"><strong>🎫 <span data-en="Book activities" data-th="จองกิจกรรม">Book activities</span></strong> — Glacier Explorers, Te Anau Caves, Milford Cruise</span>
       </label>
       <label style="display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid #eee; cursor: pointer;">
         <input type="checkbox" style="width: 22px; height: 22px; accent-color: #27ae60;">
-        <span style="font-size: 15px;"><strong>🍽️ Reserve restaurants</strong> — SUNDAYS, Redcliff, Riverstone Kitchen</span>
+        <span style="font-size: 15px;"><strong>🍽️ <span data-en="Reserve restaurants" data-th="จองร้านอาหาร">Reserve restaurants</span></strong> — SUNDAYS, Redcliff, Riverstone Kitchen</span>
       </label>
       <label style="display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid #eee; cursor: pointer;">
         <input type="checkbox" style="width: 22px; height: 22px; accent-color: #27ae60;">
-        <span style="font-size: 15px;"><strong>🧥 Pack layers</strong> — 5-15°C, rain jacket essential</span>
+        <span style="font-size: 15px;"><strong>🧥 <span data-en="Pack layers" data-th="เตรียมเสื้อผ้าหลายชั้น">Pack layers</span></strong> — <span data-en="5-15°C, rain jacket essential" data-th="5-15°C, เสื้อกันฝนจำเป็น">5-15°C, rain jacket essential</span></span>
       </label>
       <label style="display: flex; align-items: center; gap: 10px; padding: 12px 0; cursor: pointer;">
         <input type="checkbox" style="width: 22px; height: 22px; accent-color: #27ae60;">
-        <span style="font-size: 15px;"><strong>💾 Save this page</strong> — Add to home screen for offline use</span>
+        <span style="font-size: 15px;"><strong>💾 <span data-en="Save this page" data-th="บันทึกหน้านี้">Save this page</span></strong> — <span data-en="Add to home screen for offline use" data-th="เพิ่มไปหน้าจอหลักเพื่อใช้ออฟไลน์">Add to home screen for offline use</span></span>
       </label>
     </div>
   </div>
@@ -616,16 +619,16 @@
 <!-- Day 10 - FRIDAY -->
 <div class="day" id="day10">
   <div class="day-header">
-    <div class="date">Friday, April 10</div>
-    <div class="title">✈️ Departure from Bangkok</div>
+    <div class="date"><span data-en="Friday, April 10" data-th="ศุกร์ 10 เมษายน">Friday, April 10</span></div>
+    <div class="title">✈️ <span data-en="Departure from Bangkok" data-th="ออกเดินทางจากกรุงเทพ">Departure from Bangkok</span></div>
   </div>
   <div class="day-content">
     <div class="timeline-item">
       <div class="time">7:40 PM</div>
       <div class="content">
         <div class="main">TG 645: Bangkok → Melbourne</div>
-        <div class="sub">Arrives 7:40 AM next day (+1)</div>
-        <div class="drive-time">Flight: ~9 hours</div>
+        <div class="sub"><span data-en="Arrives 7:40 AM next day (+1)" data-th="ถึง 7:40 AM วันถัดไป (+1)">Arrives 7:40 AM next day (+1)</span></div>
+        <div class="drive-time"><span data-en="Flight" data-th="บิน">Flight</span>: ~9 <span data-en="hours" data-th="ชั่วโมง">hours</span></div>
       </div>
     </div>
   </div>
@@ -634,73 +637,73 @@
 <!-- Day 11 - SATURDAY -->
 <div class="day" id="day11">
   <div class="day-header">
-    <div class="date">Saturday, April 11</div>
-    <div class="title">🛬 Arrival & Drive to Tekapo</div>
-    <div class="weather-small">🌡️ Tekapo: 3-12°C, possibly clear for stargazing</div>
+    <div class="date"><span data-en="Saturday, April 11" data-th="เสาร์ 11 เมษายน">Saturday, April 11</span></div>
+    <div class="title">🛬 <span data-en="Arrival & Drive to Tekapo" data-th="ถึง & ขับไป Tekapo">Arrival & Drive to Tekapo</span></div>
+    <div class="weather-small">🌡️ Tekapo: 3-12°C, <span data-en="possibly clear for stargazing" data-th="อาจฟ้าใสดูดาวได้">possibly clear for stargazing</span></div>
   </div>
   <div class="day-nav">
-    <a href="#" onclick="scrollToSection('day11-flights'); return false;">✈️ Flights</a>
-    <a href="#" onclick="scrollToSection('day11-groups'); return false;">👥 Groups</a>
-    <a href="#" onclick="scrollToSection('day11-drive'); return false;">🚗 Drive</a>
+    <a href="#" onclick="scrollToSection('day11-flights'); return false;">✈️ <span data-en="Flights" data-th="เที่ยวบิน">Flights</span></a>
+    <a href="#" onclick="scrollToSection('day11-groups'); return false;">👥 <span data-en="Groups" data-th="แบ่งกลุ่ม">Groups</span></a>
+    <a href="#" onclick="scrollToSection('day11-drive'); return false;">🚗 <span data-en="Drive" data-th="ขับรถ">Drive</span></a>
   </div>
   <div class="day-content">
     
     <div id="day11-flights" class="section-anchor">
-      <div class="section-title">✈️ Flights & Arrival</div>
+      <div class="section-title">✈️ <span data-en="Flights & Arrival" data-th="เที่ยวบิน & ถึงที่หมาย">Flights & Arrival</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">9:10 AM</div>
       <div class="content">
         <div class="main">NZ 214: Melbourne → Christchurch</div>
-        <div class="sub">Arrives 2:35 PM local time</div>
-        <div class="drive-time">Flight: 3h 25m</div>
+        <div class="sub"><span data-en="Arrives 2:35 PM local time" data-th="ถึง 14:35 เวลาท้องถิ่น">Arrives 2:35 PM local time</span></div>
+        <div class="drive-time"><span data-en="Flight" data-th="บิน">Flight</span>: 3h 25m</div>
       </div>
     </div>
     <div class="timeline-item">
       <div class="time">3:30 PM</div>
       <div class="content">
-        <div class="main">🚗 Pick up rental cars</div>
-        <div class="sub"><strong>Ezi Car Rental</strong> — Inside terminal, next to baggage claim</div>
-        <div class="sub">3x Land Cruiser Prado (or similar)</div>
+        <div class="main">🚗 <span data-en="Pick up rental cars" data-th="รับรถเช่า">Pick up rental cars</span></div>
+        <div class="sub"><strong>Ezi Car Rental</strong> — <span data-en="Inside terminal, next to baggage claim" data-th="ในอาคาร ข้างจุดรับกระเป๋า">Inside terminal, next to baggage claim</span></div>
+        <div class="sub">3x Land Cruiser Prado (<span data-en="or similar" data-th="หรือใกล้เคียง">or similar</span>)</div>
         <div class="sub" style="font-family: monospace; background: #f5f5f5; padding: 4px 8px; border-radius: 4px; display: inline-block;">Ref: R1M0G3, R1M0G4, R1M0G5</div>
       </div>
     </div>
     
     <div id="day11-groups" class="section-anchor">
-      <div class="section-title">👥 Group Split</div>
+      <div class="section-title">👥 <span data-en="Group Split" data-th="แบ่งกลุ่ม">Group Split</span></div>
     </div>
     
     <div class="group-box">
-      <div class="title">👥 Groups Split Here</div>
+      <div class="title">👥 <span data-en="Groups Split Here" data-th="แยกกลุ่มตรงนี้">Groups Split Here</span></div>
       <ul>
-        <li><strong>Elderly Group:</strong> Stop for Thai food at <span class="restaurant">Chang Thai</span> in Christchurch
-          <a href="https://maps.app.goo.gl/ESq2oy4tq2YyciubA" class="map-link">📍 Map</a>
+        <li><strong><span data-en="Elderly Group:" data-th="กลุ่มผู้สูงอายุ:">Elderly Group:</span></strong> <span data-en="Stop for Thai food at" data-th="แวะกินอาหารไทยที่">Stop for Thai food at</span> <span class="restaurant">Chang Thai</span> <span data-en="in Christchurch" data-th="ใน Christchurch">in Christchurch</span>
+          <a href="https://maps.app.goo.gl/ESq2oy4tq2YyciubA" class="map-link">📍 <span data-en="Map" data-th="แผนที่">Map</span></a>
         </li>
-        <li><strong>Other Group:</strong> Drive directly to Tekapo, check in, buy pizza from Dolce</li>
+        <li><strong><span data-en="Other Group:" data-th="กลุ่มอื่น:">Other Group:</span></strong> <span data-en="Drive directly to Tekapo, check in, buy pizza from Dolce" data-th="ขับตรงไป Tekapo เช็คอิน ซื้อพิซซ่าจาก Dolce">Drive directly to Tekapo, check in, buy pizza from Dolce</span></li>
       </ul>
     </div>
     
     <div id="day11-drive" class="section-anchor">
-      <div class="section-title">🚗 Drive to Tekapo</div>
+      <div class="section-title">🚗 <span data-en="Drive to Tekapo" data-th="ขับไป Tekapo">Drive to Tekapo</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">4:00 PM</div>
       <div class="content">
-        <div class="main">Drive to Lake Tekapo</div>
+        <div class="main"><span data-en="Drive to Lake Tekapo" data-th="ขับไป Lake Tekapo">Drive to Lake Tekapo</span></div>
         <div class="drive-time">🚗 3h 20min (280km)</div>
-        <a href="https://maps.app.goo.gl/pnAhuMmRHFtgidE67" class="map-link">📍 Get Directions</a>
-        <div class="offline-note">💾 Save this route offline in Google Maps before leaving!</div>
+        <a href="https://maps.app.goo.gl/pnAhuMmRHFtgidE67" class="map-link">📍 <span data-en="Get Directions" data-th="นำทาง">Get Directions</span></a>
+        <div class="offline-note">💾 <span data-en="Save this route offline in Google Maps before leaving!" data-th="บันทึกเส้นทางออฟไลน์ใน Google Maps ก่อนออก!">Save this route offline in Google Maps before leaving!</span></div>
       </div>
     </div>
     
-    <div class="alert alert-warning">📞 Call Amore Tekapo to confirm arrival time — check booking confirmation for contact details</div>
-    <div class="alert alert-purple">🌌 Aurora opportunity tonight — check aurora forecast!</div>
+    <div class="alert alert-warning">📞 <span data-en="Call Amore Tekapo to confirm arrival time — check booking confirmation for contact details" data-th="โทรหา Amore Tekapo แจ้งเวลาถึง — ดูเบอร์ในใบจอง">Call Amore Tekapo to confirm arrival time — check booking confirmation for contact details</span></div>
+    <div class="alert alert-purple">🌌 <span data-en="Aurora opportunity tonight — check aurora forecast!" data-th="คืนนี้อาจมีแสงเหนือ — เช็คพยากรณ์!">Aurora opportunity tonight — check aurora forecast!</span></div>
     
     <div class="hotel-card">
       <div class="name">🏨 Amore Tekapo</div>
-      <a href="https://maps.app.goo.gl/pnAhuMmRHFtgidE67">Map</a>
+      <a href="https://maps.app.goo.gl/pnAhuMmRHFtgidE67"><span data-en="Map" data-th="แผนที่">Map</span></a>
     </div>
   </div>
 </div>
@@ -708,146 +711,146 @@
 <!-- Day 12 - SUNDAY -->
 <div class="day" id="day12">
   <div class="day-header">
-    <div class="date">Sunday, April 12</div>
-    <div class="title">🏔️ Mount Cook Day Trip</div>
-    <div class="weather-small">🌡️ Mt Cook: 0-8°C, can be windy — dress warm!</div>
+    <div class="date"><span data-en="Sunday, April 12" data-th="อาทิตย์ 12 เมษายน">Sunday, April 12</span></div>
+    <div class="title">🏔️ <span data-en="Mount Cook Day Trip" data-th="ทริปเที่ยววัน Mount Cook">Mount Cook Day Trip</span></div>
+    <div class="weather-small">🌡️ Mt Cook: 0-8°C, <span data-en="can be windy — dress warm!" data-th="อาจลมแรง — ใส่เสื้อหนา!">can be windy — dress warm!</span></div>
   </div>
   <div class="day-nav">
-    <a href="#" onclick="scrollToSection('day12-morning'); return false;">🌅 Morning</a>
-    <a href="#" onclick="scrollToSection('day12-activities'); return false;">🚤 Activities</a>
-    <a href="#" onclick="scrollToSection('day12-hikes'); return false;">🥾 Hikes</a>
-    <a href="#" onclick="scrollToSection('day12-dinner'); return false;">🍽️ Dinner</a>
+    <a href="#" onclick="scrollToSection('day12-morning'); return false;">🌅 <span data-en="Morning" data-th="เช้า">Morning</span></a>
+    <a href="#" onclick="scrollToSection('day12-activities'); return false;">🚤 <span data-en="Activities" data-th="กิจกรรม">Activities</span></a>
+    <a href="#" onclick="scrollToSection('day12-hikes'); return false;">🥾 <span data-en="Hikes" data-th="เดินป่า">Hikes</span></a>
+    <a href="#" onclick="scrollToSection('day12-dinner'); return false;">🍽️ <span data-en="Dinner" data-th="มื้อเย็น">Dinner</span></a>
   </div>
   <div class="day-content">
-    <div class="alert alert-warning">👵 Cook/prepare breakfast for grandma — wake up earlier!</div>
+    <div class="alert alert-warning">👵 <span data-en="Cook/prepare breakfast for grandma — wake up earlier!" data-th="ทำอาหารเช้าให้ยาย — ตื่นเช้าขึ้น!">Cook/prepare breakfast for grandma — wake up earlier!</span></div>
     
     <div id="day12-morning" class="section-anchor">
-      <div class="section-title">🌅 Morning</div>
+      <div class="section-title">🌅 <span data-en="Morning" data-th="เช้า">Morning</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">8:15 AM</div>
       <div class="content">
-        <div class="main">Depart for Mount Cook</div>
-        <div class="drive-time">🚗 45min to Salmon Farm</div>
+        <div class="main"><span data-en="Depart for Mount Cook" data-th="ออกเดินทางไป Mount Cook">Depart for Mount Cook</span></div>
+        <div class="drive-time">🚗 45min <span data-en="to Salmon Farm" data-th="ไปฟาร์มแซลมอน">to Salmon Farm</span></div>
       </div>
     </div>
     <div class="timeline-item">
       <div class="time">9:00 AM</div>
       <div class="content">
-        <div class="main">🐟 Stop at High Country Salmon</div>
-        <div class="sub">Buy smoked salmon for lunch + fresh sashimi!</div>
-        <a href="https://maps.app.goo.gl/5Cfdqyd9vVPhiX1m7" class="map-link">📍 Salmon Farm</a>
-        <div class="drive-time" style="margin-top: 8px;">🚗 50min to Mt Cook from here</div>
+        <div class="main">🐟 <span data-en="Stop at High Country Salmon" data-th="แวะที่ High Country Salmon">Stop at High Country Salmon</span></div>
+        <div class="sub"><span data-en="Buy smoked salmon for lunch + fresh sashimi!" data-th="ซื้อแซลมอนรมควันกินกลางวัน + ซาชิมิสด!">Buy smoked salmon for lunch + fresh sashimi!</span></div>
+        <a href="https://maps.app.goo.gl/5Cfdqyd9vVPhiX1m7" class="map-link">📍 <span data-en="Salmon Farm" data-th="ฟาร์มแซลมอน">Salmon Farm</span></a>
+        <div class="drive-time" style="margin-top: 8px;">🚗 50min <span data-en="to Mt Cook from here" data-th="ไป Mt Cook จากที่นี่">to Mt Cook from here</span></div>
       </div>
     </div>
     
     <div id="day12-activities" class="section-anchor">
-      <div class="section-title">🚤 Boat Tour & Elderly Options</div>
+      <div class="section-title">🚤 <span data-en="Boat Tour & Elderly Options" data-th="ล่องเรือ & ทางเลือกผู้สูงอายุ">Boat Tour & Elderly Options</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">11:30 AM</div>
       <div class="content">
-        <div class="main">Glacier Explorers Boat Tour</div>
-        <div class="sub">Until ~2:30 PM</div>
-        <a href="https://www.hermitage.co.nz/experience/glacier-explorers/" class="book-link">📅 Book Tour</a>
+        <div class="main"><span data-en="Glacier Explorers Boat Tour" data-th="ล่องเรือชมธารน้ำแข็ง Glacier Explorers">Glacier Explorers Boat Tour</span></div>
+        <div class="sub"><span data-en="Until ~2:30 PM" data-th="ถึง ~14:30">Until ~2:30 PM</span></div>
+        <a href="https://www.hermitage.co.nz/experience/glacier-explorers/" class="book-link">📅 <span data-en="Book Tour" data-th="จองทัวร์">Book Tour</span></a>
       </div>
     </div>
-    <div class="alert alert-warning">⚠️ Requires 1.5km walk (two-way) to reach boat — not suitable for elderly</div>
+    <div class="alert alert-warning">⚠️ <span data-en="Requires 1.5km walk (two-way) to reach boat — not suitable for elderly" data-th="ต้องเดิน 1.5km (ไป-กลับ) ไปถึงเรือ — ไม่เหมาะกับผู้สูงอายุ">Requires 1.5km walk (two-way) to reach boat — not suitable for elderly</span></div>
     
     <div class="elderly-box">
-      <div class="title">👴 Elderly / Non-boat Group</div>
+      <div class="title">👴 <span data-en="Elderly / Non-boat Group" data-th="ผู้สูงอายุ / กลุ่มไม่ล่องเรือ">Elderly / Non-boat Group</span></div>
       <ul>
-        <li>Go to <strong>Chamois Bar & Grill</strong> at The Hermitage</li>
-        <li>Order: <strong>Grilled Salmon</strong> or <strong>Fish & Chips</strong></li>
-        <li>Relax with mountain views while others do boat tour</li>
+        <li><span data-en="Go to" data-th="ไปที่">Go to</span> <strong>Chamois Bar & Grill</strong> <span data-en="at The Hermitage" data-th="ที่ The Hermitage">at The Hermitage</span></li>
+        <li><span data-en="Order:" data-th="สั่ง:">Order:</span> <strong>Grilled Salmon</strong> <span data-en="or" data-th="หรือ">or</span> <strong>Fish & Chips</strong></li>
+        <li><span data-en="Relax with mountain views while others do boat tour" data-th="พักผ่อนชมวิวภูเขาขณะคนอื่นล่องเรือ">Relax with mountain views while others do boat tour</span></li>
       </ul>
       <a href="https://maps.app.goo.gl/o3VkWFvj23EBZJqT9" class="map-link">📍 Chamois Bar</a>
     </div>
     
     <div id="day12-hikes" class="section-anchor">
-      <div class="section-title">🥾 Afternoon Hikes</div>
+      <div class="section-title">🥾 <span data-en="Afternoon Hikes" data-th="เดินป่าบ่าย">Afternoon Hikes</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">3:00 PM</div>
-      <div class="content"><div class="main">Hike to viewpoint — choose your level</div></div>
+      <div class="content"><div class="main"><span data-en="Hike to viewpoint — choose your level" data-th="เดินป่าไปจุดชมวิว — เลือกระดับ">Hike to viewpoint — choose your level</span></div></div>
     </div>
     
     <div class="hike-box">
-      <div class="title">🥾 Choose Your Hike</div>
+      <div class="title">🥾 <span data-en="Choose Your Hike" data-th="เลือกเส้นทางเดินป่า">Choose Your Hike</span></div>
       <div class="hike-option">
-        <div class="name">🟢 Easy: Kea Point Track</div>
-        <div class="stats">3km return • 1hr • 95m elevation</div>
-        <div class="stats">Great for most fitness levels</div>
-        <a href="https://maps.app.goo.gl/4prRFiL5uS6ppHeo7" class="map-link">📍 Open Map</a>
+        <div class="name">🟢 <span data-en="Easy: Kea Point Track" data-th="ง่าย: Kea Point Track">Easy: Kea Point Track</span></div>
+        <div class="stats">3km <span data-en="return" data-th="ไป-กลับ">return</span> • 1hr • 95m <span data-en="elevation" data-th="สูง">elevation</span></div>
+        <div class="stats"><span data-en="Great for most fitness levels" data-th="เหมาะกับคนทั่วไป">Great for most fitness levels</span></div>
+        <a href="https://maps.app.goo.gl/4prRFiL5uS6ppHeo7" class="map-link">📍 <span data-en="Open Map" data-th="เปิดแผนที่">Open Map</span></a>
       </div>
       <div class="hike-option">
-        <div class="name">🔴 Hard: Sealy Tarns Track</div>
-        <div class="stats">5.3km • 3+ hrs • 550m • 2,200 steps!</div>
-        <div class="stats">Very steep — fit hikers only</div>
-        <a href="https://maps.app.goo.gl/y9rqS8DtcPEBeKfL9" class="map-link">📍 Open Map</a>
+        <div class="name">🔴 <span data-en="Hard: Sealy Tarns Track" data-th="ยาก: Sealy Tarns Track">Hard: Sealy Tarns Track</span></div>
+        <div class="stats">5.3km • 3+ hrs • 550m • 2,200 <span data-en="steps!" data-th="ขั้นบันได!">steps!</span></div>
+        <div class="stats"><span data-en="Very steep — fit hikers only" data-th="ชันมาก — เฉพาะคนฟิต">Very steep — fit hikers only</span></div>
+        <a href="https://maps.app.goo.gl/y9rqS8DtcPEBeKfL9" class="map-link">📍 <span data-en="Open Map" data-th="เปิดแผนที่">Open Map</span></a>
       </div>
     </div>
     
     <div class="elderly-box">
-      <div class="title">👴 Elderly Alternative — Skip Hikes</div>
+      <div class="title">👴 <span data-en="Elderly Alternative — Skip Hikes" data-th="ทางเลือกผู้สูงอายุ — ไม่เดินป่า">Elderly Alternative — Skip Hikes</span></div>
       <ul>
-        <li>Enjoy scenic viewpoint on drive back (easy roadside stop):</li>
+        <li><span data-en="Enjoy scenic viewpoint on drive back (easy roadside stop):" data-th="ชมวิวระหว่างทางกลับ (จอดข้างทางง่ายๆ):">Enjoy scenic viewpoint on drive back (easy roadside stop):</span></li>
       </ul>
-      <a href="https://maps.app.goo.gl/MGY3CpDTB2ns6PPL9" class="map-link">📍 Easy Viewpoint</a>
+      <a href="https://maps.app.goo.gl/MGY3CpDTB2ns6PPL9" class="map-link">📍 <span data-en="Easy Viewpoint" data-th="จุดชมวิวง่าย">Easy Viewpoint</span></a>
     </div>
     
     <div class="timeline-item">
       <div class="time">5:00 PM</div>
       <div class="content">
-        <div class="main">Return to Tekapo</div>
-        <div class="drive-time">🚗 1h 25min back</div>
+        <div class="main"><span data-en="Return to Tekapo" data-th="กลับ Tekapo">Return to Tekapo</span></div>
+        <div class="drive-time">🚗 1h 25min <span data-en="back" data-th="กลับ">back</span></div>
       </div>
     </div>
     
     <div id="day12-dinner" class="section-anchor">
-      <div class="section-title">🍽️ Dinner Options</div>
+      <div class="section-title">🍽️ <span data-en="Dinner Options" data-th="ตัวเลือกมื้อเย็น">Dinner Options</span></div>
     </div>
     
     <details open>
-      <summary>🍽️ Dinner Options in Tekapo</summary>
+      <summary>🍽️ <span data-en="Dinner Options in Tekapo" data-th="ตัวเลือกมื้อเย็นใน Tekapo">Dinner Options in Tekapo</span></summary>
       <div class="detail-content">
         <div style="margin-bottom: 15px;">
-          <strong>Option 1: The Better Batter NZ</strong> (Fish & Chips)<br>
-          <span style="font-size: 13px; color: #d35400;">⚠️ Closes at 6PM — must return on time!</span><br>
-          <a href="https://maps.app.goo.gl/59VmG9HtZTtKgBUn9" class="map-link">📍 Location</a>
+          <strong><span data-en="Option 1:" data-th="ตัวเลือก 1:">Option 1:</span> The Better Batter NZ</strong> (Fish & Chips)<br>
+          <span style="font-size: 13px; color: #d35400;">⚠️ <span data-en="Closes at 6PM — must return on time!" data-th="ปิด 6PM — ต้องกลับทัน!">Closes at 6PM — must return on time!</span></span><br>
+          <a href="https://maps.app.goo.gl/59VmG9HtZTtKgBUn9" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
         </div>
         <div style="margin-bottom: 15px;">
-          <strong>Option 2: 25 Degrees Burger Bar</strong><br>
-          <span style="font-size: 13px; color: #666;">Good backup if running late</span><br>
-          <a href="https://maps.app.goo.gl/TXJhW7QMay6ahSJDA" class="map-link">📍 Location</a>
+          <strong><span data-en="Option 2:" data-th="ตัวเลือก 2:">Option 2:</span> 25 Degrees Burger Bar</strong><br>
+          <span style="font-size: 13px; color: #666;"><span data-en="Good backup if running late" data-th="ตัวเลือกสำรองถ้ากลับช้า">Good backup if running late</span></span><br>
+          <a href="https://maps.app.goo.gl/TXJhW7QMay6ahSJDA" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
         </div>
         <div>
-          <strong>Option 3: Dolce Pizza</strong><br>
-          <span style="font-size: 13px; color: #666;">Try the Pesto Pizza!</span><br>
-          <a href="https://www.google.com/maps/place/Dolce+Pizza/@-44.0051095,170.4781315,17z" class="map-link">📍 Location</a>
+          <strong><span data-en="Option 3:" data-th="ตัวเลือก 3:">Option 3:</span> Dolce Pizza</strong><br>
+          <span style="font-size: 13px; color: #666;"><span data-en="Try the Pesto Pizza!" data-th="ลองพิซซ่า Pesto!">Try the Pesto Pizza!</span></span><br>
+          <a href="https://www.google.com/maps/place/Dolce+Pizza/@-44.0051095,170.4781315,17z" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
         </div>
       </div>
     </details>
     
     <details>
-      <summary>🌌 Night Activity: Stargazing (Optional)</summary>
+      <summary>🌌 <span data-en="Night Activity: Stargazing (Optional)" data-th="กิจกรรมกลางคืน: ดูดาว (ไม่บังคับ)">Night Activity: Stargazing (Optional)</span></summary>
       <div class="detail-content">
         <strong>Dark Sky Project</strong><br>
-        <span style="font-size: 13px; color: #666;">World-class stargazing at Mt John Observatory</span><br>
-        <span style="font-size: 12px; color: #d35400;">⚠️ Booking required!</span><br>
-        <a href="https://maps.app.goo.gl/fshoSBkXoutZyT6D8" class="map-link">📍 Location</a>
-        <a href="https://www.darkskyproject.co.nz/experiences/dark-sky-experience/" class="book-link">📅 Book</a>
+        <span style="font-size: 13px; color: #666;"><span data-en="World-class stargazing at Mt John Observatory" data-th="ดูดาวระดับโลกที่ Mt John Observatory">World-class stargazing at Mt John Observatory</span></span><br>
+        <span style="font-size: 12px; color: #d35400;">⚠️ <span data-en="Booking required!" data-th="ต้องจองล่วงหน้า!">Booking required!</span></span><br>
+        <a href="https://maps.app.goo.gl/fshoSBkXoutZyT6D8" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
+        <a href="https://www.darkskyproject.co.nz/experiences/dark-sky-experience/" class="book-link">📅 <span data-en="Book" data-th="จอง">Book</span></a>
       </div>
     </details>
     
-    <div class="alert alert-purple">🌌 Aurora opportunity — Lake Tekapo is a Dark Sky Reserve!</div>
+    <div class="alert alert-purple">🌌 <span data-en="Aurora opportunity — Lake Tekapo is a Dark Sky Reserve!" data-th="โอกาสเห็นแสงเหนือ — Lake Tekapo เป็นเขตท้องฟ้ามืด!">Aurora opportunity — Lake Tekapo is a Dark Sky Reserve!</span></div>
     
     <div class="hotel-card">
       <div class="name">🏨 Amore Tekapo</div>
-      <a href="https://maps.app.goo.gl/pnAhuMmRHFtgidE67">Map</a>
+      <a href="https://maps.app.goo.gl/pnAhuMmRHFtgidE67"><span data-en="Map" data-th="แผนที่">Map</span></a>
     </div>
   </div>
 </div>
@@ -855,109 +858,109 @@
 <!-- Day 13 - MONDAY -->
 <div class="day" id="day13">
   <div class="day-header">
-    <div class="date">Monday, April 13</div>
-    <div class="title">🚗 Scenic Drive to Queenstown</div>
+    <div class="date"><span data-en="Monday, April 13" data-th="จันทร์ 13 เมษายน">Monday, April 13</span></div>
+    <div class="title">🚗 <span data-en="Scenic Drive to Queenstown" data-th="ขับรถชมวิวไป Queenstown">Scenic Drive to Queenstown</span></div>
     <div class="weather-small">🌡️ Queenstown: 4-14°C</div>
   </div>
   <div class="day-nav">
-    <a href="#" onclick="scrollToSection('day13-drive'); return false;">🚗 Drive</a>
+    <a href="#" onclick="scrollToSection('day13-drive'); return false;">🚗 <span data-en="Drive" data-th="ขับรถ">Drive</span></a>
     <a href="#" onclick="scrollToSection('day13-glenorchy'); return false;">🌿 Glenorchy</a>
-    <a href="#" onclick="scrollToSection('day13-dinner'); return false;">🍽️ Dinner</a>
+    <a href="#" onclick="scrollToSection('day13-dinner'); return false;">🍽️ <span data-en="Dinner" data-th="มื้อเย็น">Dinner</span></a>
   </div>
   <div class="day-content">
-    <div class="alert alert-warning">👵 Cook/prepare breakfast for grandma — wake up earlier!</div>
+    <div class="alert alert-warning">👵 <span data-en="Cook/prepare breakfast for grandma — wake up earlier!" data-th="ทำอาหารเช้าให้ยาย — ตื่นเช้าขึ้น!">Cook/prepare breakfast for grandma — wake up earlier!</span></div>
     
     <div id="day13-drive" class="section-anchor">
-      <div class="section-title">🚗 Drive to Queenstown</div>
+      <div class="section-title">🚗 <span data-en="Drive to Queenstown" data-th="ขับไป Queenstown">Drive to Queenstown</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">9:00 AM</div>
       <div class="content">
-        <div class="main">Check out & drive to Queenstown</div>
-        <div class="drive-time">🚗 3h 20min with stops (280km)</div>
-        <div class="offline-note">💾 Save route offline — some areas have no signal!</div>
+        <div class="main"><span data-en="Check out & drive to Queenstown" data-th="เช็คเอาท์ & ขับไป Queenstown">Check out & drive to Queenstown</span></div>
+        <div class="drive-time">🚗 3h 20min <span data-en="with stops" data-th="รวมแวะ">with stops</span> (280km)</div>
+        <div class="offline-note">💾 <span data-en="Save route offline — some areas have no signal!" data-th="บันทึกเส้นทางออฟไลน์ — บางพื้นที่ไม่มีสัญญาณ!">Save route offline — some areas have no signal!</span></div>
       </div>
     </div>
     
     <details open>
-      <summary>📍 Scenic Stops (5 viewpoints + lunch)</summary>
+      <summary>📍 <span data-en="Scenic Stops (5 viewpoints + lunch)" data-th="จุดแวะชมวิว (5 จุด + กลางวัน)">Scenic Stops (5 viewpoints + lunch)</span></summary>
       <div class="detail-content">
         <div class="viewpoints">
-          <div class="viewpoint-item"><strong>Lake Pukaki Viewpoint</strong> <span style="color: #666; font-size: 11px;">+15min</span><br><span style="font-size: 12px; color: #555;">Stunning turquoise glacial lake with Mt Cook backdrop</span> <a href="https://maps.app.goo.gl/135foDw7PTCpxxnL7" class="map-link">Map</a></div>
-          <div class="viewpoint-item"><strong>Peter's Lookout</strong> <span style="color: #666; font-size: 11px;">+10min</span><br><span style="font-size: 12px; color: #555;">Panoramic view over Lake Pukaki with Mt Cook in distance</span> <a href="https://maps.app.goo.gl/AoospPqUuhkLSoMLA" class="map-link">Map</a></div>
-          <div class="viewpoint-item"><strong>🍽️ The Wrinkly Rams</strong> <span style="color: #666; font-size: 11px;">+1.5hrs lunch</span><br><span style="font-size: 12px; color: #555;">Popular roadside cafe in Omarama — fresh food, coffee, NZ souvenirs</span> <a href="https://maps.app.goo.gl/LF4CDPVhasafajGs6" class="map-link">Map</a></div>
-          <div class="viewpoint-item"><strong>Lindis Pass Lookout</strong> <span style="color: #666; font-size: 11px;">+10min</span><br><span style="font-size: 12px; color: #555;">High alpine pass (971m) with dramatic tussock-covered hills</span> <a href="https://maps.app.goo.gl/Ahi5eQqzWPsj9GdaA" class="map-link">Map</a></div>
-          <div class="viewpoint-item"><strong>Clay Cliffs Omarama</strong> <span style="color: #666; font-size: 11px;">+10min</span><br><span style="font-size: 12px; color: #555;">Otherworldly eroded rock formations shaped by ancient glaciers</span> <a href="https://maps.app.goo.gl/4N4sksffGHG7vSSMA" class="map-link">Map</a></div>
-          <div class="viewpoint-item"><strong>Lake Wanaka Viewpoint</strong> <span style="color: #666; font-size: 11px;">+10min</span><br><span style="font-size: 12px; color: #555;">Crystal-clear lake surrounded by mountains</span> <a href="https://maps.app.goo.gl/hjYLLSmrsZpL4wqy8" class="map-link">Map</a></div>
+          <div class="viewpoint-item"><strong>Lake Pukaki Viewpoint</strong> <span style="color: #666; font-size: 11px;">+15min</span><br><span style="font-size: 12px; color: #555;"><span data-en="Stunning turquoise glacial lake with Mt Cook backdrop" data-th="ทะเลสาบธารน้ำแข็งสีเทอร์ควอยซ์ มี Mt Cook เป็นฉากหลัง">Stunning turquoise glacial lake with Mt Cook backdrop</span></span> <a href="https://maps.app.goo.gl/135foDw7PTCpxxnL7" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
+          <div class="viewpoint-item"><strong>Peter's Lookout</strong> <span style="color: #666; font-size: 11px;">+10min</span><br><span style="font-size: 12px; color: #555;"><span data-en="Panoramic view over Lake Pukaki with Mt Cook in distance" data-th="วิวพาโนรามา Lake Pukaki มี Mt Cook อยู่ไกลๆ">Panoramic view over Lake Pukaki with Mt Cook in distance</span></span> <a href="https://maps.app.goo.gl/AoospPqUuhkLSoMLA" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
+          <div class="viewpoint-item"><strong>🍽️ The Wrinkly Rams</strong> <span style="color: #666; font-size: 11px;">+1.5hrs <span data-en="lunch" data-th="กลางวัน">lunch</span></span><br><span style="font-size: 12px; color: #555;"><span data-en="Popular roadside cafe in Omarama — fresh food, coffee, NZ souvenirs" data-th="คาเฟ่ริมทางยอดนิยมใน Omarama — อาหารสด กาแฟ ของฝาก NZ">Popular roadside cafe in Omarama — fresh food, coffee, NZ souvenirs</span></span> <a href="https://maps.app.goo.gl/LF4CDPVhasafajGs6" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
+          <div class="viewpoint-item"><strong>Lindis Pass Lookout</strong> <span style="color: #666; font-size: 11px;">+10min</span><br><span style="font-size: 12px; color: #555;"><span data-en="High alpine pass (971m) with dramatic tussock-covered hills" data-th="ช่องเขาสูง (971m) เนินเขาปกคลุมด้วยหญ้า">High alpine pass (971m) with dramatic tussock-covered hills</span></span> <a href="https://maps.app.goo.gl/Ahi5eQqzWPsj9GdaA" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
+          <div class="viewpoint-item"><strong>Clay Cliffs Omarama</strong> <span style="color: #666; font-size: 11px;">+10min</span><br><span style="font-size: 12px; color: #555;"><span data-en="Otherworldly eroded rock formations shaped by ancient glaciers" data-th="หินรูปร่างแปลกประหลาดจากธารน้ำแข็งโบราณ">Otherworldly eroded rock formations shaped by ancient glaciers</span></span> <a href="https://maps.app.goo.gl/4N4sksffGHG7vSSMA" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
+          <div class="viewpoint-item"><strong>Lake Wanaka Viewpoint</strong> <span style="color: #666; font-size: 11px;">+10min</span><br><span style="font-size: 12px; color: #555;"><span data-en="Crystal-clear lake surrounded by mountains" data-th="ทะเลสาบใสล้อมรอบด้วยภูเขา">Crystal-clear lake surrounded by mountains</span></span> <a href="https://maps.app.goo.gl/hjYLLSmrsZpL4wqy8" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
         </div>
       </div>
     </details>
     
     <div class="timeline-item">
       <div class="time">2:45 PM</div>
-      <div class="content"><div class="main">Arrive Queenstown & check in</div></div>
+      <div class="content"><div class="main"><span data-en="Arrive Queenstown & check in" data-th="ถึง Queenstown & เช็คอิน">Arrive Queenstown & check in</span></div></div>
     </div>
     
     <div class="elderly-box">
-      <div class="title">👴 Elderly Alternative</div>
+      <div class="title">👴 <span data-en="Elderly Alternative" data-th="ทางเลือกผู้สูงอายุ">Elderly Alternative</span></div>
       <ul>
-        <li>Check in at 3PM and rest at hotel</li>
-        <li>Skip Glenorchy drive if tired</li>
-        <li>Explore Queenstown town at relaxed pace</li>
+        <li><span data-en="Check in at 3PM and rest at hotel" data-th="เช็คอิน 3PM และพักผ่อนที่โรงแรม">Check in at 3PM and rest at hotel</span></li>
+        <li><span data-en="Skip Glenorchy drive if tired" data-th="ไม่ต้องไป Glenorchy ถ้าเหนื่อย">Skip Glenorchy drive if tired</span></li>
+        <li><span data-en="Explore Queenstown town at relaxed pace" data-th="เดินเที่ยว Queenstown สบายๆ">Explore Queenstown town at relaxed pace</span></li>
       </ul>
     </div>
     
     <div id="day13-glenorchy" class="section-anchor">
-      <div class="section-title">🌿 Glenorchy (Optional)</div>
+      <div class="section-title">🌿 Glenorchy (<span data-en="Optional" data-th="ไม่บังคับ">Optional</span>)</div>
     </div>
     
     <div class="timeline-item">
       <div class="time">4:00 PM</div>
       <div class="content">
-        <div class="main">Glenorchy scenic drive + walks</div>
-        <div class="drive-time">🚗 50min each way</div>
+        <div class="main"><span data-en="Glenorchy scenic drive + walks" data-th="ขับรถชมวิว Glenorchy + เดินเล่น">Glenorchy scenic drive + walks</span></div>
+        <div class="drive-time">🚗 50min <span data-en="each way" data-th="ต่อเที่ยว">each way</span></div>
       </div>
     </div>
-    <div class="alert alert-info">📌 Optional — only if not too tired! Adds ~3hrs total (driving + walks).</div>
+    <div class="alert alert-info">📌 <span data-en="Optional — only if not too tired! Adds ~3hrs total (driving + walks)." data-th="ไม่บังคับ — เฉพาะถ้าไม่เหนื่อย! เพิ่ม ~3 ชม. (ขับรถ + เดิน)">Optional — only if not too tired! Adds ~3hrs total (driving + walks).</span></div>
     
     <details>
-      <summary>🌿 Glenorchy Stops</summary>
+      <summary>🌿 <span data-en="Glenorchy Stops" data-th="จุดแวะ Glenorchy">Glenorchy Stops</span></summary>
       <div class="detail-content">
         <div class="viewpoints">
-          <div class="viewpoint-item"><strong>Glenorchy Lagoon Walkway</strong> <span style="color: #666; font-size: 11px;">+1-1.5hr</span> <a href="https://maps.app.goo.gl/DsJSnCWZRK12RGwP6" class="map-link">Map</a>
-            <div style="font-size: 12px; color: #555; margin-top: 2px;">Easy boardwalk loop through wetlands with Mt Earnslaw views</div>
+          <div class="viewpoint-item"><strong>Glenorchy Lagoon Walkway</strong> <span style="color: #666; font-size: 11px;">+1-1.5hr</span> <a href="https://maps.app.goo.gl/DsJSnCWZRK12RGwP6" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a>
+            <div style="font-size: 12px; color: #555; margin-top: 2px;"><span data-en="Easy boardwalk loop through wetlands with Mt Earnslaw views" data-th="ทางเดินไม้รอบพื้นที่ชุ่มน้ำ มองเห็น Mt Earnslaw">Easy boardwalk loop through wetlands with Mt Earnslaw views</span></div>
           </div>
-          <div class="viewpoint-item"><strong>Isengard Lookout</strong> <span style="color: #666; font-size: 11px;">+15min</span> <a href="https://maps.app.goo.gl/jdEEJTeg4QMfXTcB8" class="map-link">Map</a>
-            <div style="font-size: 12px; color: #555; margin-top: 2px;">Lord of the Rings filming location with mountain views</div>
+          <div class="viewpoint-item"><strong>Isengard Lookout</strong> <span style="color: #666; font-size: 11px;">+15min</span> <a href="https://maps.app.goo.gl/jdEEJTeg4QMfXTcB8" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a>
+            <div style="font-size: 12px; color: #555; margin-top: 2px;"><span data-en="Lord of the Rings filming location with mountain views" data-th="สถานที่ถ่ายทำ Lord of the Rings วิวภูเขา">Lord of the Rings filming location with mountain views</span></div>
           </div>
         </div>
       </div>
     </details>
     
     <div id="day13-dinner" class="section-anchor">
-      <div class="section-title">🍽️ Dinner</div>
+      <div class="section-title">🍽️ <span data-en="Dinner" data-th="มื้อเย็น">Dinner</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">6:00 PM</div>
       <div class="content">
-        <div class="main">🍽️ Dinner at <span class="restaurant">SUNDAYS</span></div>
-        <div class="sub">Wood-fired pizza in a restored 1933 church!</div>
-        <div class="sub">Neapolitan-style sourdough pizza, European shared plates. Kid-friendly, wheelchair accessible.</div>
-        <div class="sub" style="color: #888; font-size: 12px;">⏰ If doing Glenorchy: book for 7:30 PM instead</div>
-        <div class="sub" style="color: #d35400; font-weight: 500;">⚠️ Email required for 10+ people!</div>
-        <a href="https://maps.app.goo.gl/Y7dK5sskvQfXL5eCA" class="map-link">📍 Location</a>
-        <a href="https://bookings.nowbookit.com/?accountid=50dd0057-ef77-4282-b302-3f538933db0b&venueid=11053&theme=light&colors=hex,000000" class="book-link">📅 Book</a>
+        <div class="main">🍽️ <span data-en="Dinner at" data-th="มื้อเย็นที่">Dinner at</span> <span class="restaurant">SUNDAYS</span></div>
+        <div class="sub"><span data-en="Wood-fired pizza in a restored 1933 church!" data-th="พิซซ่าเตาฟืนในโบสถ์ปี 1933 ที่บูรณะแล้ว!">Wood-fired pizza in a restored 1933 church!</span></div>
+        <div class="sub"><span data-en="Neapolitan-style sourdough pizza, European shared plates. Kid-friendly, wheelchair accessible." data-th="พิซซ่าซาวร์โดว์สไตล์เนเปิลส์ อาหารยุโรปแบบแชร์ เด็กเข้าได้ วีลแชร์เข้าได้">Neapolitan-style sourdough pizza, European shared plates. Kid-friendly, wheelchair accessible.</span></div>
+        <div class="sub" style="color: #888; font-size: 12px;">⏰ <span data-en="If doing Glenorchy: book for 7:30 PM instead" data-th="ถ้าไป Glenorchy: จอง 19:30 แทน">If doing Glenorchy: book for 7:30 PM instead</span></div>
+        <div class="sub" style="color: #d35400; font-weight: 500;">⚠️ <span data-en="Email required for 10+ people!" data-th="ต้องอีเมลจองถ้า 10+ คน!">Email required for 10+ people!</span></div>
+        <a href="https://maps.app.goo.gl/Y7dK5sskvQfXL5eCA" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
+        <a href="https://bookings.nowbookit.com/?accountid=50dd0057-ef77-4282-b302-3f538933db0b&venueid=11053&theme=light&colors=hex,000000" class="book-link">📅 <span data-en="Book" data-th="จอง">Book</span></a>
       </div>
     </div>
     
-    <div class="alert alert-purple">🌌 Aurora opportunity tonight</div>
-    <div class="alert alert-warning">📞 Call Highview Retreat to confirm arrival time — check booking confirmation for contact details</div>
+    <div class="alert alert-purple">🌌 <span data-en="Aurora opportunity tonight" data-th="คืนนี้อาจมีแสงเหนือ">Aurora opportunity tonight</span></div>
+    <div class="alert alert-warning">📞 <span data-en="Call Highview Retreat to confirm arrival time — check booking confirmation for contact details" data-th="โทรหา Highview Retreat แจ้งเวลาถึง — ดูเบอร์ในใบจอง">Call Highview Retreat to confirm arrival time — check booking confirmation for contact details</span></div>
     
     <div class="hotel-card">
       <div class="name">🏨 Highview Retreat</div>
-      <a href="https://maps.app.goo.gl/3jmGYCfhcN3wW88p7">Map</a>
+      <a href="https://maps.app.goo.gl/3jmGYCfhcN3wW88p7"><span data-en="Map" data-th="แผนที่">Map</span></a>
     </div>
   </div>
 </div>
@@ -965,115 +968,115 @@
 <!-- Day 14 - TUESDAY -->
 <div class="day" id="day14">
   <div class="day-header">
-    <div class="date">Tuesday, April 14</div>
-    <div class="title">🎢 Queenstown Adventures</div>
+    <div class="date"><span data-en="Tuesday, April 14" data-th="อังคาร 14 เมษายน">Tuesday, April 14</span></div>
+    <div class="title">🎢 <span data-en="Queenstown Adventures" data-th="ผจญภัย Queenstown">Queenstown Adventures</span></div>
     <div class="weather-small">🌡️ Queenstown: 4-14°C</div>
   </div>
   <div class="day-nav">
-    <a href="#" onclick="scrollToSection('day14-morning'); return false;">🌅 Morning</a>
+    <a href="#" onclick="scrollToSection('day14-morning'); return false;">🌅 <span data-en="Morning" data-th="เช้า">Morning</span></a>
     <a href="#" onclick="scrollToSection('day14-gondola'); return false;">🚡 Gondola</a>
-    <a href="#" onclick="scrollToSection('day14-dinner'); return false;">🍽️ Dinner</a>
+    <a href="#" onclick="scrollToSection('day14-dinner'); return false;">🍽️ <span data-en="Dinner" data-th="มื้อเย็น">Dinner</span></a>
   </div>
   <div class="day-content">
-    <div class="alert alert-warning">👵 Cook/prepare breakfast for grandma — wake up earlier!</div>
+    <div class="alert alert-warning">👵 <span data-en="Cook/prepare breakfast for grandma — wake up earlier!" data-th="ทำอาหารเช้าให้ยาย — ตื่นเช้าขึ้น!">Cook/prepare breakfast for grandma — wake up earlier!</span></div>
     
     <div id="day14-morning" class="section-anchor">
-      <div class="section-title">🌅 Morning Activities</div>
+      <div class="section-title">🌅 <span data-en="Morning Activities" data-th="กิจกรรมเช้า">Morning Activities</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">9:30 AM</div>
       <div class="content">
         <div class="main">🚤 Shotover Jet</div>
-        <div class="sub">~25 min thrill ride through canyons</div>
-        <a href="https://book.shotoverjet.com/activity/selection?workingDate=2026-04-14&filter=ProdGroup-SOJALL" class="book-link">📅 Book Now</a>
+        <div class="sub"><span data-en="~25 min thrill ride through canyons" data-th="~25 นาที นั่งเรือเร็วลุยหุบเขา">~25 min thrill ride through canyons</span></div>
+        <a href="https://book.shotoverjet.com/activity/selection?workingDate=2026-04-14&filter=ProdGroup-SOJALL" class="book-link">📅 <span data-en="Book Now" data-th="จองเลย">Book Now</span></a>
       </div>
     </div>
-    <div class="alert alert-info">📌 Short activity (~25 min) — non-participants can wait at café</div>
+    <div class="alert alert-info">📌 <span data-en="Short activity (~25 min) — non-participants can wait at café" data-th="กิจกรรมสั้น (~25 นาที) — คนไม่เล่นรอที่คาเฟ่ได้">Short activity (~25 min) — non-participants can wait at café</span></div>
     
     <div class="timeline-item">
       <div class="time">11:00 AM</div>
-      <div class="content"><div class="main">🍔 Lunch in Queenstown CBD</div></div>
+      <div class="content"><div class="main">🍔 <span data-en="Lunch in Queenstown CBD" data-th="กลางวันใน Queenstown CBD">Lunch in Queenstown CBD</span></div></div>
     </div>
     
     <details open>
-      <summary>🍽️ Lunch Options</summary>
+      <summary>🍽️ <span data-en="Lunch Options" data-th="ตัวเลือกกลางวัน">Lunch Options</span></summary>
       <div class="detail-content">
         <div style="margin-bottom: 15px;">
-          <strong>Fergburger</strong> — Famous Queenstown burgers<br>
-          <span style="font-size: 12px; color: #666;">42 Shotover St • 8AM–5AM • Expect queues!</span><br>
+          <strong>Fergburger</strong> — <span data-en="Famous Queenstown burgers" data-th="เบอร์เกอร์ดัง Queenstown">Famous Queenstown burgers</span><br>
+          <span style="font-size: 12px; color: #666;">42 Shotover St • 8AM–5AM • <span data-en="Expect queues!" data-th="ต้องต่อคิว!">Expect queues!</span></span><br>
           <a href="https://fergburger.com/" class="map-link">🌐 Website</a>
         </div>
         <div>
-          <strong>Erik's Fish & Chips</strong> — Local favourite<br>
-          <span style="font-size: 12px; color: #666;">13 Earl St • 11:30AM–9PM • GF & Halal options</span><br>
+          <strong>Erik's Fish & Chips</strong> — <span data-en="Local favourite" data-th="ร้านโปรดคนท้องถิ่น">Local favourite</span><br>
+          <span style="font-size: 12px; color: #666;">13 Earl St • 11:30AM–9PM • GF & Halal <span data-en="options" data-th="มี">options</span></span><br>
           <a href="https://www.eriksfishandchips.co.nz/" class="map-link">🌐 Website</a>
         </div>
       </div>
     </details>
     
     <div class="parking-tip">
-      🅿️ <strong>Queenstown Parking Tips</strong><br>
-      • <strong>Man Street</strong> — 500 spaces, underground, $3.50/30min<br>
-      • <strong>Boundary St</strong> — Cheaper, 5-10 min walk<br>
-      • <strong>Free after 6PM</strong> in council areas!
+      🅿️ <strong><span data-en="Queenstown Parking Tips" data-th="เคล็ดลับจอดรถ Queenstown">Queenstown Parking Tips</span></strong><br>
+      • <strong>Man Street</strong> — 500 <span data-en="spaces, underground" data-th="ที่ ใต้ดิน">spaces, underground</span>, $3.50/30min<br>
+      • <strong>Boundary St</strong> — <span data-en="Cheaper, 5-10 min walk" data-th="ถูกกว่า เดิน 5-10 นาที">Cheaper, 5-10 min walk</span><br>
+      • <strong><span data-en="Free after 6PM" data-th="ฟรีหลัง 6PM">Free after 6PM</span></strong> <span data-en="in council areas!" data-th="ในพื้นที่เทศบาล!">in council areas!</span>
     </div>
     
     <div id="day14-gondola" class="section-anchor">
-      <div class="section-title">🚡 Gondola & Cruise</div>
+      <div class="section-title">🚡 Gondola & <span data-en="Cruise" data-th="ล่องเรือ">Cruise</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">12:30 PM</div>
       <div class="content">
         <div class="main">🚡 Skyline Gondola & Luge</div>
-        <div class="sub">Until ~3PM</div>
+        <div class="sub"><span data-en="Until ~3PM" data-th="ถึง ~15:00">Until ~3PM</span></div>
       </div>
     </div>
-    <div class="alert alert-warning">⚠️ Luge requires balance — younger participants only</div>
+    <div class="alert alert-warning">⚠️ <span data-en="Luge requires balance — younger participants only" data-th="Luge ต้องทรงตัวได้ — เฉพาะคนหนุ่มสาว">Luge requires balance — younger participants only</span></div>
     
     <div class="elderly-box">
-      <div class="title">👴 Elderly Alternative</div>
+      <div class="title">👴 <span data-en="Elderly Alternative" data-th="ทางเลือกผู้สูงอายุ">Elderly Alternative</span></div>
       <ul>
-        <li>Wait at café during Shotover Jet</li>
-        <li>Join Gondola ride — scenic & accessible</li>
-        <li>Enjoy café at top with panoramic views</li>
-        <li>Skip Luge — take Gondola back down</li>
+        <li><span data-en="Wait at café during Shotover Jet" data-th="รอที่คาเฟ่ตอน Shotover Jet">Wait at café during Shotover Jet</span></li>
+        <li><span data-en="Join Gondola ride — scenic & accessible" data-th="ขึ้น Gondola ได้ — ชมวิว & เข้าถึงง่าย">Join Gondola ride — scenic & accessible</span></li>
+        <li><span data-en="Enjoy café at top with panoramic views" data-th="นั่งคาเฟ่บนยอดชมวิวพาโนรามา">Enjoy café at top with panoramic views</span></li>
+        <li><span data-en="Skip Luge — take Gondola back down" data-th="ไม่ต้องเล่น Luge — นั่ง Gondola ลง">Skip Luge — take Gondola back down</span></li>
       </ul>
     </div>
     
     <div class="timeline-item">
       <div class="time">3:00 PM</div>
       <div class="content">
-        <div class="main">🚢 TSS Earnslaw Lake Cruise</div>
-        <div class="sub">Historic steamship on Lake Wakatipu</div>
+        <div class="main">🚢 TSS Earnslaw <span data-en="Lake Cruise" data-th="ล่องเรือในทะเลสาบ">Lake Cruise</span></div>
+        <div class="sub"><span data-en="Historic steamship on Lake Wakatipu" data-th="เรือไอน้ำประวัติศาสตร์บน Lake Wakatipu">Historic steamship on Lake Wakatipu</span></div>
       </div>
     </div>
     
     <div id="day14-dinner" class="section-anchor">
-      <div class="section-title">🍽️ Dinner & Shopping</div>
+      <div class="section-title">🍽️ <span data-en="Dinner & Shopping" data-th="มื้อเย็น & ช้อปปิ้ง">Dinner & Shopping</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">6:00 PM</div>
       <div class="content">
-        <div class="main">🍽️ Dinner at <span class="restaurant">Bronze Elephant Thai</span></div>
-        <div class="sub">Frankton area — authentic Thai</div>
-        <a href="https://maps.app.goo.gl/tqTh4bZE9Qanzkjj8" class="map-link">📍 Restaurant</a>
+        <div class="main">🍽️ <span data-en="Dinner at" data-th="มื้อเย็นที่">Dinner at</span> <span class="restaurant">Bronze Elephant Thai</span></div>
+        <div class="sub">Frankton area — <span data-en="authentic Thai" data-th="อาหารไทยแท้">authentic Thai</span></div>
+        <a href="https://maps.app.goo.gl/tqTh4bZE9Qanzkjj8" class="map-link">📍 <span data-en="Restaurant" data-th="ร้านอาหาร">Restaurant</span></a>
       </div>
     </div>
     
     <div class="parking-tip">
-      🛒 <strong>Shopping Stop — Important!</strong><br>
-      Park at <strong>Kmart Queenstown</strong> — buy ingredients for grandma's breakfast!<br>
-      <a href="https://maps.app.goo.gl/BwYMgt3BhLtBH91e7" class="map-link">📍 Kmart Location</a>
+      🛒 <strong><span data-en="Shopping Stop — Important!" data-th="จุดช้อปปิ้ง — สำคัญ!">Shopping Stop — Important!</span></strong><br>
+      <span data-en="Park at" data-th="จอดที่">Park at</span> <strong>Kmart Queenstown</strong> — <span data-en="buy ingredients for grandma's breakfast!" data-th="ซื้อวัตถุดิบทำอาหารเช้าให้ยาย!">buy ingredients for grandma's breakfast!</span><br>
+      <a href="https://maps.app.goo.gl/BwYMgt3BhLtBH91e7" class="map-link">📍 Kmart</a>
     </div>
     
-    <div class="alert alert-purple">🌌 Aurora opportunity tonight</div>
+    <div class="alert alert-purple">🌌 <span data-en="Aurora opportunity tonight" data-th="คืนนี้อาจมีแสงเหนือ">Aurora opportunity tonight</span></div>
     
     <div class="hotel-card">
       <div class="name">🏨 Highview Retreat</div>
-      <a href="https://maps.app.goo.gl/3jmGYCfhcN3wW88p7">Map</a>
+      <a href="https://maps.app.goo.gl/3jmGYCfhcN3wW88p7"><span data-en="Map" data-th="แผนที่">Map</span></a>
     </div>
   </div>
 </div>
@@ -1081,96 +1084,96 @@
 <!-- Day 15 - WEDNESDAY -->
 <div class="day" id="day15">
   <div class="day-header">
-    <div class="date">Wednesday, April 15</div>
-    <div class="title">✨ Te Anau & Glowworm Caves</div>
-    <div class="weather-small">🌡️ Te Anau: 3-12°C — Cave is cool inside!</div>
+    <div class="date"><span data-en="Wednesday, April 15" data-th="พุธ 15 เมษายน">Wednesday, April 15</span></div>
+    <div class="title">✨ Te Anau & <span data-en="Glowworm Caves" data-th="ถ้ำหนอนเรืองแสง">Glowworm Caves</span></div>
+    <div class="weather-small">🌡️ Te Anau: 3-12°C — <span data-en="Cave is cool inside!" data-th="ในถ้ำเย็น!">Cave is cool inside!</span></div>
   </div>
   <div class="day-nav">
-    <a href="#" onclick="scrollToSection('day15-drive'); return false;">🚗 Drive</a>
-    <a href="#" onclick="scrollToSection('day15-caves'); return false;">✨ Caves</a>
-    <a href="#" onclick="scrollToSection('day15-dinner'); return false;">🍽️ Dinner</a>
+    <a href="#" onclick="scrollToSection('day15-drive'); return false;">🚗 <span data-en="Drive" data-th="ขับรถ">Drive</span></a>
+    <a href="#" onclick="scrollToSection('day15-caves'); return false;">✨ <span data-en="Caves" data-th="ถ้ำ">Caves</span></a>
+    <a href="#" onclick="scrollToSection('day15-dinner'); return false;">🍽️ <span data-en="Dinner" data-th="มื้อเย็น">Dinner</span></a>
   </div>
   <div class="day-content">
-    <div class="alert alert-warning">👵 Cook/prepare breakfast for grandma — wake up earlier!</div>
+    <div class="alert alert-warning">👵 <span data-en="Cook/prepare breakfast for grandma — wake up earlier!" data-th="ทำอาหารเช้าให้ยาย — ตื่นเช้าขึ้น!">Cook/prepare breakfast for grandma — wake up earlier!</span></div>
     
     <div id="day15-drive" class="section-anchor">
-      <div class="section-title">🚗 Drive to Te Anau</div>
+      <div class="section-title">🚗 <span data-en="Drive to Te Anau" data-th="ขับไป Te Anau">Drive to Te Anau</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">8:30 AM</div>
       <div class="content">
-        <div class="main">Depart for Te Anau</div>
+        <div class="main"><span data-en="Depart for Te Anau" data-th="ออกเดินทางไป Te Anau">Depart for Te Anau</span></div>
         <div class="drive-time">🚗 2h 15min (170km)</div>
-        <a href="https://maps.app.goo.gl/9Rupg8dyrTPw4yHS8" class="map-link">📍 Scenic viewpoint en route</a>
+        <a href="https://maps.app.goo.gl/9Rupg8dyrTPw4yHS8" class="map-link">📍 <span data-en="Scenic viewpoint en route" data-th="จุดชมวิวระหว่างทาง">Scenic viewpoint en route</span></a>
       </div>
     </div>
     <div class="timeline-item">
       <div class="time">11:00 AM</div>
       <div class="content">
-        <div class="main">🥧 Lunch at <span class="restaurant">Miles Better Pies</span> <span style="color: #666; font-size: 11px;">+1.5hrs</span></div>
+        <div class="main">🥧 <span data-en="Lunch at" data-th="กลางวันที่">Lunch at</span> <span class="restaurant">Miles Better Pies</span> <span style="color: #666; font-size: 11px;">+1.5hrs</span></div>
         <div class="sub">17 Town Centre • 6AM–6PM</div>
-        <div class="sub">Try: Venison & Plum, Lamb & Mint!</div>
-        <a href="https://maps.app.goo.gl/vN5HKmLu5e8QLWWV7" class="map-link">📍 Location</a>
+        <div class="sub"><span data-en="Try: Venison & Plum, Lamb & Mint!" data-th="ลอง: Venison & Plum, Lamb & Mint!">Try: Venison & Plum, Lamb & Mint!</span></div>
+        <a href="https://maps.app.goo.gl/vN5HKmLu5e8QLWWV7" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
       </div>
     </div>
     
     <div id="day15-caves" class="section-anchor">
-      <div class="section-title">✨ Glowworm Caves</div>
+      <div class="section-title">✨ <span data-en="Glowworm Caves" data-th="ถ้ำหนอนเรืองแสง">Glowworm Caves</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">12:45 PM</div>
       <div class="content">
         <div class="main">✨ Te Anau Glowworm Caves</div>
-        <div class="sub">Magical underground boat ride to see glowworms</div>
-        <a href="https://www.realnz.com/en/experiences/glowworm-caves/te-anau-glowworm-caves/" class="book-link">📅 Book 12:45 Session</a>
+        <div class="sub"><span data-en="Magical underground boat ride to see glowworms" data-th="ล่องเรือใต้ดินชมหนอนเรืองแสง">Magical underground boat ride to see glowworms</span></div>
+        <a href="https://www.realnz.com/en/experiences/glowworm-caves/te-anau-glowworm-caves/" class="book-link">📅 <span data-en="Book 12:45 Session" data-th="จองรอบ 12:45">Book 12:45 Session</span></a>
       </div>
     </div>
-    <div class="alert alert-warning">⚠️ Booking required — max 12 per group</div>
-    <div class="alert alert-warning">⚠️ Low ceilings — requires significant crouching!</div>
+    <div class="alert alert-warning">⚠️ <span data-en="Booking required — max 12 per group" data-th="ต้องจอง — สูงสุด 12 คนต่อกลุ่ม">Booking required — max 12 per group</span></div>
+    <div class="alert alert-warning">⚠️ <span data-en="Low ceilings — requires significant crouching!" data-th="เพดานต่ำ — ต้องก้มตัวมาก!">Low ceilings — requires significant crouching!</span></div>
     
     <div class="elderly-box">
-      <div class="title">👴 Elderly Alternative — Skip Caves</div>
+      <div class="title">👴 <span data-en="Elderly Alternative — Skip Caves" data-th="ทางเลือกผู้สูงอายุ — ไม่เข้าถ้ำ">Elderly Alternative — Skip Caves</span></div>
       <ul>
-        <li>Cave requires lots of crouching — not for mobility issues</li>
-        <li>Instead: Relax at Te Anau Lake beach</li>
-        <li>Or: Rest at hotel and enjoy scenery</li>
+        <li><span data-en="Cave requires lots of crouching — not for mobility issues" data-th="ถ้ำต้องก้มเยอะ — ไม่เหมาะกับคนเดินลำบาก">Cave requires lots of crouching — not for mobility issues</span></li>
+        <li><span data-en="Instead: Relax at Te Anau Lake beach" data-th="แทน: พักผ่อนที่หาด Te Anau Lake">Instead: Relax at Te Anau Lake beach</span></li>
+        <li><span data-en="Or: Rest at hotel and enjoy scenery" data-th="หรือ: พักที่โรงแรมชมวิว">Or: Rest at hotel and enjoy scenery</span></li>
       </ul>
     </div>
     
     <div class="timeline-item">
       <div class="time">3:30 PM</div>
-      <div class="content"><div class="main">Check in hotel</div></div>
+      <div class="content"><div class="main"><span data-en="Check in hotel" data-th="เช็คอินโรงแรม">Check in hotel</span></div></div>
     </div>
     
     <div id="day15-dinner" class="section-anchor">
-      <div class="section-title">🍽️ Dinner Options</div>
+      <div class="section-title">🍽️ <span data-en="Dinner Options" data-th="ตัวเลือกมื้อเย็น">Dinner Options</span></div>
     </div>
     
     <details open>
-      <summary>🍽️ Dinner Options</summary>
+      <summary>🍽️ <span data-en="Dinner Options" data-th="ตัวเลือกมื้อเย็น">Dinner Options</span></summary>
       <div class="detail-content">
         <div style="margin-bottom: 15px;">
-          <strong>Thai Option: Thai Anau Restaurant</strong><br>
-          <span style="font-size: 12px; color: #666;">Take away possible</span><br>
-          <a href="https://maps.app.goo.gl/ozdcnoWas9Ez9wTm6" class="map-link">📍 Location</a>
+          <strong><span data-en="Thai Option:" data-th="ตัวเลือกไทย:">Thai Option:</span> Thai Anau Restaurant</strong><br>
+          <span style="font-size: 12px; color: #666;"><span data-en="Take away possible" data-th="สั่งกลับบ้านได้">Take away possible</span></span><br>
+          <a href="https://maps.app.goo.gl/ozdcnoWas9Ez9wTm6" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
         </div>
         <div>
-          <strong>⭐ Recommended: Redcliff Restaurant & Bar</strong><br>
-          <span style="font-size: 12px; color: #666;">Local NZ cuisine — book for 12 people</span><br>
-          <span style="font-size: 12px; color: #d35400;">⚠️ Booking needed!</span><br>
-          <a href="https://maps.app.goo.gl/YzWaXrxEmeZJ7iGg8" class="map-link">📍 Location</a>
+          <strong>⭐ <span data-en="Recommended:" data-th="แนะนำ:">Recommended:</span> Redcliff Restaurant & Bar</strong><br>
+          <span style="font-size: 12px; color: #666;"><span data-en="Local NZ cuisine — book for 12 people" data-th="อาหาร NZ — จองสำหรับ 12 คน">Local NZ cuisine — book for 12 people</span></span><br>
+          <span style="font-size: 12px; color: #d35400;">⚠️ <span data-en="Booking needed!" data-th="ต้องจอง!">Booking needed!</span></span><br>
+          <a href="https://maps.app.goo.gl/YzWaXrxEmeZJ7iGg8" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
         </div>
       </div>
     </details>
     
-    <div class="alert alert-purple">🌌 Aurora opportunity tonight</div>
-    <div class="alert alert-warning">📞 Call Anua Holiday Home to confirm arrival time — check booking confirmation for contact details</div>
+    <div class="alert alert-purple">🌌 <span data-en="Aurora opportunity tonight" data-th="คืนนี้อาจมีแสงเหนือ">Aurora opportunity tonight</span></div>
+    <div class="alert alert-warning">📞 <span data-en="Call Anua Holiday Home to confirm arrival time — check booking confirmation for contact details" data-th="โทรหา Anua Holiday Home แจ้งเวลาถึง — ดูเบอร์ในใบจอง">Call Anua Holiday Home to confirm arrival time — check booking confirmation for contact details</span></div>
     
     <div class="hotel-card">
       <div class="name">🏨 Anua Holiday Home</div>
-      <a href="https://maps.app.goo.gl/q7Rbe3KT53yfYdbj7">Map</a>
+      <a href="https://maps.app.goo.gl/q7Rbe3KT53yfYdbj7"><span data-en="Map" data-th="แผนที่">Map</span></a>
     </div>
   </div>
 </div>
@@ -1178,35 +1181,35 @@
 <!-- Day 16 - THURSDAY -->
 <div class="day" id="day16">
   <div class="day-header">
-    <div class="date">Thursday, April 16</div>
-    <div class="title">⛵ Milford Sound Cruise</div>
-    <div class="weather-small">🌡️ Milford: 5-12°C, often rainy — waterfalls spectacular in rain!</div>
+    <div class="date"><span data-en="Thursday, April 16" data-th="พฤหัส 16 เมษายน">Thursday, April 16</span></div>
+    <div class="title">⛵ Milford Sound <span data-en="Cruise" data-th="ล่องเรือ">Cruise</span></div>
+    <div class="weather-small">🌡️ Milford: 5-12°C, <span data-en="often rainy — waterfalls spectacular in rain!" data-th="มักมีฝน — น้ำตกสวยมากตอนฝนตก!">often rainy — waterfalls spectacular in rain!</span></div>
   </div>
   <div class="day-nav">
-    <a href="#" onclick="scrollToSection('day16-morning'); return false;">🌅 Early Start</a>
-    <a href="#" onclick="scrollToSection('day16-cruise'); return false;">⛵ Cruise</a>
-    <a href="#" onclick="scrollToSection('day16-dinner'); return false;">🍽️ Dinner</a>
+    <a href="#" onclick="scrollToSection('day16-morning'); return false;">🌅 <span data-en="Early Start" data-th="ออกเช้า">Early Start</span></a>
+    <a href="#" onclick="scrollToSection('day16-cruise'); return false;">⛵ <span data-en="Cruise" data-th="ล่องเรือ">Cruise</span></a>
+    <a href="#" onclick="scrollToSection('day16-dinner'); return false;">🍽️ <span data-en="Dinner" data-th="มื้อเย็น">Dinner</span></a>
   </div>
   <div class="day-content">
-    <div class="alert alert-warning">👵 Cook/prepare breakfast for grandma — wake up earlier!</div>
+    <div class="alert alert-warning">👵 <span data-en="Cook/prepare breakfast for grandma — wake up earlier!" data-th="ทำอาหารเช้าให้ยาย — ตื่นเช้าขึ้น!">Cook/prepare breakfast for grandma — wake up earlier!</span></div>
     
     <div id="day16-morning" class="section-anchor">
-      <div class="section-title">🌅 Early Morning</div>
+      <div class="section-title">🌅 <span data-en="Early Morning" data-th="เช้าตรู่">Early Morning</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">6:00 AM</div>
       <div class="content">
-        <div class="main">🥧 Grab pies from <span class="restaurant">Miles Better Pies</span></div>
-        <div class="sub">Opens 6AM — eat in car!</div>
+        <div class="main">🥧 <span data-en="Grab pies from" data-th="ซื้อพายจาก">Grab pies from</span> <span class="restaurant">Miles Better Pies</span></div>
+        <div class="sub"><span data-en="Opens 6AM — eat in car!" data-th="เปิด 6AM — กินในรถ!">Opens 6AM — eat in car!</span></div>
       </div>
     </div>
     <div class="timeline-item">
       <div class="time">7:30 AM</div>
       <div class="content">
-        <div class="main">Drive to Milford Sound</div>
-        <div class="drive-time">🚗 2h 15min (120km) — stunning drive!</div>
-        <div class="offline-note">💾 No cell service — download maps offline!</div>
+        <div class="main"><span data-en="Drive to Milford Sound" data-th="ขับไป Milford Sound">Drive to Milford Sound</span></div>
+        <div class="drive-time">🚗 2h 15min (120km) — <span data-en="stunning drive!" data-th="ทางสวยมาก!">stunning drive!</span></div>
+        <div class="offline-note">💾 <span data-en="No cell service — download maps offline!" data-th="ไม่มีสัญญาณ — โหลดแผนที่ออฟไลน์!">No cell service — download maps offline!</span></div>
       </div>
     </div>
     
@@ -1218,77 +1221,77 @@
       <div class="time">10:30 AM</div>
       <div class="content">
         <div class="main">⛵ Milford Sound Signature Cruise</div>
-        <div class="sub">Until ~1PM — waterfalls, seals, maybe dolphins!</div>
-        <a href="https://www.realnz.com/en/experiences/day-cruises/milford-sound-signature-cruise/" class="book-link">📅 Book Cruise</a>
+        <div class="sub"><span data-en="Until ~1PM — waterfalls, seals, maybe dolphins!" data-th="ถึง ~13:00 — น้ำตก แมวน้ำ อาจมีโลมา!">Until ~1PM — waterfalls, seals, maybe dolphins!</span></div>
+        <a href="https://www.realnz.com/en/experiences/day-cruises/milford-sound-signature-cruise/" class="book-link">📅 <span data-en="Book Cruise" data-th="จองล่องเรือ">Book Cruise</span></a>
       </div>
     </div>
     
     <div class="parking-tip">
-      🅿️ <strong>Milford Parking — IMPORTANT!</strong><br>
-      • Use <strong>FREE parking</strong> — <a href="https://maps.app.goo.gl/cbM4Z8kftusCmPsY6" style="color: #2e7d32; font-weight: bold;">This car park</a> (10 min walk)<br>
-      • ❌ <strong>Do NOT</strong> park at visitor centre — $25+!<br>
-      • 💡 Drop elderly at pier, young ones walk
+      🅿️ <strong>Milford <span data-en="Parking — IMPORTANT!" data-th="ที่จอดรถ — สำคัญ!">Parking — IMPORTANT!</span></strong><br>
+      • <span data-en="Use" data-th="ใช้">Use</span> <strong><span data-en="FREE parking" data-th="ที่จอดฟรี">FREE parking</span></strong> — <a href="https://maps.app.goo.gl/cbM4Z8kftusCmPsY6" style="color: #2e7d32; font-weight: bold;"><span data-en="This car park" data-th="ที่จอดนี้">This car park</span></a> (<span data-en="10 min walk" data-th="เดิน 10 นาที">10 min walk</span>)<br>
+      • ❌ <strong><span data-en="Do NOT" data-th="อย่า">Do NOT</span></strong> <span data-en="park at visitor centre — $25+!" data-th="จอดที่ศูนย์บริการ — $25+!">park at visitor centre — $25+!</span><br>
+      • 💡 <span data-en="Drop elderly at pier, young ones walk" data-th="ส่งผู้สูงอายุที่ท่าเรือ คนหนุ่มเดิน">Drop elderly at pier, young ones walk</span>
     </div>
     
     <div class="timeline-item">
       <div class="time">1:00 PM</div>
       <div class="content">
-        <div class="main">🍽️ Lunch at <span class="restaurant">Pio Pio Restaurant</span></div>
-        <div class="sub" style="color: #d35400;">⚠️ Needs booking via email</div>
-        <a href="https://maps.app.goo.gl/ujiTdAfHv7Zexc2T6" class="map-link">📍 Location</a>
+        <div class="main">🍽️ <span data-en="Lunch at" data-th="กลางวันที่">Lunch at</span> <span class="restaurant">Pio Pio Restaurant</span></div>
+        <div class="sub" style="color: #d35400;">⚠️ <span data-en="Needs booking via email" data-th="ต้องจองทางอีเมล">Needs booking via email</span></div>
+        <a href="https://maps.app.goo.gl/ujiTdAfHv7Zexc2T6" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
       </div>
     </div>
     
     <div class="timeline-item">
       <div class="time">2:30 PM</div>
       <div class="content">
-        <div class="main">Return drive with optional stops</div>
-        <div class="drive-time">🚗 2h 15min back to Te Anau</div>
+        <div class="main"><span data-en="Return drive with optional stops" data-th="ขับกลับ แวะจุดต่างๆ ได้">Return drive with optional stops</span></div>
+        <div class="drive-time">🚗 2h 15min <span data-en="back to Te Anau" data-th="กลับ Te Anau">back to Te Anau</span></div>
       </div>
     </div>
     
     <details>
-      <summary>📍 Optional Stops on Return</summary>
+      <summary>📍 <span data-en="Optional Stops on Return" data-th="จุดแวะระหว่างทางกลับ (ไม่บังคับ)">Optional Stops on Return</span></summary>
       <div class="detail-content">
         <div class="viewpoints">
-          <div class="viewpoint-item"><strong>The Chasm Walk</strong> <span style="color: #666; font-size: 11px;">+30min</span> <a href="https://maps.app.goo.gl/XULdpuupFETk4rCF6" class="map-link">Map</a>
-            <div style="font-size: 12px; color: #555; margin-top: 2px;">20min loop through rainforest to powerful waterfalls carved through rock</div>
+          <div class="viewpoint-item"><strong>The Chasm Walk</strong> <span style="color: #666; font-size: 11px;">+30min</span> <a href="https://maps.app.goo.gl/XULdpuupFETk4rCF6" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a>
+            <div style="font-size: 12px; color: #555; margin-top: 2px;"><span data-en="20min loop through rainforest to powerful waterfalls carved through rock" data-th="เดินวน 20 นาทีผ่านป่าฝนไปน้ำตกที่กัดเซาะหิน">20min loop through rainforest to powerful waterfalls carved through rock</span></div>
           </div>
-          <div class="viewpoint-item"><strong>Mirror Lakes</strong> <span style="color: #666; font-size: 11px;">+15min</span> <a href="https://maps.app.goo.gl/w69926XYbWQwm29W7" class="map-link">Map</a>
-            <div style="font-size: 12px; color: #555; margin-top: 2px;">Perfect mountain reflections on calm days</div>
+          <div class="viewpoint-item"><strong>Mirror Lakes</strong> <span style="color: #666; font-size: 11px;">+15min</span> <a href="https://maps.app.goo.gl/w69926XYbWQwm29W7" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a>
+            <div style="font-size: 12px; color: #555; margin-top: 2px;"><span data-en="Perfect mountain reflections on calm days" data-th="เงาสะท้อนภูเขาสมบูรณ์แบบวันที่น้ำนิ่ง">Perfect mountain reflections on calm days</span></div>
           </div>
         </div>
       </div>
     </details>
     
     <div class="elderly-box">
-      <div class="title">👴 Elderly Note</div>
+      <div class="title">👴 <span data-en="Elderly Note" data-th="หมายเหตุผู้สูงอายุ">Elderly Note</span></div>
       <ul>
-        <li>Milford cruise is accessible — everyone join!</li>
-        <li>Skip stops if tired</li>
-        <li>Return directly for early rest</li>
+        <li><span data-en="Milford cruise is accessible — everyone join!" data-th="ล่องเรือ Milford เข้าถึงได้ — ทุกคนไปได้!">Milford cruise is accessible — everyone join!</span></li>
+        <li><span data-en="Skip stops if tired" data-th="ไม่แวะถ้าเหนื่อย">Skip stops if tired</span></li>
+        <li><span data-en="Return directly for early rest" data-th="กลับตรงเพื่อพักผ่อนเร็ว">Return directly for early rest</span></li>
       </ul>
     </div>
     
     <div id="day16-dinner" class="section-anchor">
-      <div class="section-title">🍽️ Dinner</div>
+      <div class="section-title">🍽️ <span data-en="Dinner" data-th="มื้อเย็น">Dinner</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">6:00 PM</div>
       <div class="content">
-        <div class="main">🍽️ Dinner at <span class="restaurant">Ditto</span></div>
-        <div class="sub">Vietnamese Food</div>
-        <div class="sub" style="color: #d35400;">⚠️ Booking required</div>
-        <a href="https://maps.app.goo.gl/p8EdqQUfGFKmLGPE7" class="map-link">📍 Location</a>
+        <div class="main">🍽️ <span data-en="Dinner at" data-th="มื้อเย็นที่">Dinner at</span> <span class="restaurant">Ditto</span></div>
+        <div class="sub"><span data-en="Vietnamese Food" data-th="อาหารเวียดนาม">Vietnamese Food</span></div>
+        <div class="sub" style="color: #d35400;">⚠️ <span data-en="Booking required" data-th="ต้องจอง">Booking required</span></div>
+        <a href="https://maps.app.goo.gl/p8EdqQUfGFKmLGPE7" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
       </div>
     </div>
     
-    <div class="alert alert-purple">🌌 Aurora opportunity tonight</div>
+    <div class="alert alert-purple">🌌 <span data-en="Aurora opportunity tonight" data-th="คืนนี้อาจมีแสงเหนือ">Aurora opportunity tonight</span></div>
     
     <div class="hotel-card">
       <div class="name">🏨 Anua Holiday Home</div>
-      <a href="https://maps.app.goo.gl/q7Rbe3KT53yfYdbj7">Map</a>
+      <a href="https://maps.app.goo.gl/q7Rbe3KT53yfYdbj7"><span data-en="Map" data-th="แผนที่">Map</span></a>
     </div>
   </div>
 </div>
@@ -1296,35 +1299,35 @@
 <!-- Day 17 - FRIDAY -->
 <div class="day" id="day17">
   <div class="day-header">
-    <div class="date">Friday, April 17</div>
-    <div class="title">🚗 Drive to Dunedin</div>
-    <div class="weather-small">🌡️ Dunedin: 6-14°C — coastal breeze</div>
+    <div class="date"><span data-en="Friday, April 17" data-th="ศุกร์ 17 เมษายน">Friday, April 17</span></div>
+    <div class="title">🚗 <span data-en="Drive to Dunedin" data-th="ขับไป Dunedin">Drive to Dunedin</span></div>
+    <div class="weather-small">🌡️ Dunedin: 6-14°C — <span data-en="coastal breeze" data-th="ลมทะเล">coastal breeze</span></div>
   </div>
   <div class="day-nav">
-    <a href="#" onclick="scrollToSection('day17-drive'); return false;">🚗 Drive</a>
-    <a href="#" onclick="scrollToSection('day17-afternoon'); return false;">🦭 Afternoon</a>
-    <a href="#" onclick="scrollToSection('day17-dinner'); return false;">🍽️ Dinner</a>
+    <a href="#" onclick="scrollToSection('day17-drive'); return false;">🚗 <span data-en="Drive" data-th="ขับรถ">Drive</span></a>
+    <a href="#" onclick="scrollToSection('day17-afternoon'); return false;">🦭 <span data-en="Afternoon" data-th="บ่าย">Afternoon</span></a>
+    <a href="#" onclick="scrollToSection('day17-dinner'); return false;">🍽️ <span data-en="Dinner" data-th="มื้อเย็น">Dinner</span></a>
   </div>
   <div class="day-content">
-    <div class="alert alert-warning">👵 Cook/prepare breakfast for grandma — wake up earlier!</div>
+    <div class="alert alert-warning">👵 <span data-en="Cook/prepare breakfast for grandma — wake up earlier!" data-th="ทำอาหารเช้าให้ยาย — ตื่นเช้าขึ้น!">Cook/prepare breakfast for grandma — wake up earlier!</span></div>
     
     <div id="day17-drive" class="section-anchor">
-      <div class="section-title">🚗 Drive via Gore</div>
+      <div class="section-title">🚗 <span data-en="Drive via Gore" data-th="ขับผ่าน Gore">Drive via Gore</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">9:00 AM</div>
       <div class="content">
-        <div class="main">Drive to Dunedin via Gore</div>
-        <div class="drive-time">🚗 4h total driving (290km)</div>
+        <div class="main"><span data-en="Drive to Dunedin via Gore" data-th="ขับไป Dunedin ผ่าน Gore">Drive to Dunedin via Gore</span></div>
+        <div class="drive-time">🚗 4h <span data-en="total driving" data-th="ขับทั้งหมด">total driving</span> (290km)</div>
       </div>
     </div>
     
     <div class="timeline-item">
       <div class="time">10:50 AM</div>
       <div class="content">
-        <div class="main">Arrive Gore — <span class="restaurant">Oven Fresh Bakery</span></div>
-        <div class="sub">Get pastries & snacks!</div>
+        <div class="main"><span data-en="Arrive Gore" data-th="ถึง Gore">Arrive Gore</span> — <span class="restaurant">Oven Fresh Bakery</span></div>
+        <div class="sub"><span data-en="Get pastries & snacks!" data-th="ซื้อขนมปัง & ขนม!">Get pastries & snacks!</span></div>
         <a href="https://maps.app.goo.gl/fniapuRGd6mPxqrX7" class="map-link">📍 Bakery</a>
       </div>
     </div>
@@ -1332,69 +1335,69 @@
     <div class="timeline-item">
       <div class="time">11:00 AM</div>
       <div class="content">
-        <div class="main">🍽️ Lunch at <span class="restaurant">Howl at the Moon</span></div>
-        <div class="sub">Gore — good stop to stretch legs</div>
-        <a href="https://maps.app.goo.gl/gqGdHrkTZwapUkAN7" class="map-link">📍 Location</a>
-        <div class="drive-time" style="margin-top: 8px;">🚗 2h 10min to Dunedin</div>
+        <div class="main">🍽️ <span data-en="Lunch at" data-th="กลางวันที่">Lunch at</span> <span class="restaurant">Howl at the Moon</span></div>
+        <div class="sub">Gore — <span data-en="good stop to stretch legs" data-th="จุดพักเดินเหยียดขา">good stop to stretch legs</span></div>
+        <a href="https://maps.app.goo.gl/gqGdHrkTZwapUkAN7" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
+        <div class="drive-time" style="margin-top: 8px;">🚗 2h 10min <span data-en="to Dunedin" data-th="ไป Dunedin">to Dunedin</span></div>
       </div>
     </div>
     
     <div id="day17-afternoon" class="section-anchor">
-      <div class="section-title">🦭 Afternoon in Dunedin</div>
+      <div class="section-title">🦭 <span data-en="Afternoon in Dunedin" data-th="บ่ายใน Dunedin">Afternoon in Dunedin</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">2:40 PM</div>
       <div class="content">
-        <div class="main">Arrive Dunedin</div>
+        <div class="main"><span data-en="Arrive Dunedin" data-th="ถึง Dunedin">Arrive Dunedin</span></div>
       </div>
     </div>
     
     <div class="timeline-item">
       <div class="time">PM</div>
       <div class="content">
-        <div class="main">🦭 Free afternoon — explore Dunedin!</div>
-        <div class="sub">See seals, visit museums, explore coast</div>
-        <div class="sub">Everyone research your own plans!</div>
-        <a href="https://maps.app.goo.gl/Cra8STUHpZta8Nod6" class="map-link">📍 Coastal Area</a>
+        <div class="main">🦭 <span data-en="Free afternoon — explore Dunedin!" data-th="บ่ายอิสระ — เที่ยว Dunedin!">Free afternoon — explore Dunedin!</span></div>
+        <div class="sub"><span data-en="See seals, visit museums, explore coast" data-th="ดูแมวน้ำ เที่ยวพิพิธภัณฑ์ สำรวจชายฝั่ง">See seals, visit museums, explore coast</span></div>
+        <div class="sub"><span data-en="Everyone research your own plans!" data-th="ทุกคนหาแผนเองได้!">Everyone research your own plans!</span></div>
+        <a href="https://maps.app.goo.gl/Cra8STUHpZta8Nod6" class="map-link">📍 <span data-en="Coastal Area" data-th="ชายฝั่ง">Coastal Area</span></a>
       </div>
     </div>
     
     <div class="timeline-item">
       <div class="time">4:00 PM</div>
-      <div class="content"><div class="main">Check in hotel & regroup</div></div>
+      <div class="content"><div class="main"><span data-en="Check in hotel & regroup" data-th="เช็คอินโรงแรม & รวมกลุ่ม">Check in hotel & regroup</span></div></div>
     </div>
     
     <div id="day17-dinner" class="section-anchor">
-      <div class="section-title">🍽️ Dinner Options</div>
+      <div class="section-title">🍽️ <span data-en="Dinner Options" data-th="ตัวเลือกมื้อเย็น">Dinner Options</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">4:00 PM</div>
       <div class="content">
-        <div class="main">🍽️ Early dinner: <span class="restaurant">Thai Land</span></div>
-        <div class="sub">Right next to hotel!</div>
-        <div class="sub">💡 Someone can take grandma here at 4PM</div>
-        <a href="https://maps.app.goo.gl/uJaT5bmsW2FCPwB27" class="map-link">📍 Location</a>
+        <div class="main">🍽️ <span data-en="Early dinner:" data-th="มื้อเย็นเร็ว:">Early dinner:</span> <span class="restaurant">Thai Land</span></div>
+        <div class="sub"><span data-en="Right next to hotel!" data-th="ติดโรงแรมเลย!">Right next to hotel!</span></div>
+        <div class="sub">💡 <span data-en="Someone can take grandma here at 4PM" data-th="ใครสักคนพายายมาที่นี่ 4PM">Someone can take grandma here at 4PM</span></div>
+        <a href="https://maps.app.goo.gl/uJaT5bmsW2FCPwB27" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
       </div>
     </div>
     
     <div class="timeline-item">
-      <div class="time">After</div>
+      <div class="time"><span data-en="After" data-th="หลังจาก">After</span></div>
       <div class="content">
-        <div class="main">🍺 Option: <span class="restaurant">Emerson's Brewery</span></div>
-        <div class="sub">For craft beer lovers!</div>
-        <div class="sub">🛒 Stop at supermarket for grandma's breakfast</div>
+        <div class="main">🍺 <span data-en="Option:" data-th="ตัวเลือก:">Option:</span> <span class="restaurant">Emerson's Brewery</span></div>
+        <div class="sub"><span data-en="For craft beer lovers!" data-th="สำหรับคนรักเบียร์คราฟต์!">For craft beer lovers!</span></div>
+        <div class="sub">🛒 <span data-en="Stop at supermarket for grandma's breakfast" data-th="แวะซุปเปอร์มาร์เก็ตซื้อของทำอาหารเช้าให้ยาย">Stop at supermarket for grandma's breakfast</span></div>
         <a href="https://maps.app.goo.gl/uTUAcXQCmtQfksp88" class="map-link">📍 Brewery</a>
       </div>
     </div>
     
-    <div class="alert alert-purple">🌌 Aurora opportunity tonight</div>
-    <div class="alert alert-warning">📞 Call Beechwood Boutique to confirm arrival time — check booking confirmation for contact details</div>
+    <div class="alert alert-purple">🌌 <span data-en="Aurora opportunity tonight" data-th="คืนนี้อาจมีแสงเหนือ">Aurora opportunity tonight</span></div>
+    <div class="alert alert-warning">📞 <span data-en="Call Beechwood Boutique to confirm arrival time — check booking confirmation for contact details" data-th="โทรหา Beechwood Boutique แจ้งเวลาถึง — ดูเบอร์ในใบจอง">Call Beechwood Boutique to confirm arrival time — check booking confirmation for contact details</span></div>
     
     <div class="hotel-card">
       <div class="name">🏨 Beechwood Boutique</div>
-      <a href="https://maps.app.goo.gl/FH629uuXpt3EVXX96">Map</a>
+      <a href="https://maps.app.goo.gl/FH629uuXpt3EVXX96"><span data-en="Map" data-th="แผนที่">Map</span></a>
     </div>
   </div>
 </div>
@@ -1402,43 +1405,43 @@
 <!-- Day 18 - SATURDAY -->
 <div class="day" id="day18">
   <div class="day-header">
-    <div class="date">Saturday, April 18</div>
-    <div class="title">🚗 Coastal Drive to Christchurch</div>
+    <div class="date"><span data-en="Saturday, April 18" data-th="เสาร์ 18 เมษายน">Saturday, April 18</span></div>
+    <div class="title">🚗 <span data-en="Coastal Drive to Christchurch" data-th="ขับชมชายฝั่งไป Christchurch">Coastal Drive to Christchurch</span></div>
     <div class="weather-small">🌡️ Christchurch: 7-16°C</div>
   </div>
   <div class="day-nav">
-    <a href="#" onclick="scrollToSection('day18-drive'); return false;">🚗 Drive</a>
-    <a href="#" onclick="scrollToSection('day18-stops'); return false;">📍 Stops</a>
-    <a href="#" onclick="scrollToSection('day18-dinner'); return false;">🍽️ Dinner</a>
+    <a href="#" onclick="scrollToSection('day18-drive'); return false;">🚗 <span data-en="Drive" data-th="ขับรถ">Drive</span></a>
+    <a href="#" onclick="scrollToSection('day18-stops'); return false;">📍 <span data-en="Stops" data-th="จุดแวะ">Stops</span></a>
+    <a href="#" onclick="scrollToSection('day18-dinner'); return false;">🍽️ <span data-en="Dinner" data-th="มื้อเย็น">Dinner</span></a>
   </div>
   <div class="day-content">
-    <div class="alert alert-warning">👵 Cook/prepare breakfast for grandma — wake up earlier!</div>
+    <div class="alert alert-warning">👵 <span data-en="Cook/prepare breakfast for grandma — wake up earlier!" data-th="ทำอาหารเช้าให้ยาย — ตื่นเช้าขึ้น!">Cook/prepare breakfast for grandma — wake up earlier!</span></div>
     
     <div id="day18-drive" class="section-anchor">
-      <div class="section-title">🚗 Coastal Drive</div>
+      <div class="section-title">🚗 <span data-en="Coastal Drive" data-th="ขับชมชายฝั่ง">Coastal Drive</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">9:00 AM</div>
       <div class="content">
-        <div class="main">Drive to Christchurch</div>
-        <div class="drive-time">🚗 5h 30min total with stops (360km)</div>
+        <div class="main"><span data-en="Drive to Christchurch" data-th="ขับไป Christchurch">Drive to Christchurch</span></div>
+        <div class="drive-time">🚗 5h 30min <span data-en="total with stops" data-th="ทั้งหมดรวมแวะ">total with stops</span> (360km)</div>
       </div>
     </div>
     
     <div id="day18-stops" class="section-anchor">
-      <div class="section-title">📍 Scenic Stops</div>
+      <div class="section-title">📍 <span data-en="Scenic Stops" data-th="จุดแวะชมวิว">Scenic Stops</span></div>
     </div>
     
     <details open>
-      <summary>📍 Stops Along the Way</summary>
+      <summary>📍 <span data-en="Stops Along the Way" data-th="จุดแวะระหว่างทาง">Stops Along the Way</span></summary>
       <div class="detail-content">
         <div class="viewpoints">
-          <div class="viewpoint-item"><strong>Moeraki Boulders</strong> <span style="color: #666; font-size: 11px;">+45min</span> <a href="https://maps.app.goo.gl/Hku57edSSswiA8S68" class="map-link">Map</a>
-            <div style="font-size: 12px; color: #555; margin-top: 2px;">Giant 60-million-year-old spherical stones on beach — iconic NZ sight</div>
+          <div class="viewpoint-item"><strong>Moeraki Boulders</strong> <span style="color: #666; font-size: 11px;">+45min</span> <a href="https://maps.app.goo.gl/Hku57edSSswiA8S68" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a>
+            <div style="font-size: 12px; color: #555; margin-top: 2px;"><span data-en="Giant 60-million-year-old spherical stones on beach — iconic NZ sight" data-th="หินทรงกลมยักษ์อายุ 60 ล้านปีบนชายหาด — สัญลักษณ์ NZ">Giant 60-million-year-old spherical stones on beach — iconic NZ sight</span></div>
           </div>
-          <div class="viewpoint-item"><strong>Oamaru Victorian Precinct</strong> <span style="color: #666; font-size: 11px;">+1hr</span> <a href="https://maps.app.goo.gl/poDNcJqrkveqUvxM8" class="map-link">Map</a>
-            <div style="font-size: 12px; color: #555; margin-top: 2px;">Historic whitestone buildings, steampunk museum, blue penguin colony</div>
+          <div class="viewpoint-item"><strong>Oamaru Victorian Precinct</strong> <span style="color: #666; font-size: 11px;">+1hr</span> <a href="https://maps.app.goo.gl/poDNcJqrkveqUvxM8" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a>
+            <div style="font-size: 12px; color: #555; margin-top: 2px;"><span data-en="Historic whitestone buildings, steampunk museum, blue penguin colony" data-th="อาคารหินขาวประวัติศาสตร์ พิพิธภัณฑ์สตีมพังค์ อาณานิคมเพนกวินสีน้ำเงิน">Historic whitestone buildings, steampunk museum, blue penguin colony</span></div>
           </div>
         </div>
       </div>
@@ -1447,44 +1450,44 @@
     <div class="timeline-item">
       <div class="time">12:30 PM</div>
       <div class="content">
-        <div class="main">🍽️ Lunch at <span class="restaurant">Riverstone Kitchen</span> <span style="color: #666; font-size: 11px;">+1.5hrs</span></div>
-        <div class="sub">Award-winning restaurant with garden-to-table cuisine</div>
-        <div class="sub" style="color: #d35400;">⚠️ Booking required for 8+ people! Call +64 3 431 3505</div>
-        <a href="https://maps.app.goo.gl/eTmV83uBpMVvcN1v6" class="map-link">📍 Location</a>
-        <a href="https://www.riverstonekitchen.co.nz/reservations" class="book-link">📅 Book</a>
+        <div class="main">🍽️ <span data-en="Lunch at" data-th="กลางวันที่">Lunch at</span> <span class="restaurant">Riverstone Kitchen</span> <span style="color: #666; font-size: 11px;">+1.5hrs</span></div>
+        <div class="sub"><span data-en="Award-winning restaurant with garden-to-table cuisine" data-th="ร้านอาหารได้รางวัล อาหารจากสวนสู่โต๊ะ">Award-winning restaurant with garden-to-table cuisine</span></div>
+        <div class="sub" style="color: #d35400;">⚠️ <span data-en="Booking required for 8+ people! Call +64 3 431 3505" data-th="ต้องจองสำหรับ 8+ คน! โทร +64 3 431 3505">Booking required for 8+ people! Call +64 3 431 3505</span></div>
+        <a href="https://maps.app.goo.gl/eTmV83uBpMVvcN1v6" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
+        <a href="https://www.riverstonekitchen.co.nz/reservations" class="book-link">📅 <span data-en="Book" data-th="จอง">Book</span></a>
       </div>
     </div>
     
     <div class="timeline-item">
       <div class="time">5:30 PM</div>
-      <div class="content"><div class="main">Arrive Christchurch & check in</div></div>
+      <div class="content"><div class="main"><span data-en="Arrive Christchurch & check in" data-th="ถึง Christchurch & เช็คอิน">Arrive Christchurch & check in</span></div></div>
     </div>
     <div class="timeline-item">
-      <div class="time">Before 10PM</div>
+      <div class="time"><span data-en="Before 10PM" data-th="ก่อน 4 ทุ่ม">Before 10PM</span></div>
       <div class="content">
-        <div class="main"><strong>🚗 Return rental cars</strong></div>
-        <div class="sub">Ezi Car Rental — Airport rental car section</div>
-        <div class="sub">Drop keys in key drop box if unattended</div>
+        <div class="main"><strong>🚗 <span data-en="Return rental cars" data-th="คืนรถเช่า">Return rental cars</span></strong></div>
+        <div class="sub">Ezi Car Rental — <span data-en="Airport rental car section" data-th="ส่วนรถเช่าสนามบิน">Airport rental car section</span></div>
+        <div class="sub"><span data-en="Drop keys in key drop box if unattended" data-th="หย่อนกุญแจในกล่องถ้าไม่มีคน">Drop keys in key drop box if unattended</span></div>
       </div>
     </div>
     
     <div id="day18-dinner" class="section-anchor">
-      <div class="section-title">🍽️ Final Dinner</div>
+      <div class="section-title">🍽️ <span data-en="Final Dinner" data-th="มื้อเย็นสุดท้าย">Final Dinner</span></div>
     </div>
     
     <div class="timeline-item">
       <div class="time">6:30 PM</div>
       <div class="content">
-        <div class="main">🥩 Dinner at <span class="restaurant">The Avonhead Tavern</span></div>
-        <div class="sub">One Good Horse Restaurant — Big steaks!</div>
-        <div class="sub">🅿️ Big parking lot — easy access</div>
-        <a href="https://maps.app.goo.gl/BqB1oP5wqPeZsDwu9" class="map-link">📍 Location</a>
+        <div class="main">🥩 <span data-en="Dinner at" data-th="มื้อเย็นที่">Dinner at</span> <span class="restaurant">The Avonhead Tavern</span></div>
+        <div class="sub">One Good Horse Restaurant — <span data-en="Big steaks!" data-th="สเต็กจานโต!">Big steaks!</span></div>
+        <div class="sub">🅿️ <span data-en="Big parking lot — easy access" data-th="ที่จอดรถใหญ่ — เข้าง่าย">Big parking lot — easy access</span></div>
+        <a href="https://maps.app.goo.gl/BqB1oP5wqPeZsDwu9" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
       </div>
     </div>
     
     <div class="hotel-card">
       <div class="name">🏨 Novotel CHC Airport</div>
-      <a href="https://maps.app.goo.gl/JEYYCoDpWJHKH4Q18">Map</a>
+      <a href="https://maps.app.goo.gl/JEYYCoDpWJHKH4Q18"><span data-en="Map" data-th="แผนที่">Map</span></a>
     </div>
   </div>
 </div>
@@ -1492,124 +1495,124 @@
 <!-- Day 19 - SUNDAY -->
 <div class="day" id="day19">
   <div class="day-header">
-    <div class="date">Sunday, April 19</div>
-    <div class="title">✈️ Return to Bangkok</div>
+    <div class="date"><span data-en="Sunday, April 19" data-th="อาทิตย์ 19 เมษายน">Sunday, April 19</span></div>
+    <div class="title">✈️ <span data-en="Return to Bangkok" data-th="กลับกรุงเทพ">Return to Bangkok</span></div>
   </div>
   <div class="day-content">
-    <div class="alert alert-warning">⏰ <strong>EARLY START!</strong> Wake up at 3:00 AM!</div>
+    <div class="alert alert-warning">⏰ <strong><span data-en="EARLY START!" data-th="ออกเช้ามาก!">EARLY START!</span></strong> <span data-en="Wake up at 3:00 AM!" data-th="ตื่น 3:00 AM!">Wake up at 3:00 AM!</span></div>
     <div class="timeline-item">
       <div class="time">6:00 AM</div>
       <div class="content">
         <div class="main">✈️ NZ 213: Christchurch → Melbourne</div>
-        <div class="sub">Arrives 7:35 AM local</div>
-        <div class="drive-time">Flight: 3h 35min</div>
+        <div class="sub"><span data-en="Arrives 7:35 AM local" data-th="ถึง 7:35 AM เวลาท้องถิ่น">Arrives 7:35 AM local</span></div>
+        <div class="drive-time"><span data-en="Flight" data-th="บิน">Flight</span>: 3h 35min</div>
       </div>
     </div>
     <div class="timeline-item">
       <div class="time">1:30 PM</div>
       <div class="content">
         <div class="main">✈️ TG 466: Melbourne → Bangkok</div>
-        <div class="sub">Arrives 8:00 PM same day</div>
-        <div class="drive-time">Flight: 9h 30min</div>
+        <div class="sub"><span data-en="Arrives 8:00 PM same day" data-th="ถึง 20:00 วันเดียวกัน">Arrives 8:00 PM same day</span></div>
+        <div class="drive-time"><span data-en="Flight" data-th="บิน">Flight</span>: 9h 30min</div>
       </div>
     </div>
-    <div class="alert alert-success">🎉 Welcome home! What an adventure!</div>
+    <div class="alert alert-success">🎉 <span data-en="Welcome home! What an adventure!" data-th="ยินดีต้อนรับกลับบ้าน! ผจญภัยสุดๆ!">Welcome home! What an adventure!</span></div>
   </div>
 </div>
 
 <!-- Hotels Section -->
 <div class="summary-section" id="hotels">
-  <div class="summary-header">🏨 All Hotels</div>
+  <div class="summary-header">🏨 <span data-en="All Hotels" data-th="โรงแรมทั้งหมด">All Hotels</span></div>
   <div class="summary-content">
-    <div class="summary-item"><span class="date">Apr 11-12</span> — Amore Tekapo (2 nights) <a href="https://maps.app.goo.gl/pnAhuMmRHFtgidE67" class="map-link">Map</a></div>
-    <div class="summary-item"><span class="date">Apr 13-14</span> — Highview Retreat, Queenstown (2 nights) <a href="https://maps.app.goo.gl/3jmGYCfhcN3wW88p7" class="map-link">Map</a></div>
-    <div class="summary-item"><span class="date">Apr 15-16</span> — Anua Holiday Home, Te Anau (2 nights) <a href="https://maps.app.goo.gl/q7Rbe3KT53yfYdbj7" class="map-link">Map</a></div>
-    <div class="summary-item"><span class="date">Apr 17</span> — Beechwood Boutique, Dunedin <a href="https://maps.app.goo.gl/FH629uuXpt3EVXX96" class="map-link">Map</a></div>
-    <div class="summary-item"><span class="date">Apr 18</span> — Novotel Christchurch Airport <a href="https://maps.app.goo.gl/JEYYCoDpWJHKH4Q18" class="map-link">Map</a></div>
+    <div class="summary-item"><span class="date">Apr 11-12</span> — Amore Tekapo (2 <span data-en="nights" data-th="คืน">nights</span>) <a href="https://maps.app.goo.gl/pnAhuMmRHFtgidE67" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
+    <div class="summary-item"><span class="date">Apr 13-14</span> — Highview Retreat, Queenstown (2 <span data-en="nights" data-th="คืน">nights</span>) <a href="https://maps.app.goo.gl/3jmGYCfhcN3wW88p7" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
+    <div class="summary-item"><span class="date">Apr 15-16</span> — Anua Holiday Home, Te Anau (2 <span data-en="nights" data-th="คืน">nights</span>) <a href="https://maps.app.goo.gl/q7Rbe3KT53yfYdbj7" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
+    <div class="summary-item"><span class="date">Apr 17</span> — Beechwood Boutique, Dunedin <a href="https://maps.app.goo.gl/FH629uuXpt3EVXX96" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
+    <div class="summary-item"><span class="date">Apr 18</span> — Novotel Christchurch Airport <a href="https://maps.app.goo.gl/JEYYCoDpWJHKH4Q18" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
   </div>
 </div>
 
 <!-- Driving Section -->
 <div class="summary-section" id="driving">
-  <div class="summary-header">🚗 Driving Quick Guide</div>
+  <div class="summary-header">🚗 <span data-en="Driving Quick Guide" data-th="คู่มือขับรถ">Driving Quick Guide</span></div>
   <div class="summary-content">
     <div class="driving-grid">
       <div class="driving-card">
-        <div class="title">🚦 Speed Limits</div>
+        <div class="title">🚦 <span data-en="Speed Limits" data-th="จำกัดความเร็ว">Speed Limits</span></div>
         <div class="content">
-          🏘️ Town: <strong>50</strong> km/h<br>
-          🛣️ Open: <strong>100</strong> km/h<br>
-          🚧 Roadworks: <strong>30-50</strong> km/h
+          🏘️ <span data-en="Town" data-th="ในเมือง">Town</span>: <strong>50</strong> km/h<br>
+          🛣️ <span data-en="Open" data-th="ทางโล่ง">Open</span>: <strong>100</strong> km/h<br>
+          🚧 <span data-en="Roadworks" data-th="ก่อสร้าง">Roadworks</span>: <strong>30-50</strong> km/h
         </div>
       </div>
       <div class="driving-card">
-        <div class="title">🔄 Roundabouts</div>
+        <div class="title">🔄 <span data-en="Roundabouts" data-th="วงเวียน">Roundabouts</span></div>
         <div class="content">
-          ↪️ Go <strong>clockwise</strong><br>
-          👉 Yield to <strong>right</strong><br>
-          ⬅️ Signal left to exit
+          ↪️ <span data-en="Go" data-th="วน">Go</span> <strong><span data-en="clockwise" data-th="ตามเข็ม">clockwise</span></strong><br>
+          👉 <span data-en="Yield to" data-th="ให้ทาง">Yield to</span> <strong><span data-en="right" data-th="ขวา">right</span></strong><br>
+          ⬅️ <span data-en="Signal left to exit" data-th="เลี้ยวซ้ายออก">Signal left to exit</span>
         </div>
       </div>
       <div class="driving-card">
-        <div class="title">🌉 1-Lane Bridges</div>
+        <div class="title">🌉 <span data-en="1-Lane Bridges" data-th="สะพานเลนเดียว">1-Lane Bridges</span></div>
         <div class="content">
-          <span style="font-size: 18px;">➡️</span> Big arrow = <strong>GO</strong><br>
-          <span style="font-size: 12px;">➡️</span> Small arrow = <strong>WAIT</strong>
+          <span style="font-size: 18px;">➡️</span> <span data-en="Big arrow" data-th="ลูกศรใหญ่">Big arrow</span> = <strong><span data-en="GO" data-th="ไปได้">GO</span></strong><br>
+          <span style="font-size: 12px;">➡️</span> <span data-en="Small arrow" data-th="ลูกศรเล็ก">Small arrow</span> = <strong><span data-en="WAIT" data-th="รอ">WAIT</span></strong>
         </div>
       </div>
       <div class="driving-card">
-        <div class="title">🅿️ Parking Signs</div>
+        <div class="title">🅿️ <span data-en="Parking Signs" data-th="ป้ายจอดรถ">Parking Signs</span></div>
         <div class="content">
-          P60 = ⏱️ 1hr max<br>
-          P120 = ⏱️ 2hr max<br>
-          🟡 Yellow line = 🚫
+          P60 = ⏱️ <span data-en="1hr max" data-th="สูงสุด 1 ชม.">1hr max</span><br>
+          P120 = ⏱️ <span data-en="2hr max" data-th="สูงสุด 2 ชม.">2hr max</span><br>
+          🟡 <span data-en="Yellow line" data-th="เส้นเหลือง">Yellow line</span> = 🚫
         </div>
       </div>
     </div>
     <div class="offline-note" style="margin-top: 15px;">
-      📴 <strong>Download offline maps!</strong> Many scenic routes have no cell service.
+      📴 <strong><span data-en="Download offline maps!" data-th="ดาวน์โหลดแผนที่ออฟไลน์!">Download offline maps!</span></strong> <span data-en="Many scenic routes have no cell service." data-th="หลายเส้นทางไม่มีสัญญาณโทรศัพท์">Many scenic routes have no cell service.</span>
     </div>
   </div>
 </div>
 
 <!-- Emergency Section -->
 <div class="summary-section" id="emergency">
-  <div class="summary-header">🆘 Emergency & Essentials</div>
+  <div class="summary-header">🆘 <span data-en="Emergency & Essentials" data-th="ฉุกเฉิน & ข้อมูลสำคัญ">Emergency & Essentials</span></div>
   <div class="summary-content">
     <div class="driving-grid">
       <div class="driving-card">
-        <div class="title">🚨 Emergency</div>
-        <div class="content"><strong style="font-size: 18px;">111</strong><br>Police / Fire / Ambulance</div>
+        <div class="title">🚨 <span data-en="Emergency" data-th="ฉุกเฉิน">Emergency</span></div>
+        <div class="content"><strong style="font-size: 18px;">111</strong><br><span data-en="Police / Fire / Ambulance" data-th="ตำรวจ / ดับเพลิง / รถพยาบาล">Police / Fire / Ambulance</span></div>
       </div>
       <div class="driving-card">
-        <div class="title">🚗 Rental Car</div>
+        <div class="title">🚗 <span data-en="Rental Car" data-th="รถเช่า">Rental Car</span></div>
         <div class="content"><strong>Ezi Car Rental</strong><br><a href="tel:0800545000" style="color: #2980b9;">0800 545 000</a><br><span style="font-size: 11px;">24hr AA Roadside</span></div>
       </div>
       <div class="driving-card">
-        <div class="title">📱 Country Code</div>
-        <div class="content"><strong>+64</strong><br>Drop leading 0<br>e.g. 021→+64 21</div>
+        <div class="title">📱 <span data-en="Country Code" data-th="รหัสประเทศ">Country Code</span></div>
+        <div class="content"><strong>+64</strong><br><span data-en="Drop leading 0" data-th="ตัด 0 นำหน้า">Drop leading 0</span><br>e.g. 021→+64 21</div>
       </div>
       <div class="driving-card">
-        <div class="title">💵 Currency</div>
-        <div class="content"><strong>NZD</strong><br>No tipping expected<br>Cards widely accepted</div>
+        <div class="title">💵 <span data-en="Currency" data-th="สกุลเงิน">Currency</span></div>
+        <div class="content"><strong>NZD</strong><br><span data-en="No tipping expected" data-th="ไม่ต้องให้ทิป">No tipping expected</span><br><span data-en="Cards widely accepted" data-th="รับบัตรทั่วไป">Cards widely accepted</span></div>
       </div>
     </div>
     <div style="margin-top: 15px; padding: 12px; background: #e8f5e9; border-radius: 10px; font-size: 13px;">
-      <strong>🚗 Rental Booking Refs:</strong> R1M0G3, R1M0G4, R1M0G5<br>
-      <strong>📍 Return:</strong> Apr 18, 10:00 PM — Christchurch Airport (same location)
+      <strong>🚗 <span data-en="Rental Booking Refs" data-th="เลขจองรถ">Rental Booking Refs</span>:</strong> R1M0G3, R1M0G4, R1M0G5<br>
+      <strong>📍 <span data-en="Return" data-th="คืนรถ">Return</span>:</strong> Apr 18, 10:00 PM — Christchurch Airport
     </div>
   </div>
 </div>
 
 <button id="todayFab" class="today-fab" onclick="scrollToToday()">
-  📍 Today
+  📍 <span data-en="Today" data-th="วันนี้">Today</span>
 </button>
 
 <div class="bottom-nav">
-  <a href="#" onclick="scrollToElement('driving'); return false;"><span class="icon">🚗</span>Drive</a>
-  <a href="#" onclick="scrollToElement('hotels'); return false;"><span class="icon">🏨</span>Hotels</a>
+  <a href="#" onclick="scrollToElement('driving'); return false;"><span class="icon">🚗</span><span data-en="Drive" data-th="ขับรถ">Drive</span></a>
+  <a href="#" onclick="scrollToElement('hotels'); return false;"><span class="icon">🏨</span><span data-en="Hotels" data-th="โรงแรม">Hotels</span></a>
   <a href="#" onclick="scrollToElement('emergency'); return false;"><span class="icon">🆘</span>SOS</a>
-  <a href="#" onclick="showHelp(); return false;"><span class="icon">❓</span>Help</a>
+  <a href="#" onclick="showHelp(); return false;"><span class="icon">❓</span><span data-en="Help" data-th="ช่วยเหลือ">Help</span></a>
 </div>
 
 </div><!-- End main page -->
@@ -1617,22 +1620,22 @@
 <!-- HELP PAGE -->
 <div class="page" id="help-page">
   <div class="header">
-    <h1>❓ How to Use</h1>
+    <h1>❓ <span data-en="How to Use" data-th="วิธีใช้งาน">How to Use</span></h1>
   </div>
   
   <div class="help-section">
-    <p style="font-size: 15px; margin-bottom: 15px;">This is your <strong>offline trip guide</strong> for New Zealand. Save it to your home screen — it works without internet!</p>
+    <p style="font-size: 15px; margin-bottom: 15px;"><span data-en="This is your" data-th="นี่คือ">This is your</span> <strong><span data-en="offline trip guide" data-th="คู่มือเที่ยวออฟไลน์">offline trip guide</span></strong> <span data-en="for New Zealand. Save it to your home screen — it works without internet!" data-th="สำหรับนิวซีแลนด์ บันทึกไว้ที่หน้าจอหลัก — ใช้ได้โดยไม่ต้องมีเน็ต!">for New Zealand. Save it to your home screen — it works without internet!</span></p>
     
-    <p style="font-size: 14px; margin-bottom: 10px;"><strong>📅 Day tabs</strong> — Jump to any day</p>
-    <p style="font-size: 14px; margin-bottom: 10px;"><strong>🔍 Search</strong> — Find restaurants, hotels, places</p>
-    <p style="font-size: 14px; margin-bottom: 10px;"><strong>▶️ Tap to expand</strong> — Some sections are collapsible</p>
-    <p style="font-size: 14px; margin-bottom: 10px;"><strong>📍 Map links</strong> — Open in Google Maps (needs data)</p>
-    <p style="font-size: 14px; margin-bottom: 15px;"><strong>📍 Today button</strong> — Shows during trip, jumps to current day</p>
+    <p style="font-size: 14px; margin-bottom: 10px;"><strong>📅 <span data-en="Day tabs" data-th="แท็บวัน">Day tabs</span></strong> — <span data-en="Jump to any day" data-th="ไปวันไหนก็ได้">Jump to any day</span></p>
+    <p style="font-size: 14px; margin-bottom: 10px;"><strong>🔍 <span data-en="Search" data-th="ค้นหา">Search</span></strong> — <span data-en="Find restaurants, hotels, places" data-th="หาร้านอาหาร โรงแรม สถานที่">Find restaurants, hotels, places</span></p>
+    <p style="font-size: 14px; margin-bottom: 10px;"><strong>▶️ <span data-en="Tap to expand" data-th="แตะเพื่อขยาย">Tap to expand</span></strong> — <span data-en="Some sections are collapsible" data-th="บางส่วนย่อ/ขยายได้">Some sections are collapsible</span></p>
+    <p style="font-size: 14px; margin-bottom: 10px;"><strong>📍 <span data-en="Map links" data-th="ลิงก์แผนที่">Map links</span></strong> — <span data-en="Open in Google Maps (needs data)" data-th="เปิดใน Google Maps (ต้องใช้เน็ต)">Open in Google Maps (needs data)</span></p>
+    <p style="font-size: 14px; margin-bottom: 15px;"><strong>📍 <span data-en="Today button" data-th="ปุ่มวันนี้">Today button</span></strong> — <span data-en="Shows during trip, jumps to current day" data-th="แสดงระหว่างทริป ไปวันปัจจุบัน">Shows during trip, jumps to current day</span></p>
     
-    <p style="font-size: 13px; color: #666;"><strong>Box colors:</strong> 🟡 Warning · 🟢 Elderly option · 🔵 Optional · 🟠 Group split · 🟣 Aurora</p>
+    <p style="font-size: 13px; color: #666;"><strong><span data-en="Box colors" data-th="สีกล่อง">Box colors</span>:</strong> 🟡 <span data-en="Warning" data-th="เตือน">Warning</span> · 🟢 <span data-en="Elderly option" data-th="ทางเลือกผู้สูงอายุ">Elderly option</span> · 🔵 <span data-en="Optional" data-th="ไม่บังคับ">Optional</span> · 🟠 <span data-en="Group split" data-th="แยกกลุ่ม">Group split</span> · 🟣 Aurora</p>
   </div>
   
-  <a href="#" class="back-btn" onclick="showMain(); return false;">← Back to Itinerary</a>
+  <a href="#" class="back-btn" onclick="showMain(); return false;">← <span data-en="Back to Itinerary" data-th="กลับไปกำหนดการ">Back to Itinerary</span></a>
 </div>
 
 <script>
@@ -1676,15 +1679,21 @@ function initTodayFeatures() {
   if (today < tripStart) {
     const diffTime = tripStart - today;
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    let excitementText = '';
+    let excitementTextEN = '';
+    let excitementTextTH = '';
     if (diffDays <= 7) {
-      excitementText = '🎉 Almost there!';
+      excitementTextEN = '🎉 Almost there!';
+      excitementTextTH = '🎉 ใกล้แล้ว!';
     } else if (diffDays <= 30) {
-      excitementText = '✨ Getting closer!';
+      excitementTextEN = '✨ Getting closer!';
+      excitementTextTH = '✨ ใกล้เข้ามาแล้ว!';
     } else {
-      excitementText = '🌏 Adventure awaits!';
+      excitementTextEN = '🌏 Adventure awaits!';
+      excitementTextTH = '🌏 การผจญภัยรออยู่!';
     }
-    statusBanner.innerHTML = `<span style="font-size: 1.3em;">✈️🇳🇿</span> ${excitementText} New Zealand in <span class="countdown">${diffDays} day${diffDays !== 1 ? 's' : ''}</span>! <span style="font-size: 1.1em;">🏔️🌊🥝</span>`;
+    const dayTextEN = diffDays !== 1 ? 'days' : 'day';
+    const dayTextTH = 'วัน';
+    statusBanner.innerHTML = `<span style="font-size: 1.3em;">✈️🇳🇿</span> <span data-en="${excitementTextEN} New Zealand in" data-th="${excitementTextTH} นิวซีแลนด์อีก">${excitementTextEN} New Zealand in</span> <span class="countdown">${diffDays}</span> <span data-en="${dayTextEN}" data-th="${dayTextTH}">${dayTextEN}</span>! <span style="font-size: 1.1em;">🏔️🌊🥝</span>`;
     statusBanner.style.display = 'block';
     checklist.style.display = 'block';
     todayFab.classList.remove('visible');
@@ -1693,7 +1702,7 @@ function initTodayFeatures() {
   
   // After trip ends
   if (today > tripEnd) {
-    statusBanner.innerHTML = `🎉 Trip completed! What an adventure!`;
+    statusBanner.innerHTML = `🎉 <span data-en="Trip completed! What an adventure!" data-th="ทริปเสร็จสิ้น! ผจญภัยสุดๆ!">Trip completed! What an adventure!</span>`;
     statusBanner.classList.add('completed');
     statusBanner.style.display = 'block';
     todayFab.classList.remove('visible');
@@ -1827,6 +1836,34 @@ function showMain() {
   window.scrollTo(0, 0);
 }
 
+// Language toggle
+let currentLang = 'en';
+
+function toggleLanguage() {
+  currentLang = currentLang === 'en' ? 'th' : 'en';
+  document.getElementById('langToggle').textContent = currentLang === 'en' ? '🌐 TH' : '🌐 EN';
+  
+  // Update all elements with data-en and data-th attributes
+  document.querySelectorAll('[data-en][data-th]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + currentLang);
+  });
+  
+  // Update search placeholder
+  const searchInput = document.getElementById('searchInput');
+  searchInput.placeholder = currentLang === 'en' ? 'Search restaurants, places...' : 'ค้นหาร้านอาหาร สถานที่...';
+  
+  // Save preference
+  localStorage.setItem('nzTripLang', currentLang);
+}
+
+// Load saved language preference
+function initLanguage() {
+  const saved = localStorage.getItem('nzTripLang');
+  if (saved && saved === 'th') {
+    toggleLanguage();
+  }
+}
+
 // Close search when clicking outside
 document.addEventListener('click', function(e) {
   if (!e.target.closest('.search-container') && !e.target.closest('.search-results')) {
@@ -1835,7 +1872,10 @@ document.addEventListener('click', function(e) {
 });
 
 // Initialize on page load
-document.addEventListener('DOMContentLoaded', initTodayFeatures);
+document.addEventListener('DOMContentLoaded', function() {
+  initTodayFeatures();
+  initLanguage();
+});
 </script>
 
 </body>
