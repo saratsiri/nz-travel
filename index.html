@@ -581,6 +581,38 @@
   <div class="search-results" id="searchResults"></div>
 </div>
 
+<!-- Pre-Trip Checklist -->
+<div id="preTripChecklist" class="day" style="display: none; border: 2px solid #27ae60;">
+  <div class="day-header" style="background: linear-gradient(135deg, #27ae60, #2ecc71);">
+    <div class="date">📋 Before You Go</div>
+    <div class="title">Pre-Trip Checklist</div>
+  </div>
+  <div class="day-content">
+    <div style="padding: 5px 0;">
+      <label style="display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid #eee; cursor: pointer;">
+        <input type="checkbox" style="width: 22px; height: 22px; accent-color: #27ae60;">
+        <span style="font-size: 15px;"><strong>📱 Download offline maps</strong> — Google Maps → South Island → Download</span>
+      </label>
+      <label style="display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid #eee; cursor: pointer;">
+        <input type="checkbox" style="width: 22px; height: 22px; accent-color: #27ae60;">
+        <span style="font-size: 15px;"><strong>🎫 Book activities</strong> — Glacier Explorers, Te Anau Caves, Milford Cruise</span>
+      </label>
+      <label style="display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid #eee; cursor: pointer;">
+        <input type="checkbox" style="width: 22px; height: 22px; accent-color: #27ae60;">
+        <span style="font-size: 15px;"><strong>🍽️ Reserve restaurants</strong> — SUNDAYS, Redcliff, Riverstone Kitchen</span>
+      </label>
+      <label style="display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid #eee; cursor: pointer;">
+        <input type="checkbox" style="width: 22px; height: 22px; accent-color: #27ae60;">
+        <span style="font-size: 15px;"><strong>🧥 Pack layers</strong> — 5-15°C, rain jacket essential</span>
+      </label>
+      <label style="display: flex; align-items: center; gap: 10px; padding: 12px 0; cursor: pointer;">
+        <input type="checkbox" style="width: 22px; height: 22px; accent-color: #27ae60;">
+        <span style="font-size: 15px;"><strong>💾 Save this page</strong> — Add to home screen for offline use</span>
+      </label>
+    </div>
+  </div>
+</div>
+
 <!-- Day 10 - FRIDAY -->
 <div class="day" id="day10">
   <div class="day-header">
@@ -663,7 +695,7 @@
       </div>
     </div>
     
-    <div class="alert alert-success">✅ Hotel confirmed — no need to call</div>
+    <div class="alert alert-warning">📞 Call Amore Tekapo to confirm arrival time — check booking confirmation for contact details</div>
     <div class="alert alert-purple">🌌 Aurora opportunity tonight — check aurora forecast!</div>
     
     <div class="hotel-card">
@@ -921,6 +953,7 @@
     </div>
     
     <div class="alert alert-purple">🌌 Aurora opportunity tonight</div>
+    <div class="alert alert-warning">📞 Call Highview Retreat to confirm arrival time — check booking confirmation for contact details</div>
     
     <div class="hotel-card">
       <div class="name">🏨 Highview Retreat</div>
@@ -1133,6 +1166,7 @@
     </details>
     
     <div class="alert alert-purple">🌌 Aurora opportunity tonight</div>
+    <div class="alert alert-warning">📞 Call Anua Holiday Home to confirm arrival time — check booking confirmation for contact details</div>
     
     <div class="hotel-card">
       <div class="name">🏨 Anua Holiday Home</div>
@@ -1356,6 +1390,7 @@
     </div>
     
     <div class="alert alert-purple">🌌 Aurora opportunity tonight</div>
+    <div class="alert alert-warning">📞 Call Beechwood Boutique to confirm arrival time — check booking confirmation for contact details</div>
     
     <div class="hotel-card">
       <div class="name">🏨 Beechwood Boutique</div>
@@ -1486,14 +1521,11 @@
 <div class="summary-section" id="hotels">
   <div class="summary-header">🏨 All Hotels</div>
   <div class="summary-content">
-    <div class="summary-item"><span class="date">Apr 11-12</span> — Amore Tekapo (2 nights) <a href="https://maps.app.goo.gl/pnAhuMmRHFtgidE67" class="map-link">Map</a> <span style="color: #e67e22;">📞 Call ahead</span></div>
-    <div class="summary-item"><span class="date">Apr 13-14</span> — Highview Retreat, Queenstown (2 nights) <a href="https://maps.app.goo.gl/3jmGYCfhcN3wW88p7" class="map-link">Map</a> <span style="color: #e67e22;">📞 Call ahead</span></div>
-    <div class="summary-item"><span class="date">Apr 15-16</span> — Anua Holiday Home, Te Anau (2 nights) <a href="https://maps.app.goo.gl/q7Rbe3KT53yfYdbj7" class="map-link">Map</a> <span style="color: #e67e22;">📞 Call ahead</span></div>
-    <div class="summary-item"><span class="date">Apr 17</span> — Beechwood Boutique, Dunedin <a href="https://maps.app.goo.gl/FH629uuXpt3EVXX96" class="map-link">Map</a> <span style="color: #e67e22;">📞 Call ahead</span></div>
+    <div class="summary-item"><span class="date">Apr 11-12</span> — Amore Tekapo (2 nights) <a href="https://maps.app.goo.gl/pnAhuMmRHFtgidE67" class="map-link">Map</a></div>
+    <div class="summary-item"><span class="date">Apr 13-14</span> — Highview Retreat, Queenstown (2 nights) <a href="https://maps.app.goo.gl/3jmGYCfhcN3wW88p7" class="map-link">Map</a></div>
+    <div class="summary-item"><span class="date">Apr 15-16</span> — Anua Holiday Home, Te Anau (2 nights) <a href="https://maps.app.goo.gl/q7Rbe3KT53yfYdbj7" class="map-link">Map</a></div>
+    <div class="summary-item"><span class="date">Apr 17</span> — Beechwood Boutique, Dunedin <a href="https://maps.app.goo.gl/FH629uuXpt3EVXX96" class="map-link">Map</a></div>
     <div class="summary-item"><span class="date">Apr 18</span> — Novotel Christchurch Airport <a href="https://maps.app.goo.gl/JEYYCoDpWJHKH4Q18" class="map-link">Map</a></div>
-    <div class="offline-note" style="margin-top: 15px;">
-      📞 <strong>Remember to call!</strong> Contact all accommodations (except Novotel) before arrival to confirm your expected check-in time. Check your booking confirmation for contact details.
-    </div>
   </div>
 </div>
 
@@ -1559,7 +1591,7 @@
 </button>
 
 <div class="bottom-nav">
-  <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"><span class="icon">⬆️</span>Top</a>
+  <a href="#" onclick="scrollToElement('driving'); return false;"><span class="icon">🚗</span>Drive</a>
   <a href="#" onclick="scrollToElement('hotels'); return false;"><span class="icon">🏨</span>Hotels</a>
   <a href="#" onclick="scrollToElement('emergency'); return false;"><span class="icon">🆘</span>SOS</a>
   <a href="#" onclick="showHelp(); return false;"><span class="icon">❓</span>Help</a>
@@ -1571,114 +1603,17 @@
 <div class="page" id="help-page">
   <div class="header">
     <h1>❓ Quick Reference</h1>
-    <div class="dates">Understanding This Guide</div>
   </div>
   
   <div class="help-section">
-    <h2>🎨 What the Colors Mean</h2>
-    
-    <div class="help-item">
-      <div class="help-icon yellow">⚠️</div>
-      <div class="help-text">
-        <h3>Yellow Box = Warning/Reminder</h3>
-        <p>Important things you must not forget — times, bookings, early wake-ups</p>
-      </div>
+    <h2>🎨 Box Colors</h2>
+    <div style="font-size: 14px; line-height: 2;">
+      <span style="background: #fef9e7; padding: 4px 8px; border-radius: 5px; border-left: 3px solid #f39c12;">⚠️ Yellow</span> = Warning/Reminder<br>
+      <span style="background: #e8f6f3; padding: 4px 8px; border-radius: 5px; border-left: 3px solid #1abc9c;">👴 Green</span> = Elderly Alternative<br>
+      <span style="background: #ebf5fb; padding: 4px 8px; border-radius: 5px; border-left: 3px solid #3498db;">📌 Blue</span> = Optional<br>
+      <span style="background: #fff3e0; padding: 4px 8px; border-radius: 5px; border-left: 3px solid #ff9800;">👥 Orange</span> = Group Split<br>
+      <span style="background: #f5eef8; padding: 4px 8px; border-radius: 5px; border-left: 3px solid #9b59b6;">🌌 Purple</span> = Aurora Night
     </div>
-    
-    <div class="help-item">
-      <div class="help-icon green">👴</div>
-      <div class="help-text">
-        <h3>Green Box = Elderly Options</h3>
-        <p>Alternative plans for grandma or anyone wanting an easier activity</p>
-      </div>
-    </div>
-    
-    <div class="help-item">
-      <div class="help-icon blue">📌</div>
-      <div class="help-text">
-        <h3>Blue Box = Optional Activity</h3>
-        <p>You can skip this if tired or short on time</p>
-      </div>
-    </div>
-    
-    <div class="help-item">
-      <div class="help-icon orange">👥</div>
-      <div class="help-text">
-        <h3>Orange Box = Group Split</h3>
-        <p>Different people going different places</p>
-      </div>
-    </div>
-    
-    <div class="help-item">
-      <div class="help-icon purple">🌌</div>
-      <div class="help-text">
-        <h3>Purple Box = Aurora/Night Sky</h3>
-        <p>Good chance to see Southern Lights if clear</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="help-section">
-    <h2>📍 Using the Buttons</h2>
-    
-    <div class="help-item">
-      <div class="help-icon blue">📍</div>
-      <div class="help-text">
-        <h3>Blue "Map" Button</h3>
-        <p>Opens Google Maps with directions from your location</p>
-      </div>
-    </div>
-    
-    <div class="help-item">
-      <div class="help-icon green">📅</div>
-      <div class="help-text">
-        <h3>Green "Book" Button</h3>
-        <p>Opens the booking website for that activity</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="help-section">
-    <h2>📱 Navigation Tips</h2>
-    
-    <div class="help-item">
-      <div class="help-icon" style="background: #f5f5f5;">🔍</div>
-      <div class="help-text">
-        <h3>Search Bar</h3>
-        <p>Type a restaurant or place name to find it quickly</p>
-      </div>
-    </div>
-    
-    <div class="help-item">
-      <div class="help-icon" style="background: #f5f5f5;">▶️</div>
-      <div class="help-text">
-        <h3>Expandable Sections</h3>
-        <p>Tap boxes with arrows to show/hide details</p>
-      </div>
-    </div>
-    
-    <div class="help-item">
-      <div class="help-icon" style="background: #f5f5f5;">📅</div>
-      <div class="help-text">
-        <h3>Day Buttons</h3>
-        <p>Tap dates at top to jump to that day</p>
-      </div>
-    </div>
-    
-    <div class="help-item">
-      <div class="help-icon" style="background: #f5f5f5;">💾</div>
-      <div class="help-text">
-        <h3>Works Offline!</h3>
-        <p>This file works without internet (but map links need data)</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="help-section">
-    <h2>🖨️ Printing This Guide</h2>
-    <p style="font-size: 14px; color: var(--muted);">
-      To print a paper backup: Open in Safari → Tap Share → Print. The guide will format nicely for paper.
-    </p>
   </div>
   
   <a href="#" class="back-btn" onclick="showMain(); return false;">← Back to Itinerary</a>
@@ -1719,6 +1654,7 @@ function initTodayFeatures() {
   const todaySection = tripDays[todayStr];
   const statusBanner = document.getElementById('tripStatus');
   const todayFab = document.getElementById('todayFab');
+  const checklist = document.getElementById('preTripChecklist');
   
   // Before trip starts
   if (today < tripStart) {
@@ -1734,6 +1670,7 @@ function initTodayFeatures() {
     }
     statusBanner.innerHTML = `<span style="font-size: 1.3em;">✈️🇳🇿</span> ${excitementText} New Zealand in <span class="countdown">${diffDays} day${diffDays !== 1 ? 's' : ''}</span>! <span style="font-size: 1.1em;">🏔️🌊🥝</span>`;
     statusBanner.style.display = 'block';
+    checklist.style.display = 'block';
     todayFab.classList.remove('visible');
     return;
   }
