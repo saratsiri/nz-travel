@@ -513,9 +513,23 @@
       padding: 15px 20px;
       text-align: center;
       font-size: 15px;
+      animation: bannerPulse 3s ease-in-out infinite;
     }
-    .trip-status .countdown { font-size: 24px; font-weight: 700; margin: 5px 0; }
+    .trip-status .countdown { 
+      font-size: 28px; 
+      font-weight: 700; 
+      margin: 0 5px;
+      background: rgba(255,255,255,0.2);
+      padding: 2px 12px;
+      border-radius: 8px;
+      display: inline-block;
+    }
     .trip-status.completed { background: linear-gradient(135deg, var(--success), #1abc9c); }
+    
+    @keyframes bannerPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.01); box-shadow: 0 4px 20px rgba(52, 73, 94, 0.3); }
+    }
     
     /* Print styles */
     @media print {
@@ -1472,11 +1486,14 @@
 <div class="summary-section" id="hotels">
   <div class="summary-header">🏨 All Hotels</div>
   <div class="summary-content">
-    <div class="summary-item"><span class="date">Apr 11-12</span> — Amore Tekapo (2 nights) <a href="https://maps.app.goo.gl/pnAhuMmRHFtgidE67" class="map-link">Map</a></div>
-    <div class="summary-item"><span class="date">Apr 13-14</span> — Highview Retreat, Queenstown (2 nights) <a href="https://maps.app.goo.gl/3jmGYCfhcN3wW88p7" class="map-link">Map</a></div>
-    <div class="summary-item"><span class="date">Apr 15-16</span> — Anua Holiday Home, Te Anau (2 nights) <a href="https://maps.app.goo.gl/q7Rbe3KT53yfYdbj7" class="map-link">Map</a></div>
-    <div class="summary-item"><span class="date">Apr 17</span> — Beechwood Boutique, Dunedin <a href="https://maps.app.goo.gl/FH629uuXpt3EVXX96" class="map-link">Map</a></div>
+    <div class="summary-item"><span class="date">Apr 11-12</span> — Amore Tekapo (2 nights) <a href="https://maps.app.goo.gl/pnAhuMmRHFtgidE67" class="map-link">Map</a> <span style="color: #e67e22;">📞 Call ahead</span></div>
+    <div class="summary-item"><span class="date">Apr 13-14</span> — Highview Retreat, Queenstown (2 nights) <a href="https://maps.app.goo.gl/3jmGYCfhcN3wW88p7" class="map-link">Map</a> <span style="color: #e67e22;">📞 Call ahead</span></div>
+    <div class="summary-item"><span class="date">Apr 15-16</span> — Anua Holiday Home, Te Anau (2 nights) <a href="https://maps.app.goo.gl/q7Rbe3KT53yfYdbj7" class="map-link">Map</a> <span style="color: #e67e22;">📞 Call ahead</span></div>
+    <div class="summary-item"><span class="date">Apr 17</span> — Beechwood Boutique, Dunedin <a href="https://maps.app.goo.gl/FH629uuXpt3EVXX96" class="map-link">Map</a> <span style="color: #e67e22;">📞 Call ahead</span></div>
     <div class="summary-item"><span class="date">Apr 18</span> — Novotel Christchurch Airport <a href="https://maps.app.goo.gl/JEYYCoDpWJHKH4Q18" class="map-link">Map</a></div>
+    <div class="offline-note" style="margin-top: 15px;">
+      📞 <strong>Remember to call!</strong> Contact all accommodations (except Novotel) before arrival to confirm your expected check-in time. Check your booking confirmation for contact details.
+    </div>
   </div>
 </div>
 
@@ -1707,7 +1724,15 @@ function initTodayFeatures() {
   if (today < tripStart) {
     const diffTime = tripStart - today;
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    statusBanner.innerHTML = `✈️ Trip starts in <span class="countdown">${diffDays} day${diffDays !== 1 ? 's' : ''}</span>`;
+    let excitementText = '';
+    if (diffDays <= 7) {
+      excitementText = '🎉 Almost there!';
+    } else if (diffDays <= 30) {
+      excitementText = '✨ Getting closer!';
+    } else {
+      excitementText = '🌏 Adventure awaits!';
+    }
+    statusBanner.innerHTML = `<span style="font-size: 1.3em;">✈️🇳🇿</span> ${excitementText} New Zealand in <span class="countdown">${diffDays} day${diffDays !== 1 ? 's' : ''}</span>! <span style="font-size: 1.1em;">🏔️🌊🥝</span>`;
     statusBanner.style.display = 'block';
     todayFab.classList.remove('visible');
     return;
