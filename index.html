@@ -6,7 +6,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="NZ Trip">
-  <title>NZ Adventure 2026</title>
+  <title>NZ Adventure 2025</title>
   <style>
     :root {
       --primary: #1a5f7a;
@@ -486,6 +486,37 @@
       color: #e65100;
     }
     
+    /* Floating Today button */
+    .today-fab {
+      position: fixed;
+      bottom: 75px;
+      right: 15px;
+      background: linear-gradient(135deg, var(--warning), #e67e22);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(211, 84, 0, 0.4);
+      z-index: 999;
+      display: none;
+      cursor: pointer;
+    }
+    .today-fab.visible { display: flex; align-items: center; gap: 6px; }
+    .today-fab:active { transform: scale(0.95); }
+    
+    /* Trip status banner */
+    .trip-status {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 15px;
+    }
+    .trip-status .countdown { font-size: 24px; font-weight: 700; margin: 5px 0; }
+    .trip-status.completed { background: linear-gradient(135deg, var(--success), #1abc9c); }
+    
     /* Print styles */
     @media print {
       body { padding: 0; background: white; font-size: 10pt; }
@@ -505,6 +536,8 @@
 
 <!-- MAIN PAGE -->
 <div class="page active" id="main-page">
+
+<div id="tripStatus" class="trip-status" style="display: none;"></div>
 
 <div class="header">
   <h1>🇳🇿 New Zealand Adventure</h1>
@@ -581,8 +614,10 @@
     <div class="timeline-item">
       <div class="time">3:30 PM</div>
       <div class="content">
-        <div class="main">🚗 Pick up rental car</div>
-        <div class="sub">At Christchurch Airport</div>
+        <div class="main">🚗 Pick up rental cars</div>
+        <div class="sub"><strong>Ezi Car Rental</strong> — Inside terminal, next to baggage claim</div>
+        <div class="sub">3x Land Cruiser Prado (or similar)</div>
+        <div class="sub" style="font-family: monospace; background: #f5f5f5; padding: 4px 8px; border-radius: 4px; display: inline-block;">Ref: R1M0G3, R1M0G4, R1M0G5</div>
       </div>
     </div>
     
@@ -608,7 +643,7 @@
       <div class="time">4:00 PM</div>
       <div class="content">
         <div class="main">Drive to Lake Tekapo</div>
-        <div class="drive-time">🚗 3h 30min (280km)</div>
+        <div class="drive-time">🚗 3h 20min (280km)</div>
         <a href="https://maps.app.goo.gl/pnAhuMmRHFtgidE67" class="map-link">📍 Get Directions</a>
         <div class="offline-note">💾 Save this route offline in Google Maps before leaving!</div>
       </div>
@@ -645,10 +680,10 @@
     </div>
     
     <div class="timeline-item">
-      <div class="time">8:30 AM</div>
+      <div class="time">8:15 AM</div>
       <div class="content">
         <div class="main">Depart for Mount Cook</div>
-        <div class="drive-time">🚗 1h 30min to Salmon Farm</div>
+        <div class="drive-time">🚗 45min to Salmon Farm</div>
       </div>
     </div>
     <div class="timeline-item">
@@ -657,7 +692,7 @@
         <div class="main">🐟 Stop at High Country Salmon</div>
         <div class="sub">Buy smoked salmon for lunch + fresh sashimi!</div>
         <a href="https://maps.app.goo.gl/5Cfdqyd9vVPhiX1m7" class="map-link">📍 Salmon Farm</a>
-        <div class="drive-time" style="margin-top: 8px;">🚗 45min to Mt Cook from here</div>
+        <div class="drive-time" style="margin-top: 8px;">🚗 50min to Mt Cook from here</div>
       </div>
     </div>
     
@@ -722,7 +757,7 @@
       <div class="time">5:00 PM</div>
       <div class="content">
         <div class="main">Return to Tekapo</div>
-        <div class="drive-time">🚗 1h 15min back</div>
+        <div class="drive-time">🚗 1h 25min back</div>
       </div>
     </div>
     
@@ -794,7 +829,7 @@
       <div class="time">9:00 AM</div>
       <div class="content">
         <div class="main">Check out & drive to Queenstown</div>
-        <div class="drive-time">🚗 3h total with stops (280km)</div>
+        <div class="drive-time">🚗 3h 20min with stops (280km)</div>
         <div class="offline-note">💾 Save route offline — some areas have no signal!</div>
       </div>
     </div>
@@ -803,18 +838,18 @@
       <summary>📍 Scenic Stops (5 viewpoints + lunch)</summary>
       <div class="detail-content">
         <div class="viewpoints">
-          <div class="viewpoint-item">Viewpoint 1 <span style="color: #666; font-size: 11px;">+15min</span> <a href="https://maps.app.goo.gl/135foDw7PTCpxxnL7" class="map-link">Map</a></div>
-          <div class="viewpoint-item">Viewpoint 2 <span style="color: #666; font-size: 11px;">+10min</span> <a href="https://maps.app.goo.gl/AoospPqUuhkLSoMLA" class="map-link">Map</a></div>
-          <div class="viewpoint-item">Lunch Stop <span style="color: #666; font-size: 11px;">+45min</span> <a href="https://maps.app.goo.gl/LF4CDPVhasafajGs6" class="map-link">Map</a></div>
-          <div class="viewpoint-item">Viewpoint 3 <span style="color: #666; font-size: 11px;">+10min</span> <a href="https://maps.app.goo.gl/Ahi5eQqzWPsj9GdaA" class="map-link">Map</a></div>
-          <div class="viewpoint-item">Viewpoint 4 <span style="color: #666; font-size: 11px;">+10min</span> <a href="https://maps.app.goo.gl/4N4sksffGHG7vSSMA" class="map-link">Map</a></div>
-          <div class="viewpoint-item">Viewpoint 5 <span style="color: #666; font-size: 11px;">+10min</span> <a href="https://maps.app.goo.gl/hjYLLSmrsZpL4wqy8" class="map-link">Map</a></div>
+          <div class="viewpoint-item"><strong>Lake Pukaki Viewpoint</strong> <span style="color: #666; font-size: 11px;">+15min</span><br><span style="font-size: 12px; color: #555;">Stunning turquoise glacial lake with Mt Cook backdrop</span> <a href="https://maps.app.goo.gl/135foDw7PTCpxxnL7" class="map-link">Map</a></div>
+          <div class="viewpoint-item"><strong>Peter's Lookout</strong> <span style="color: #666; font-size: 11px;">+10min</span><br><span style="font-size: 12px; color: #555;">Panoramic view over Lake Pukaki with Mt Cook in distance</span> <a href="https://maps.app.goo.gl/AoospPqUuhkLSoMLA" class="map-link">Map</a></div>
+          <div class="viewpoint-item"><strong>🍽️ The Wrinkly Rams</strong> <span style="color: #666; font-size: 11px;">+1.5hrs lunch</span><br><span style="font-size: 12px; color: #555;">Popular roadside cafe in Omarama — fresh food, coffee, NZ souvenirs</span> <a href="https://maps.app.goo.gl/LF4CDPVhasafajGs6" class="map-link">Map</a></div>
+          <div class="viewpoint-item"><strong>Lindis Pass Lookout</strong> <span style="color: #666; font-size: 11px;">+10min</span><br><span style="font-size: 12px; color: #555;">High alpine pass (971m) with dramatic tussock-covered hills</span> <a href="https://maps.app.goo.gl/Ahi5eQqzWPsj9GdaA" class="map-link">Map</a></div>
+          <div class="viewpoint-item"><strong>Clay Cliffs Omarama</strong> <span style="color: #666; font-size: 11px;">+10min</span><br><span style="font-size: 12px; color: #555;">Otherworldly eroded rock formations shaped by ancient glaciers</span> <a href="https://maps.app.goo.gl/4N4sksffGHG7vSSMA" class="map-link">Map</a></div>
+          <div class="viewpoint-item"><strong>Lake Wanaka Viewpoint</strong> <span style="color: #666; font-size: 11px;">+10min</span><br><span style="font-size: 12px; color: #555;">Crystal-clear lake surrounded by mountains</span> <a href="https://maps.app.goo.gl/hjYLLSmrsZpL4wqy8" class="map-link">Map</a></div>
         </div>
       </div>
     </details>
     
     <div class="timeline-item">
-      <div class="time">3:00 PM</div>
+      <div class="time">2:45 PM</div>
       <div class="content"><div class="main">Arrive Queenstown & check in</div></div>
     </div>
     
@@ -835,17 +870,21 @@
       <div class="time">4:00 PM</div>
       <div class="content">
         <div class="main">Glenorchy scenic drive + walks</div>
-        <div class="drive-time">🚗 45min each way</div>
+        <div class="drive-time">🚗 50min each way</div>
       </div>
     </div>
-    <div class="alert alert-info">📌 Optional — only if not too tired! Adds 1.5hrs driving.</div>
+    <div class="alert alert-info">📌 Optional — only if not too tired! Adds ~3hrs total (driving + walks).</div>
     
     <details>
       <summary>🌿 Glenorchy Stops</summary>
       <div class="detail-content">
         <div class="viewpoints">
-          <div class="viewpoint-item">Nature Trail <a href="https://maps.app.goo.gl/DsJSnCWZRK12RGwP6" class="map-link">Map</a></div>
-          <div class="viewpoint-item">Viewpoint <a href="https://maps.app.goo.gl/jdEEJTeg4QMfXTcB8" class="map-link">Map</a></div>
+          <div class="viewpoint-item"><strong>Glenorchy Lagoon Walkway</strong> <span style="color: #666; font-size: 11px;">+1-1.5hr</span> <a href="https://maps.app.goo.gl/DsJSnCWZRK12RGwP6" class="map-link">Map</a>
+            <div style="font-size: 12px; color: #555; margin-top: 2px;">Easy boardwalk loop through wetlands with Mt Earnslaw views</div>
+          </div>
+          <div class="viewpoint-item"><strong>Isengard Lookout</strong> <span style="color: #666; font-size: 11px;">+15min</span> <a href="https://maps.app.goo.gl/jdEEJTeg4QMfXTcB8" class="map-link">Map</a>
+            <div style="font-size: 12px; color: #555; margin-top: 2px;">Lord of the Rings filming location with mountain views</div>
+          </div>
         </div>
       </div>
     </details>
@@ -860,6 +899,7 @@
         <div class="main">🍽️ Dinner at <span class="restaurant">SUNDAYS</span></div>
         <div class="sub">Wood-fired pizza in a restored 1933 church!</div>
         <div class="sub">Neapolitan-style sourdough pizza, European shared plates. Kid-friendly, wheelchair accessible.</div>
+        <div class="sub" style="color: #888; font-size: 12px;">⏰ If doing Glenorchy: book for 7:30 PM instead</div>
         <div class="sub" style="color: #d35400; font-weight: 500;">⚠️ Email required for 10+ people!</div>
         <a href="https://maps.app.goo.gl/Y7dK5sskvQfXL5eCA" class="map-link">📍 Location</a>
         <a href="https://bookings.nowbookit.com/?accountid=50dd0057-ef77-4282-b302-3f538933db0b&venueid=11053&theme=light&colors=hex,000000" class="book-link">📅 Book</a>
@@ -1014,16 +1054,17 @@
       <div class="time">8:30 AM</div>
       <div class="content">
         <div class="main">Depart for Te Anau</div>
-        <div class="drive-time">🚗 2h (170km)</div>
+        <div class="drive-time">🚗 2h 15min (170km)</div>
         <a href="https://maps.app.goo.gl/9Rupg8dyrTPw4yHS8" class="map-link">📍 Scenic viewpoint en route</a>
       </div>
     </div>
     <div class="timeline-item">
       <div class="time">11:00 AM</div>
       <div class="content">
-        <div class="main">🥧 Lunch at <span class="restaurant">Miles Better Pies</span></div>
+        <div class="main">🥧 Lunch at <span class="restaurant">Miles Better Pies</span> <span style="color: #666; font-size: 11px;">+1.5hrs</span></div>
         <div class="sub">17 Town Centre • 6AM–6PM</div>
         <div class="sub">Try: Venison & Plum, Lamb & Mint!</div>
+        <a href="https://maps.app.goo.gl/vN5HKmLu5e8QLWWV7" class="map-link">📍 Location</a>
       </div>
     </div>
     
@@ -1116,7 +1157,7 @@
       <div class="time">7:30 AM</div>
       <div class="content">
         <div class="main">Drive to Milford Sound</div>
-        <div class="drive-time">🚗 2h (120km) — stunning drive!</div>
+        <div class="drive-time">🚗 2h 15min (120km) — stunning drive!</div>
         <div class="offline-note">💾 No cell service — download maps offline!</div>
       </div>
     </div>
@@ -1151,10 +1192,10 @@
     </div>
     
     <div class="timeline-item">
-      <div class="time">2:00 PM</div>
+      <div class="time">2:30 PM</div>
       <div class="content">
         <div class="main">Return drive with optional stops</div>
-        <div class="drive-time">🚗 2h back to Te Anau</div>
+        <div class="drive-time">🚗 2h 15min back to Te Anau</div>
       </div>
     </div>
     
@@ -1162,8 +1203,12 @@
       <summary>📍 Optional Stops on Return</summary>
       <div class="detail-content">
         <div class="viewpoints">
-          <div class="viewpoint-item">Nature Walk <span style="color: #666; font-size: 11px;">+30min</span> <a href="https://maps.app.goo.gl/XULdpuupFETk4rCF6" class="map-link">Map</a></div>
-          <div class="viewpoint-item">Viewpoint <span style="color: #666; font-size: 11px;">+15min</span> <a href="https://maps.app.goo.gl/w69926XYbWQwm29W7" class="map-link">Map</a></div>
+          <div class="viewpoint-item"><strong>The Chasm Walk</strong> <span style="color: #666; font-size: 11px;">+30min</span> <a href="https://maps.app.goo.gl/XULdpuupFETk4rCF6" class="map-link">Map</a>
+            <div style="font-size: 12px; color: #555; margin-top: 2px;">20min loop through rainforest to powerful waterfalls carved through rock</div>
+          </div>
+          <div class="viewpoint-item"><strong>Mirror Lakes</strong> <span style="color: #666; font-size: 11px;">+15min</span> <a href="https://maps.app.goo.gl/w69926XYbWQwm29W7" class="map-link">Map</a>
+            <div style="font-size: 12px; color: #555; margin-top: 2px;">Perfect mountain reflections on calm days</div>
+          </div>
         </div>
       </div>
     </details>
@@ -1223,31 +1268,38 @@
       <div class="time">9:00 AM</div>
       <div class="content">
         <div class="main">Drive to Dunedin via Gore</div>
-        <div class="drive-time">🚗 3h 30min total (290km)</div>
+        <div class="drive-time">🚗 4h total driving (290km)</div>
       </div>
     </div>
     
     <div class="timeline-item">
-      <div class="time">🥐</div>
+      <div class="time">10:50 AM</div>
       <div class="content">
-        <div class="main">Stop in Gore: <span class="restaurant">Oven Fresh Bakery</span></div>
+        <div class="main">Arrive Gore — <span class="restaurant">Oven Fresh Bakery</span></div>
         <div class="sub">Get pastries & snacks!</div>
         <a href="https://maps.app.goo.gl/fniapuRGd6mPxqrX7" class="map-link">📍 Bakery</a>
       </div>
     </div>
     
     <div class="timeline-item">
-      <div class="time">12:00 PM</div>
+      <div class="time">11:00 AM</div>
       <div class="content">
         <div class="main">🍽️ Lunch at <span class="restaurant">Howl at the Moon</span></div>
         <div class="sub">Gore — good stop to stretch legs</div>
         <a href="https://maps.app.goo.gl/gqGdHrkTZwapUkAN7" class="map-link">📍 Location</a>
-        <div class="drive-time" style="margin-top: 8px;">🚗 1h 15min to Dunedin</div>
+        <div class="drive-time" style="margin-top: 8px;">🚗 2h 10min to Dunedin</div>
       </div>
     </div>
     
     <div id="day17-afternoon" class="section-anchor">
-      <div class="section-title">🦭 Free Afternoon</div>
+      <div class="section-title">🦭 Afternoon in Dunedin</div>
+    </div>
+    
+    <div class="timeline-item">
+      <div class="time">2:40 PM</div>
+      <div class="content">
+        <div class="main">Arrive Dunedin</div>
+      </div>
     </div>
     
     <div class="timeline-item">
@@ -1321,7 +1373,7 @@
       <div class="time">9:00 AM</div>
       <div class="content">
         <div class="main">Drive to Christchurch</div>
-        <div class="drive-time">🚗 5h total with stops (360km)</div>
+        <div class="drive-time">🚗 5h 30min total with stops (360km)</div>
       </div>
     </div>
     
@@ -1333,8 +1385,12 @@
       <summary>📍 Stops Along the Way</summary>
       <div class="detail-content">
         <div class="viewpoints">
-          <div class="viewpoint-item">Moeraki Boulders <span style="color: #666; font-size: 11px;">+45min</span> <a href="https://maps.app.goo.gl/Hku57edSSswiA8S68" class="map-link">Map</a></div>
-          <div class="viewpoint-item">Oamaru (Town + Penguins) <span style="color: #666; font-size: 11px;">+1h</span> <a href="https://maps.app.goo.gl/poDNcJqrkveqUvxM8" class="map-link">Map</a></div>
+          <div class="viewpoint-item"><strong>Moeraki Boulders</strong> <span style="color: #666; font-size: 11px;">+45min</span> <a href="https://maps.app.goo.gl/Hku57edSSswiA8S68" class="map-link">Map</a>
+            <div style="font-size: 12px; color: #555; margin-top: 2px;">Giant 60-million-year-old spherical stones on beach — iconic NZ sight</div>
+          </div>
+          <div class="viewpoint-item"><strong>Oamaru Victorian Precinct</strong> <span style="color: #666; font-size: 11px;">+1hr</span> <a href="https://maps.app.goo.gl/poDNcJqrkveqUvxM8" class="map-link">Map</a>
+            <div style="font-size: 12px; color: #555; margin-top: 2px;">Historic whitestone buildings, steampunk museum, blue penguin colony</div>
+          </div>
         </div>
       </div>
     </details>
@@ -1342,19 +1398,25 @@
     <div class="timeline-item">
       <div class="time">12:30 PM</div>
       <div class="content">
-        <div class="main">🍽️ Lunch in Oamaru</div>
-        <div class="sub" style="color: #d35400;">⚠️ Booking needed!</div>
+        <div class="main">🍽️ Lunch at <span class="restaurant">Riverstone Kitchen</span> <span style="color: #666; font-size: 11px;">+1.5hrs</span></div>
+        <div class="sub">Award-winning restaurant with garden-to-table cuisine</div>
+        <div class="sub" style="color: #d35400;">⚠️ Booking required for 8+ people! Call +64 3 431 3505</div>
         <a href="https://maps.app.goo.gl/eTmV83uBpMVvcN1v6" class="map-link">📍 Location</a>
+        <a href="https://www.riverstonekitchen.co.nz/reservations" class="book-link">📅 Book</a>
       </div>
     </div>
     
     <div class="timeline-item">
-      <div class="time">5:00 PM</div>
+      <div class="time">5:30 PM</div>
       <div class="content"><div class="main">Arrive Christchurch & check in</div></div>
     </div>
     <div class="timeline-item">
-      <div class="time">🚗</div>
-      <div class="content"><div class="main"><strong>Return rental car</strong> at airport</div></div>
+      <div class="time">Before 10PM</div>
+      <div class="content">
+        <div class="main"><strong>🚗 Return rental cars</strong></div>
+        <div class="sub">Ezi Car Rental — Airport rental car section</div>
+        <div class="sub">Drop keys in key drop box if unattended</div>
+      </div>
     </div>
     
     <div id="day18-dinner" class="section-anchor">
@@ -1406,23 +1468,6 @@
   </div>
 </div>
 
-<!-- Bookings Section -->
-<div class="summary-section" id="bookings">
-  <div class="summary-header">📋 All Bookings Required</div>
-  <div class="summary-content">
-    <div class="summary-item"><span class="date">Apr 12</span> — Glacier Explorers Boat Tour</div>
-    <div class="summary-item"><span class="date">Apr 12</span> — Dark Sky Project (Optional)</div>
-    <div class="summary-item"><span class="date">Apr 13</span> — SUNDAYS Restaurant (Email for 10+)</div>
-    <div class="summary-item"><span class="date">Apr 14</span> — Shotover Jet</div>
-    <div class="summary-item"><span class="date">Apr 15</span> — Glowworm Caves (12:45 PM)</div>
-    <div class="summary-item"><span class="date">Apr 15</span> — Redcliff Restaurant (book for 12)</div>
-    <div class="summary-item"><span class="date">Apr 16</span> — Milford Sound Cruise</div>
-    <div class="summary-item"><span class="date">Apr 16</span> — Pio Pio Restaurant (email)</div>
-    <div class="summary-item"><span class="date">Apr 16</span> — Ditto Vietnamese</div>
-    <div class="summary-item"><span class="date">Apr 18</span> — Oamaru Lunch</div>
-  </div>
-</div>
-
 <!-- Hotels Section -->
 <div class="summary-section" id="hotels">
   <div class="summary-header">🏨 All Hotels</div>
@@ -1463,10 +1508,43 @@
   </div>
 </div>
 
+<!-- Emergency Section -->
+<div class="summary-section" id="emergency">
+  <div class="summary-header">🆘 Emergency & Essentials</div>
+  <div class="summary-content">
+    <div class="driving-grid">
+      <div class="driving-card">
+        <div class="title">🚨 Emergency</div>
+        <div class="content"><strong style="font-size: 18px;">111</strong><br>Police / Fire / Ambulance</div>
+      </div>
+      <div class="driving-card">
+        <div class="title">🚗 Rental Car</div>
+        <div class="content"><strong>Ezi Car Rental</strong><br><a href="tel:0800545000" style="color: #2980b9;">0800 545 000</a><br><span style="font-size: 11px;">24hr AA Roadside</span></div>
+      </div>
+      <div class="driving-card">
+        <div class="title">📱 Country Code</div>
+        <div class="content"><strong>+64</strong><br>Drop leading 0<br>e.g. 021→+64 21</div>
+      </div>
+      <div class="driving-card">
+        <div class="title">💵 Currency</div>
+        <div class="content"><strong>NZD</strong><br>No tipping expected<br>Cards widely accepted</div>
+      </div>
+    </div>
+    <div style="margin-top: 15px; padding: 12px; background: #e8f5e9; border-radius: 10px; font-size: 13px;">
+      <strong>🚗 Rental Booking Refs:</strong> R1M0G3, R1M0G4, R1M0G5<br>
+      <strong>📍 Return:</strong> Apr 18, 10:00 PM — Christchurch Airport (same location)
+    </div>
+  </div>
+</div>
+
+<button id="todayFab" class="today-fab" onclick="scrollToToday()">
+  📍 Today
+</button>
+
 <div class="bottom-nav">
   <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"><span class="icon">⬆️</span>Top</a>
-  <a href="#" onclick="scrollToElement('bookings'); return false;"><span class="icon">📋</span>Bookings</a>
   <a href="#" onclick="scrollToElement('hotels'); return false;"><span class="icon">🏨</span>Hotels</a>
+  <a href="#" onclick="scrollToElement('emergency'); return false;"><span class="icon">🆘</span>SOS</a>
   <a href="#" onclick="showHelp(); return false;"><span class="icon">❓</span>Help</a>
 </div>
 
@@ -1590,6 +1668,90 @@
 </div>
 
 <script>
+// Trip date configuration (April 10-19, 2026)
+const tripDays = {
+  '2026-04-10': 'day10',
+  '2026-04-11': 'day11',
+  '2026-04-12': 'day12',
+  '2026-04-13': 'day13',
+  '2026-04-14': 'day14',
+  '2026-04-15': 'day15',
+  '2026-04-16': 'day16',
+  '2026-04-17': 'day17',
+  '2026-04-18': 'day18',
+  '2026-04-19': 'day19'
+};
+
+const tripStart = new Date('2026-04-10');
+const tripEnd = new Date('2026-04-19');
+
+// Get today's date in YYYY-MM-DD format (local time)
+function getLocalDateString() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+// Initialize today features on page load
+function initTodayFeatures() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const todayStr = getLocalDateString();
+  const todaySection = tripDays[todayStr];
+  const statusBanner = document.getElementById('tripStatus');
+  const todayFab = document.getElementById('todayFab');
+  
+  // Before trip starts
+  if (today < tripStart) {
+    const diffTime = tripStart - today;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    statusBanner.innerHTML = `✈️ Trip starts in <span class="countdown">${diffDays} day${diffDays !== 1 ? 's' : ''}</span>`;
+    statusBanner.style.display = 'block';
+    todayFab.classList.remove('visible');
+    return;
+  }
+  
+  // After trip ends
+  if (today > tripEnd) {
+    statusBanner.innerHTML = `🎉 Trip completed! What an adventure!`;
+    statusBanner.classList.add('completed');
+    statusBanner.style.display = 'block';
+    todayFab.classList.remove('visible');
+    return;
+  }
+  
+  // During the trip
+  if (todaySection) {
+    // Highlight today in nav
+    const navLinks = document.querySelectorAll('.nav a');
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === '#' + todaySection || 
+          link.getAttribute('onclick')?.includes(todaySection)) {
+        link.classList.add('today');
+      }
+    });
+    
+    // Show floating button
+    todayFab.classList.add('visible');
+    
+    // Auto-scroll to today after a short delay
+    setTimeout(() => {
+      document.getElementById(todaySection).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 500);
+  }
+}
+
+// Scroll to today's section
+function scrollToToday() {
+  const todayStr = getLocalDateString();
+  const todaySection = tripDays[todayStr];
+  if (todaySection) {
+    document.getElementById(todaySection).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
 // Search data
 const searchData = [
   { name: "Fergburger", day: "Apr 14", section: "day14" },
@@ -1693,6 +1855,9 @@ document.addEventListener('click', function(e) {
     document.getElementById('searchResults').classList.remove('active');
   }
 });
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', initTodayFeatures);
 </script>
 
 </body>
