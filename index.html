@@ -1682,18 +1682,18 @@ function initTodayFeatures() {
     let excitementTextEN = '';
     let excitementTextTH = '';
     if (diffDays <= 7) {
-      excitementTextEN = '🎉 Almost there!';
-      excitementTextTH = '🎉 ใกล้แล้ว!';
+      excitementTextEN = 'Almost there!';
+      excitementTextTH = 'ใกล้แล้ว!';
     } else if (diffDays <= 30) {
-      excitementTextEN = '✨ Getting closer!';
-      excitementTextTH = '✨ ใกล้เข้ามาแล้ว!';
+      excitementTextEN = 'Getting closer!';
+      excitementTextTH = 'ใกล้เข้ามาแล้ว!';
     } else {
-      excitementTextEN = '🌏 Adventure awaits!';
-      excitementTextTH = '🌏 การผจญภัยรออยู่!';
+      excitementTextEN = 'Adventure awaits!';
+      excitementTextTH = 'การผจญภัยรออยู่!';
     }
     const dayTextEN = diffDays !== 1 ? 'days' : 'day';
     const dayTextTH = 'วัน';
-    statusBanner.innerHTML = `<span style="font-size: 1.3em;">🇳🇿</span> <span data-en="${excitementTextEN} NZ in" data-th="${excitementTextTH} นิวซีแลนด์อีก">${excitementTextEN} New Zealand in</span> <span class="countdown">${diffDays}</span> <span data-en="${dayTextEN}" data-th="${dayTextTH}">${dayTextEN}</span>! <span style="font-size: 1.1em;">🥝</span>`;
+    statusBanner.innerHTML = `<span style="font-size: 1.3em;">🇳🇿</span> <span data-en="${excitementTextEN} NZ in" data-th="${excitementTextTH} นิวซีแลนด์อีก">${excitementTextEN} NZ in</span> <span class="countdown">${diffDays}</span> <span data-en="${dayTextEN}" data-th="${dayTextTH}">${dayTextEN}</span>! <span style="font-size: 1.1em;">🥝</span>`;
     statusBanner.style.display = 'block';
     checklist.style.display = 'block';
     todayFab.classList.remove('visible');
