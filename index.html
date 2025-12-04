@@ -375,6 +375,49 @@
     details[open] summary::after { content: "tap to close"; }
     details .detail-content { padding: 12px; background: #fafafa; border-radius: 0 0 10px 10px; margin-top: -5px; }
     
+    /* Flight boxes */
+    .flight-box {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border-left: 4px solid var(--secondary);
+    }
+    .flight-box.business {
+      background: linear-gradient(135deg, #fef9e7, #fdebd0);
+      border-left: 4px solid #f39c12;
+    }
+    .flight-box .flight-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .flight-box .flight-route {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .flight-box .flight-time {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .flight-box .flight-detail {
+      font-size: 12px;
+      color: #666;
+    }
+    .flight-box .flight-badge {
+      display: inline-block;
+      background: #f39c12;
+      color: white;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+      margin-right: 6px;
+    }
+    
     /* Bottom nav */
     .bottom-nav {
       position: fixed;
@@ -508,27 +551,33 @@
     
     /* Trip status banner */
     .trip-status {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, #e74c3c, #f39c12, #e74c3c);
+      background-size: 200% 200%;
+      animation: gradientShift 3s ease infinite;
       color: white;
-      padding: 15px 20px;
+      padding: 12px 20px;
       text-align: center;
       font-size: 15px;
-      animation: bannerPulse 3s ease-in-out infinite;
+      font-weight: 500;
     }
     .trip-status .countdown { 
-      font-size: 28px; 
+      font-size: 26px; 
       font-weight: 700; 
-      margin: 0 5px;
-      background: rgba(255,255,255,0.2);
-      padding: 2px 12px;
+      margin: 0 4px;
+      background: rgba(255,255,255,0.25);
+      padding: 2px 10px;
       border-radius: 8px;
       display: inline-block;
     }
-    .trip-status.completed { background: linear-gradient(135deg, var(--success), #1abc9c); }
+    .trip-status.completed { 
+      background: linear-gradient(135deg, var(--success), #1abc9c); 
+      animation: none;
+    }
     
-    @keyframes bannerPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.01); box-shadow: 0 4px 20px rgba(52, 73, 94, 0.3); }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     
     /* Print styles */
@@ -623,13 +672,24 @@
     <div class="title">✈️ <span data-en="Departure from Bangkok" data-th="ออกเดินทางจากกรุงเทพ">Departure from Bangkok</span></div>
   </div>
   <div class="day-content">
-    <div class="timeline-item">
-      <div class="time">7:40 PM</div>
-      <div class="content">
-        <div class="main">TG 645: Bangkok → Melbourne</div>
-        <div class="sub"><span data-en="Arrives 7:40 AM next day (+1)" data-th="ถึง 7:40 AM วันถัดไป (+1)">Arrives 7:40 AM next day (+1)</span></div>
-        <div class="drive-time"><span data-en="Flight" data-th="บิน">Flight</span>: ~9 <span data-en="hours" data-th="ชั่วโมง">hours</span></div>
+    <div class="flight-box business">
+      <div class="flight-header">
+        <div class="flight-route">👴 QF24 → QF8766</div>
+        <div class="flight-time">6:10 PM</div>
       </div>
+      <div class="flight-detail"><span class="flight-badge">Business</span> Bangkok → Sydney → Christchurch</div>
+      <div class="flight-detail">A330 • 1h 25m <span data-en="layover SYD T1" data-th="รอต่อเครื่อง SYD T1">layover SYD T1</span> • A380</div>
+      <div class="flight-detail">🛋️ <span data-en="Qantas Business Lounge access" data-th="เข้า Qantas Business Lounge ได้">Qantas Business Lounge access</span></div>
+      <div class="flight-detail"><span data-en="Arrives 12:55 PM Sat" data-th="ถึง 12:55 เสาร์">Arrives 12:55 PM Sat</span> • 12h 20m <span data-en="total" data-th="รวม">total</span></div>
+    </div>
+    <div class="flight-box">
+      <div class="flight-header">
+        <div class="flight-route">✈️ TG465 → NZ214</div>
+        <div class="flight-time">7:40 PM</div>
+      </div>
+      <div class="flight-detail">Bangkok → Melbourne → Christchurch</div>
+      <div class="flight-detail">A350 • 1h 40m <span data-en="layover MEL T2" data-th="รอต่อเครื่อง MEL T2">layover MEL T2</span> • A320neo</div>
+      <div class="flight-detail"><span data-en="Arrives 2:35 PM Sat" data-th="ถึง 14:35 เสาร์">Arrives 2:35 PM Sat</span> • ~14h <span data-en="total" data-th="รวม">total</span></div>
     </div>
   </div>
 </div>
@@ -649,16 +709,23 @@
   <div class="day-content">
     
     <div id="day11-flights" class="section-anchor">
-      <div class="section-title">✈️ <span data-en="Flights & Arrival" data-th="เที่ยวบิน & ถึงที่หมาย">Flights & Arrival</span></div>
+      <div class="section-title">✈️ <span data-en="Arrivals" data-th="ถึงที่หมาย">Arrivals</span></div>
     </div>
     
-    <div class="timeline-item">
-      <div class="time">9:10 AM</div>
-      <div class="content">
-        <div class="main">NZ 214: Melbourne → Christchurch</div>
-        <div class="sub"><span data-en="Arrives 2:35 PM local time" data-th="ถึง 14:35 เวลาท้องถิ่น">Arrives 2:35 PM local time</span></div>
-        <div class="drive-time"><span data-en="Flight" data-th="บิน">Flight</span>: 3h 25m</div>
+    <div class="flight-box business">
+      <div class="flight-header">
+        <div class="flight-route">👴 QF8766 <span data-en="arrives" data-th="ถึง">arrives</span></div>
+        <div class="flight-time">12:55 PM</div>
       </div>
+      <div class="flight-detail"><span class="flight-badge">Business</span> <span data-en="from Sydney" data-th="จาก Sydney">from Sydney</span> • A380</div>
+      <div class="flight-detail">✅ <span data-en="Bags checked through from BKK" data-th="กระเป๋าผ่านจาก BKK">Bags checked through from BKK</span></div>
+    </div>
+    <div class="flight-box">
+      <div class="flight-header">
+        <div class="flight-route">✈️ NZ214 <span data-en="arrives" data-th="ถึง">arrives</span></div>
+        <div class="flight-time">2:35 PM</div>
+      </div>
+      <div class="flight-detail"><span data-en="from Melbourne" data-th="จาก Melbourne">from Melbourne</span> • A320neo</div>
     </div>
     <div class="timeline-item">
       <div class="time">3:30 PM</div>
@@ -1500,21 +1567,25 @@
   </div>
   <div class="day-content">
     <div class="alert alert-warning">⏰ <strong><span data-en="EARLY START!" data-th="ออกเช้ามาก!">EARLY START!</span></strong> <span data-en="Wake up at 3:00 AM!" data-th="ตื่น 3:00 AM!">Wake up at 3:00 AM!</span></div>
-    <div class="timeline-item">
-      <div class="time">6:00 AM</div>
-      <div class="content">
-        <div class="main">✈️ NZ 213: Christchurch → Melbourne</div>
-        <div class="sub"><span data-en="Arrives 7:35 AM local" data-th="ถึง 7:35 AM เวลาท้องถิ่น">Arrives 7:35 AM local</span></div>
-        <div class="drive-time"><span data-en="Flight" data-th="บิน">Flight</span>: 3h 35min</div>
+    
+    <div class="flight-box business">
+      <div class="flight-header">
+        <div class="flight-route">👴 QF138 → QF23</div>
+        <div class="flight-time">6:00 AM</div>
       </div>
+      <div class="flight-detail"><span class="flight-badge">Business</span> Christchurch → Sydney → Bangkok</div>
+      <div class="flight-detail">737 • 2h 15m <span data-en="layover SYD T1" data-th="รอต่อเครื่อง SYD T1">layover SYD T1</span> • A330</div>
+      <div class="flight-detail">🛋️ <span data-en="Qantas Business Lounge access" data-th="เข้า Qantas Business Lounge ได้">Qantas Business Lounge access</span></div>
+      <div class="flight-detail"><span data-en="Arrives 4:40 PM same day" data-th="ถึง 16:40 วันเดียวกัน">Arrives 4:40 PM same day</span> • 13h 25m <span data-en="total" data-th="รวม">total</span></div>
     </div>
-    <div class="timeline-item">
-      <div class="time">1:30 PM</div>
-      <div class="content">
-        <div class="main">✈️ TG 466: Melbourne → Bangkok</div>
-        <div class="sub"><span data-en="Arrives 8:00 PM same day" data-th="ถึง 20:00 วันเดียวกัน">Arrives 8:00 PM same day</span></div>
-        <div class="drive-time"><span data-en="Flight" data-th="บิน">Flight</span>: 9h 30min</div>
+    <div class="flight-box">
+      <div class="flight-header">
+        <div class="flight-route">✈️ NZ213 → TG466</div>
+        <div class="flight-time">6:10 AM</div>
       </div>
+      <div class="flight-detail">Christchurch → Melbourne → Bangkok</div>
+      <div class="flight-detail">A320neo • 5h 25m <span data-en="layover MEL T2" data-th="รอต่อเครื่อง MEL T2">layover MEL T2</span> • A350</div>
+      <div class="flight-detail"><span data-en="Arrives 8:00 PM same day" data-th="ถึง 20:00 วันเดียวกัน">Arrives 8:00 PM same day</span> • ~17h <span data-en="total" data-th="รวม">total</span></div>
     </div>
     <div class="alert alert-success">🎉 <span data-en="Welcome home! What an adventure!" data-th="ยินดีต้อนรับกลับบ้าน! ผจญภัยสุดๆ!">Welcome home! What an adventure!</span></div>
   </div>
@@ -1675,35 +1746,27 @@ function initTodayFeatures() {
   const todayFab = document.getElementById('todayFab');
   const checklist = document.getElementById('preTripChecklist');
   
-// Before trip starts
-if (today < tripStart) {
-  const diffTime = tripStart - today;
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-  statusBanner.innerHTML = `
-    <span style="font-size: 1.3em;">🇳🇿</span> 
-    <span data-en="NZ — ${diffDays} days to go!" 
-          data-th="นิวซีแลนด์ — อีก ${diffDays} วัน!">
-        NZ — ${diffDays} days to go!
-    </span>
-    <span style="font-size: 1.3em;">✨</span>
-  `;
-  statusBanner.style.display = 'block';
-  checklist.style.display = 'block';
-  todayFab.classList.remove('visible');
-  return;
-}
-
-// After trip ends
-if (today > tripEnd) {
-  statusBanner.innerHTML = `
-    🎉 <span data-en="Trip completed!" data-th="ทริปเสร็จสิ้น!">Trip completed!</span>
-  `;
-  statusBanner.classList.add('completed');
-  statusBanner.style.display = 'block';
-  todayFab.classList.remove('visible');
-  return;
-}
+  // Before trip starts
+  if (today < tripStart) {
+    const diffTime = tripStart - today;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const dayTextEN = diffDays !== 1 ? 'days' : 'day';
+    const dayTextTH = 'วัน';
+    statusBanner.innerHTML = `🇳🇿 <span data-en="NZ in" data-th="NZ อีก">NZ in</span> <span class="countdown">${diffDays}</span> <span data-en="${dayTextEN}" data-th="${dayTextTH}">${dayTextEN}</span>`;
+    statusBanner.style.display = 'block';
+    checklist.style.display = 'block';
+    todayFab.classList.remove('visible');
+    return;
+  }
+  
+  // After trip ends
+  if (today > tripEnd) {
+    statusBanner.innerHTML = `🎉 <span data-en="Trip completed!" data-th="ทริปเสร็จสิ้น!">Trip completed!</span>`;
+    statusBanner.classList.add('completed');
+    statusBanner.style.display = 'block';
+    todayFab.classList.remove('visible');
+    return;
+  }
   
   // During the trip
   if (todaySection) {
