@@ -602,6 +602,29 @@
 
 <div id="tripStatus" class="trip-status" style="display: none;"></div>
 
+<!-- Save to Homescreen Banner -->
+<div style="background: #ebf5fb; border-left: 4px solid #2e86ab; padding: 14px 16px; font-size: 13px; line-height: 1.6; color: #2c3e50; margin: 0;">
+  <div style="font-weight: 700; font-size: 14px; margin-bottom: 8px; color: #1a5f7a;">📲 <span data-en="Save this page to your home screen for offline use!" data-th="บันทึกหน้านี้ไว้ที่หน้าจอหลักเพื่อใช้ออฟไลน์!">Save this page to your home screen for offline use!</span></div>
+  <details>
+    <summary style="cursor: pointer; color: #1a5f7a; font-weight: 600;">🍎 <span data-en="iPhone / iPad (Safari)" data-th="iPhone / iPad (Safari)">iPhone / iPad (Safari)</span></summary>
+    <ol style="margin: 8px 0 4px 18px; color: #2c3e50;">
+      <li><span data-en="Open this page in" data-th="เปิดหน้านี้ใน">Open this page in</span> <strong>Safari</strong></li>
+      <li><span data-en="Tap the" data-th="แตะ">Tap the</span> <strong>Share</strong> <span data-en="button (box with arrow pointing up)" data-th="(กล่องมีลูกศรชี้ขึ้น)">(box with arrow pointing up)</span></li>
+      <li><span data-en="Scroll down and tap" data-th="เลื่อนลงแล้วแตะ">Scroll down and tap</span> <strong>"Add to Home Screen"</strong></li>
+      <li><span data-en="Tap" data-th="แตะ">Tap</span> <strong>"Add"</strong> — <span data-en="done!" data-th="เสร็จแล้ว!">done!</span></li>
+    </ol>
+  </details>
+  <details style="margin-top: 6px;">
+    <summary style="cursor: pointer; color: #1a5f7a; font-weight: 600;">🤖 <span data-en="Android (Chrome)" data-th="Android (Chrome)">Android (Chrome)</span></summary>
+    <ol style="margin: 8px 0 4px 18px; color: #2c3e50;">
+      <li><span data-en="Open this page in" data-th="เปิดหน้านี้ใน">Open this page in</span> <strong>Chrome</strong></li>
+      <li><span data-en="Tap the" data-th="แตะ">Tap the</span> <strong>⋮ menu</strong> <span data-en="(top right)" data-th="(มุมขวาบน)">(top right)</span></li>
+      <li><span data-en="Tap" data-th="แตะ">Tap</span> <strong>"Add to Home screen"</strong></li>
+      <li><span data-en="Tap" data-th="แตะ">Tap</span> <strong>"Add"</strong> — <span data-en="done!" data-th="เสร็จแล้ว!">done!</span></li>
+    </ol>
+  </details>
+</div>
+
 <div class="header">
   <div style="position: absolute; top: 15px; right: 15px;">
     <button id="langToggle" onclick="toggleLanguage()" style="background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; padding: 6px 12px; border-radius: 15px; font-size: 12px; cursor: pointer;">🌐 TH</button>
@@ -647,11 +670,11 @@
       </label>
       <label style="display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid #eee; cursor: pointer;">
         <input type="checkbox" style="width: 22px; height: 22px; accent-color: #27ae60;">
-        <span style="font-size: 15px;"><strong>🎫 <span data-en="Book activities" data-th="จองกิจกรรม">Book activities</span></strong> — Glacier Explorers, Te Anau Caves, Milford Cruise</span>
+        <span style="font-size: 15px;"><strong>🎫 <span data-en="Book activities" data-th="จองกิจกรรม">Book activities</span></strong> — <span style="color: #27ae60;">✅ <span data-en="All booked!" data-th="จองครบแล้ว!">All booked!</span></span> <span style="color: #e74c3c;">⚠️ <span data-en="Highlands Motorsport Park — needs headcount first" data-th="Highlands Motorsport Park — รอนับจำนวนคนก่อน">Highlands Motorsport Park — needs headcount first</span></span></span>
       </label>
       <label style="display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid #eee; cursor: pointer;">
         <input type="checkbox" style="width: 22px; height: 22px; accent-color: #27ae60;">
-        <span style="font-size: 15px;"><strong>🍽️ <span data-en="Reserve restaurants" data-th="จองร้านอาหาร">Reserve restaurants</span></strong> — SUNDAYS, Redcliff, Riverstone Kitchen</span>
+        <span style="font-size: 15px;"><strong>🍽️ <span data-en="Reserve restaurants" data-th="จองร้านอาหาร">Reserve restaurants</span></strong> — <span style="color: #d35400;">⚠️ Riverstone Kitchen, Redcliff & Ditto still need booking</span></span>
       </label>
       <label style="display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid #eee; cursor: pointer;">
         <input type="checkbox" style="width: 22px; height: 22px; accent-color: #27ae60;">
@@ -822,6 +845,7 @@
       <div class="content">
         <div class="main"><span data-en="Glacier Explorers Boat Tour" data-th="ล่องเรือชมธารน้ำแข็ง Glacier Explorers">Glacier Explorers Boat Tour</span></div>
         <div class="sub"><span data-en="Until ~2:30 PM" data-th="ถึง ~14:30">Until ~2:30 PM</span></div>
+        <div class="sub" style="color: #27ae60;">✅ <span data-en="Booked!" data-th="จองแล้ว!">Booked!</span></div>
         <a href="https://www.hermitage.co.nz/experience/glacier-explorers/" class="book-link">📅 <span data-en="Book Tour" data-th="จองทัวร์">Book Tour</span></a>
       </div>
     </div>
@@ -908,7 +932,7 @@
       <div class="detail-content">
         <strong>Dark Sky Project</strong><br>
         <span style="font-size: 13px; color: #666;"><span data-en="World-class stargazing at Mt John Observatory" data-th="ดูดาวระดับโลกที่ Mt John Observatory">World-class stargazing at Mt John Observatory</span></span><br>
-        <span style="font-size: 12px; color: #d35400;">⚠️ <span data-en="Booking required!" data-th="ต้องจองล่วงหน้า!">Booking required!</span></span><br>
+        <span style="font-size: 12px; color: #27ae60;">✅ <span data-en="Booked!" data-th="จองแล้ว!">Booked!</span></span><br>
         <a href="https://maps.app.goo.gl/fshoSBkXoutZyT6D8" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
         <a href="https://www.darkskyproject.co.nz/experiences/dark-sky-experience/" class="book-link">📅 <span data-en="Book" data-th="จอง">Book</span></a>
       </div>
@@ -943,7 +967,7 @@
     </div>
     
     <div class="timeline-item">
-      <div class="time">9:00 AM</div>
+      <div class="time">8:00 AM</div>
       <div class="content">
         <div class="main"><span data-en="Check out & drive to Queenstown" data-th="เช็คเอาท์ & ขับไป Queenstown">Check out & drive to Queenstown</span></div>
         <div class="drive-time">🚗 3h 20min <span data-en="with stops" data-th="รวมแวะ">with stops</span> (280km)</div>
@@ -958,29 +982,39 @@
           <div class="viewpoint-item"><strong>Lake Pukaki Viewpoint</strong> <span style="color: #666; font-size: 11px;">+15min</span><br><span style="font-size: 12px; color: #555;"><span data-en="Stunning turquoise glacial lake with Mt Cook backdrop" data-th="ทะเลสาบธารน้ำแข็งสีเทอร์ควอยซ์ มี Mt Cook เป็นฉากหลัง">Stunning turquoise glacial lake with Mt Cook backdrop</span></span> <a href="https://maps.app.goo.gl/135foDw7PTCpxxnL7" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
           <div class="viewpoint-item"><strong>Peter's Lookout</strong> <span style="color: #666; font-size: 11px;">+10min</span><br><span style="font-size: 12px; color: #555;"><span data-en="Panoramic view over Lake Pukaki with Mt Cook in distance" data-th="วิวพาโนรามา Lake Pukaki มี Mt Cook อยู่ไกลๆ">Panoramic view over Lake Pukaki with Mt Cook in distance</span></span> <a href="https://maps.app.goo.gl/AoospPqUuhkLSoMLA" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
           <div class="viewpoint-item"><strong>🍽️ The Wrinkly Rams</strong> <span style="color: #666; font-size: 11px;">+1.5hrs <span data-en="lunch" data-th="กลางวัน">lunch</span></span><br><span style="font-size: 12px; color: #555;"><span data-en="Popular roadside cafe in Omarama — fresh food, coffee, NZ souvenirs" data-th="คาเฟ่ริมทางยอดนิยมใน Omarama — อาหารสด กาแฟ ของฝาก NZ">Popular roadside cafe in Omarama — fresh food, coffee, NZ souvenirs</span></span> <a href="https://maps.app.goo.gl/LF4CDPVhasafajGs6" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
+          <div class="viewpoint-item"><strong>Clay Cliffs Omarama</strong> <span style="color: #666; font-size: 11px;">+30min</span><br><span style="font-size: 12px; color: #555;"><span data-en="Otherworldly eroded rock formations shaped by ancient glaciers. $10/car entry." data-th="หินรูปร่างแปลกประหลาดจากธารน้ำแข็งโบราณ ค่าเข้า $10/คัน">Otherworldly eroded rock formations shaped by ancient glaciers. $10/car entry.</span></span> <a href="https://maps.app.goo.gl/y4ubdyuxNYje77K67" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
           <div class="viewpoint-item"><strong>Lindis Pass Lookout</strong> <span style="color: #666; font-size: 11px;">+10min</span><br><span style="font-size: 12px; color: #555;"><span data-en="High alpine pass (971m) with dramatic tussock-covered hills" data-th="ช่องเขาสูง (971m) เนินเขาปกคลุมด้วยหญ้า">High alpine pass (971m) with dramatic tussock-covered hills</span></span> <a href="https://maps.app.goo.gl/Ahi5eQqzWPsj9GdaA" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
-          <div class="viewpoint-item"><strong>Clay Cliffs Omarama</strong> <span style="color: #666; font-size: 11px;">+10min</span><br><span style="font-size: 12px; color: #555;"><span data-en="Otherworldly eroded rock formations shaped by ancient glaciers" data-th="หินรูปร่างแปลกประหลาดจากธารน้ำแข็งโบราณ">Otherworldly eroded rock formations shaped by ancient glaciers</span></span> <a href="https://maps.app.goo.gl/4N4sksffGHG7vSSMA" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
-          <div class="viewpoint-item"><strong>Lake Wanaka Viewpoint</strong> <span style="color: #666; font-size: 11px;">+10min</span><br><span style="font-size: 12px; color: #555;"><span data-en="Crystal-clear lake surrounded by mountains" data-th="ทะเลสาบใสล้อมรอบด้วยภูเขา">Crystal-clear lake surrounded by mountains</span></span> <a href="https://maps.app.goo.gl/hjYLLSmrsZpL4wqy8" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
+          <div class="viewpoint-item"><strong>Cromwell Heritage Precinct</strong> <span style="color: #666; font-size: 11px;">+20min</span><br><span style="font-size: 12px; color: #555;"><span data-en="Historic gold rush village right next to Highlands Motorsport Park — great photo stop!" data-th="หมู่บ้านยุคตื่นทองข้างสนาม Highlands Motorsport Park — จุดถ่ายรูปสวย!">Historic gold rush village right next to Highlands Motorsport Park — great photo stop!</span></span> <a href="https://maps.app.goo.gl/dCTay9P4YvmKuGEu5" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
         </div>
       </div>
     </details>
     
     <div class="timeline-item">
-      <div class="time">~2:00 PM</div>
+      <div class="time">2:00 PM</div>
+      <div class="content">
+        <div class="main">🏎️ <strong>Highlands Motorsport Park</strong> — <span data-en="Highlands Taxi: 2 laps in a Porsche Cayenne Turbo reaching 180km/h! ~15min, from $154/car (up to 4 passengers)" data-th="Highlands Taxi: 2 รอบใน Porsche Cayenne Turbo ถึง 180km/h! ~15นาที จาก $154/คัน (สูงสุด 4 คน)">Highlands Taxi: 2 laps in a Porsche Cayenne Turbo reaching 180km/h! ~15min, from $154/car (up to 4 passengers)</span></div>
+        <div class="sub"><span data-en="Closed-in footwear required. Photo ID + booking confirmation needed." data-th="ต้องใส่รองเท้าหุ้มส้น ต้องมีบัตรประชาชน + ยืนยันการจอง">Closed-in footwear required. Photo ID + booking confirmation needed.</span></div>
+        <a href="https://maps.app.goo.gl/E4BYMEbcsWeTKWEM6" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
+        <a href="https://www.highlands.co.nz/highlands-taxi" class="book-link">📅 <span data-en="Book" data-th="จอง">Book</span></a>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="time">~2:45 PM</div>
       <div class="content">
         <div class="main">🍽️ <strong>Maggie's Place</strong> — <span data-en="Takeout spot in Frankton serving fresh made-to-order food — open until 3PM, along the way to the hotel" data-th="ร้านเทคอะเวย์ใน Frankton อาหารสดทำสั่ง — เปิดถึง 3PM อยู่ระหว่างทางไปโรงแรม">Takeout spot in Frankton serving fresh made-to-order food — open until 3PM, along the way to the hotel</span> <a href="https://maps.app.goo.gl/vTB3u2n2S8iRoccB8" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
       </div>
     </div>
 
     <div class="timeline-item">
-      <div class="time">~2:20 PM</div>
+      <div class="time">~3:00 PM</div>
       <div class="content">
         <div class="main">🥩 <strong>The Smoke and Pickle</strong> — <span data-en="Frankton caterer serving smoked meats and dine-in/takeaway food" data-th="ร้านอาหารใน Frankton เสิร์ฟเนื้อรมควันและอาหารเทคอะเวย์">Frankton caterer serving smoked meats and dine-in/takeaway food</span> <a href="https://maps.app.goo.gl/iDqvZZUeFYcsWNxf6" class="map-link"><span data-en="Map" data-th="แผนที่">Map</span></a></div>
       </div>
     </div>
 
     <div class="timeline-item">
-      <div class="time">2:45 PM</div>
+      <div class="time">3:30 PM</div>
       <div class="content"><div class="main"><span data-en="Arrive Queenstown & check in" data-th="ถึง Queenstown & เช็คอิน">Arrive Queenstown & check in</span></div></div>
     </div>
     
@@ -1027,13 +1061,9 @@
     <div class="timeline-item">
       <div class="time">6:00 PM</div>
       <div class="content">
-        <div class="main">🍽️ <span data-en="Dinner at" data-th="มื้อเย็นที่">Dinner at</span> <span class="restaurant">SUNDAYS</span> <span style="color: #e74c3c; font-weight: 600;">⚠️ <span data-en="CLOSED on Mondays — TBD" data-th="ปิดวันจันทร์ — ยังไม่ได้ตัดสินใจ">CLOSED on Mondays — TBD</span></span></div>
-        <div class="sub"><span data-en="Wood-fired pizza in a restored 1933 church!" data-th="พิซซ่าเตาฟืนในโบสถ์ปี 1933 ที่บูรณะแล้ว!">Wood-fired pizza in a restored 1933 church!</span></div>
-        <div class="sub"><span data-en="Neapolitan-style sourdough pizza, European shared plates. Kid-friendly, wheelchair accessible." data-th="พิซซ่าซาวร์โดว์สไตล์เนเปิลส์ อาหารยุโรปแบบแชร์ เด็กเข้าได้ วีลแชร์เข้าได้">Neapolitan-style sourdough pizza, European shared plates. Kid-friendly, wheelchair accessible.</span></div>
-        <div class="sub" style="color: #888; font-size: 12px;">⏰ <span data-en="If doing Glenorchy: book for 7:30 PM instead" data-th="ถ้าไป Glenorchy: จอง 19:30 แทน">If doing Glenorchy: book for 7:30 PM instead</span></div>
-        <div class="sub" style="color: #d35400; font-weight: 500;">⚠️ <span data-en="Email required for 10+ people!" data-th="ต้องอีเมลจองถ้า 10+ คน!">Email required for 10+ people!</span></div>
-        <a href="https://maps.app.goo.gl/Y7dK5sskvQfXL5eCA" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
-        <a href="https://bookings.nowbookit.com/?accountid=50dd0057-ef77-4282-b302-3f538933db0b&venueid=11053&theme=light&colors=hex,000000" class="book-link">📅 <span data-en="Book" data-th="จอง">Book</span></a>
+        <div class="main">🍽️ <span data-en="Dinner at" data-th="มื้อเย็นที่">Dinner at</span> <span class="restaurant">Slow Cuts</span> <span style="color: #888; font-size: 12px;"><span data-en="(Optional)" data-th="(ไม่บังคับ)">(Optional)</span></span></div>
+        <div class="sub"><span data-en="Slow-smoked BBQ meats — ~20 min from the hotel." data-th="เนื้อรมควันช้า — ~20 นาทีจากโรงแรม">Slow-smoked BBQ meats — ~20 min from the hotel.</span></div>
+        <a href="https://maps.app.goo.gl/iQkThS3iSPQfNP3t8" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
       </div>
     </div>
     
@@ -1071,7 +1101,8 @@
       <div class="content">
         <div class="main">🚤 Shotover Jet</div>
         <div class="sub"><span data-en="~25 min thrill ride through canyons" data-th="~25 นาที นั่งเรือเร็วลุยหุบเขา">~25 min thrill ride through canyons</span></div>
-        <a href="https://book.shotoverjet.com/activity/selection?workingDate=2026-04-14&filter=ProdGroup-SOJALL" class="book-link">📅 <span data-en="Book Now" data-th="จองเลย">Book Now</span></a>
+        <div class="sub" style="color: #27ae60;">✅ <span data-en="Booked!" data-th="จองแล้ว!">Booked!</span></div>
+        <a href="https://maps.app.goo.gl/SoK1WFWv2q2Q92bG8" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
       </div>
     </div>
     <div class="alert alert-info">📌 <span data-en="Short activity (~25 min) — non-participants can wait at café" data-th="กิจกรรมสั้น (~25 นาที) — คนไม่เล่นรอที่คาเฟ่ได้">Short activity (~25 min) — non-participants can wait at café</span></div>
@@ -1113,6 +1144,8 @@
       <div class="content">
         <div class="main">🚡 Skyline Gondola & Luge</div>
         <div class="sub"><span data-en="Until ~3PM" data-th="ถึง ~15:00">Until ~3PM</span></div>
+        <div class="sub" style="color: #27ae60;">✅ <span data-en="Tickets purchased — no need to queue at ticket office! Show QR code on arrival." data-th="ซื้อตั๋วแล้ว — ไม่ต้องต่อคิวที่เคาน์เตอร์! แสดง QR code ตอนถึง">Tickets purchased — no need to queue at ticket office! Show QR code on arrival.</span></div>
+        <a href="https://drive.roller.app/b/oGahaITu_0WysHIji86mAQ/5072a8d2-7d55-41bc-8b37-4cd7162b3004.pdf" class="book-link" target="_blank">🎟️ <span data-en="QR Codes" data-th="QR Code">QR Codes</span></a>
       </div>
     </div>
     <div class="alert alert-warning">⚠️ <span data-en="Luge requires balance — younger participants only" data-th="Luge ต้องทรงตัวได้ — เฉพาะคนหนุ่มสาว">Luge requires balance — younger participants only</span></div>
@@ -1127,13 +1160,6 @@
       </ul>
     </div>
     
-    <div class="timeline-item">
-      <div class="time">3:00 PM</div>
-      <div class="content">
-        <div class="main">🚢 TSS Earnslaw <span data-en="Lake Cruise" data-th="ล่องเรือในทะเลสาบ">Lake Cruise</span></div>
-        <div class="sub"><span data-en="Historic steamship on Lake Wakatipu" data-th="เรือไอน้ำประวัติศาสตร์บน Lake Wakatipu">Historic steamship on Lake Wakatipu</span></div>
-      </div>
-    </div>
     
     <div id="day14-dinner" class="section-anchor">
       <div class="section-title">🍽️ <span data-en="Dinner & Shopping" data-th="มื้อเย็น & ช้อปปิ้ง">Dinner & Shopping</span></div>
@@ -1202,6 +1228,7 @@
         <div class="main">📍 <span data-en="Arrive at RealNZ Visitor Centre" data-th="ถึงศูนย์บริการ RealNZ">Arrive at RealNZ Visitor Centre</span></div>
         <div class="sub">85 Lakefront Drive, Te Anau 9640</div>
         <div class="sub" style="color: #d35400; font-weight: 500;">⚠️ <span data-en="Must arrive before 11:00 AM" data-th="ต้องถึงก่อน 11:00">Must arrive before 11:00 AM</span></div>
+        <a href="https://maps.app.goo.gl/3mMsgz3i1pdjFERT9" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
       </div>
     </div>
     <div class="timeline-item">
@@ -1209,6 +1236,7 @@
       <div class="content">
         <div class="main">✨ Te Anau Glowworm Caves</div>
         <div class="sub"><span data-en="Magical underground boat ride to see glowworms" data-th="ล่องเรือใต้ดินชมหนอนเรืองแสง">Magical underground boat ride to see glowworms</span></div>
+        <div class="sub" style="color: #27ae60;">✅ <span data-en="Booked!" data-th="จองแล้ว!">Booked!</span></div>
         <a href="https://www.realnz.com/en/experiences/glowworm-caves/te-anau-glowworm-caves/" class="book-link">📅 <span data-en="Book 11:30 Session" data-th="จองรอบ 11:30">Book 11:30 Session</span></a>
       </div>
     </div>
@@ -1216,13 +1244,12 @@
     <div class="timeline-item">
       <div class="time">2:00 PM</div>
       <div class="content">
-        <div class="main">🥧 <span data-en="Lunch at" data-th="กลางวันที่">Lunch at</span> <span class="restaurant">Miles Better Pies</span> <span style="color: #666; font-size: 11px;">+1.5hrs</span></div>
-        <div class="sub">17 Town Centre • 6AM–6PM</div>
-        <div class="sub"><span data-en="Try: Venison & Plum, Lamb & Mint!" data-th="ลอง: Venison & Plum, Lamb & Mint!">Try: Venison & Plum, Lamb & Mint!</span></div>
-        <a href="https://maps.app.goo.gl/vN5HKmLu5e8QLWWV7" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
+        <div class="main">🍜 <span data-en="Lunch at" data-th="กลางวันที่">Lunch at</span> <span class="restaurant">Thai Anau Restaurant</span></div>
+        <div class="sub"><span data-en="Familiar Thai flavours — great for grandma. Takeaway available." data-th="รสชาติไทยคุ้นเคย — เหมาะสำหรับคุณยาย สั่งกลับได้">Familiar Thai flavours — great for grandma. Takeaway available.</span></div>
+        <a href="https://maps.app.goo.gl/ozdcnoWas9Ez9wTm6" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
       </div>
     </div>
-    <div class="alert alert-warning">⚠️ <span data-en="Booking required — max 12 per group" data-th="ต้องจอง — สูงสุด 12 คนต่อกลุ่ม">Booking required — max 12 per group</span></div>
+    <div class="alert alert-success">✅ <span data-en="Booked! Max 12 per group" data-th="จองแล้ว! สูงสุด 12 คนต่อกลุ่ม">Booked! Max 12 per group</span></div>
     <div class="alert alert-warning">⚠️ <span data-en="Low ceilings — requires significant crouching!" data-th="เพดานต่ำ — ต้องก้มตัวมาก!">Low ceilings — requires significant crouching!</span></div>
     
     <div class="elderly-box">
@@ -1240,25 +1267,27 @@
     </div>
     
     <div id="day15-dinner" class="section-anchor">
-      <div class="section-title">🍽️ <span data-en="Dinner Options" data-th="ตัวเลือกมื้อเย็น">Dinner Options</span></div>
+      <div class="section-title">🍽️ <span data-en="Dinner" data-th="มื้อเย็น">Dinner</span></div>
     </div>
-    
-    <details open>
-      <summary>🍽️ <span data-en="Dinner Options" data-th="ตัวเลือกมื้อเย็น">Dinner Options</span></summary>
-      <div class="detail-content">
-        <div style="margin-bottom: 15px;">
-          <strong><span data-en="Thai Option:" data-th="ตัวเลือกไทย:">Thai Option:</span> Thai Anau Restaurant</strong><br>
-          <span style="font-size: 12px; color: #666;"><span data-en="Take away possible" data-th="สั่งกลับบ้านได้">Take away possible</span></span><br>
-          <a href="https://maps.app.goo.gl/ozdcnoWas9Ez9wTm6" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
-        </div>
-        <div>
-          <strong>⭐ <span data-en="Recommended:" data-th="แนะนำ:">Recommended:</span> Redcliff Restaurant & Bar</strong><br>
-          <span style="font-size: 12px; color: #666;"><span data-en="Local NZ cuisine — book for 12 people" data-th="อาหาร NZ — จองสำหรับ 12 คน">Local NZ cuisine — book for 12 people</span></span><br>
-          <span style="font-size: 12px; color: #d35400;">⚠️ <span data-en="Booking needed!" data-th="ต้องจอง!">Booking needed!</span></span><br>
-          <a href="https://maps.app.goo.gl/YzWaXrxEmeZJ7iGg8" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
-        </div>
+
+    <div class="timeline-item">
+      <div class="time">6:00 PM</div>
+      <div class="content">
+        <div class="main">🍜 <span data-en="Dinner at" data-th="มื้อเย็นที่">Dinner at</span> <span class="restaurant">Thai Anau Restaurant</span></div>
+        <div class="sub"><span data-en="Familiar Thai flavours — great for grandma and anyone wanting a comfortable, home-style meal. Takeaway available." data-th="รสชาติไทยคุ้นเคย — เหมาะสำหรับคุณยายและคนที่อยากทานอาหารแบบบ้านๆ สั่งกลับได้">Familiar Thai flavours — great for grandma and anyone wanting a comfortable, home-style meal. Takeaway available.</span></div>
+        <a href="https://maps.app.goo.gl/ozdcnoWas9Ez9wTm6" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
       </div>
-    </details>
+    </div>
+
+    <div class="timeline-item">
+      <div class="time">6:00 PM</div>
+      <div class="content">
+        <div class="main">🍷 <span data-en="Alternatively:" data-th="หรือ:">Alternatively:</span> <span class="restaurant">Redcliff Restaurant & Bar</span> <span style="color: #888; font-size: 12px;"><span data-en="(for those wanting a fuller dinner)" data-th="(สำหรับคนที่อยากทานจริงจัง)">(for those wanting a fuller dinner)</span></span></div>
+        <div class="sub"><span data-en="Local NZ cuisine in a cosy cottage setting." data-th="อาหาร NZ ในบรรยากาศกระท่อมอบอุ่น">Local NZ cuisine in a cosy cottage setting.</span></div>
+        <div class="sub" style="color: #d35400; font-weight: 500;">⚠️ <span data-en="Booking required for 12 people!" data-th="ต้องจองสำหรับ 12 คน!">Booking required for 12 people!</span></div>
+        <a href="https://maps.app.goo.gl/YzWaXrxEmeZJ7iGg8" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
+      </div>
+    </div>
     
     <div class="alert alert-purple">🌌 <span data-en="Aurora opportunity tonight" data-th="คืนนี้อาจมีแสงเหนือ">Aurora opportunity tonight</span></div>
     <div class="alert alert-warning">📞 <span data-en="Call Anua Holiday Home to confirm arrival time — check booking confirmation for contact details" data-th="โทรหา Anua Holiday Home แจ้งเวลาถึง — ดูเบอร์ในใบจอง">Call Anua Holiday Home to confirm arrival time — check booking confirmation for contact details</span></div>
@@ -1297,10 +1326,12 @@
       </div>
     </div>
     <div class="timeline-item">
-      <div class="time">7:30 AM</div>
+      <div class="time">7:15 – 7:30 AM</div>
       <div class="content">
         <div class="main"><span data-en="Drive to Milford Sound" data-th="ขับไป Milford Sound">Drive to Milford Sound</span></div>
+        <div class="sub" style="color: #555; font-size: 12px;">🚗 <span data-en="Slow drivers: depart 7:15 AM · Fast drivers: depart 7:30 AM" data-th="คนขับช้า: ออก 7:15 · คนขับเร็ว: ออก 7:30">Slow drivers: depart 7:15 AM · Fast drivers: depart 7:30 AM</span></div>
         <div class="drive-time">🚗 2h 15min (120km) — <span data-en="stunning drive!" data-th="ทางสวยมาก!">stunning drive!</span></div>
+        <div class="sub" style="color: #d35400; font-weight: 500;">🚗 <span data-en="We'll only be using TWO cars today." data-th="วันนี้ใช้แค่สองคัน">We'll only be using TWO cars today.</span></div>
         <div class="offline-note">💾 <span data-en="No cell service — download maps offline!" data-th="ไม่มีสัญญาณ — โหลดแผนที่ออฟไลน์!">No cell service — download maps offline!</span></div>
       </div>
     </div>
@@ -1308,28 +1339,30 @@
     <div id="day16-cruise" class="section-anchor">
       <div class="section-title">⛵ Milford Sound</div>
     </div>
-    
+
+    <div class="parking-tip" style="border: 2px solid #e74c3c; background: #fff8f8;">
+      🅿️ <strong style="font-size: 15px;">Milford <span data-en="Parking — READ THIS!" data-th="ที่จอดรถ — อ่านด่วน!">Parking — READ THIS!</span></strong><br><br>
+      • 🆓 <strong style="color: #2e7d32; font-size: 14px;"><span data-en="FREE Parking:" data-th="จอดฟรี:">FREE Parking:</span></strong> <a href="https://maps.app.goo.gl/gtfxDWk97TnFPYF68" style="color: #2e7d32; font-weight: bold; font-size: 14px;"><span data-en="Signature Cruise Car Park (tap for map)" data-th="ที่จอดรถ Signature Cruise (แตะดูแผนที่)">Signature Cruise Car Park (tap for map)</span></a><br>
+      • 🔴 <strong style="color: #e74c3c; font-size: 14px;"><span data-en="ARRIVE BY 9:30 AM — ship departs 10:30 AM, NO exceptions!" data-th="ถึงก่อน 9:30 — เรือออก 10:30 ไม่มีข้อยกเว้น!">ARRIVE BY 9:30 AM — ship departs 10:30 AM, NO exceptions!</span></strong><br>
+      • ❌ <strong><span data-en="Do NOT park at visitor centre — $25+!" data-th="อย่าจอดที่ศูนย์บริการ — $25+!">Do NOT park at visitor centre — $25+!</span></strong><br>
+      • ⚠️ <span data-en="Check-in closes 10:15 AM · Gate closes 10:25 AM" data-th="เช็คอินปิด 10:15 · ประตูปิด 10:25">Check-in closes 10:15 AM · Gate closes 10:25 AM</span><br>
+      • 👴 <span data-en="Send grandma & elderly to the nearest entry point to the gate first — don't make them walk far!" data-th="พาคุณยายและผู้สูงอายุไปที่จุดเข้าใกล้ประตูก่อน — อย่าให้เดินไกล!">Send grandma & elderly to the nearest entry point to the gate first — don't make them walk far!</span>
+    </div>
+
     <div class="timeline-item">
       <div class="time">10:30 AM</div>
       <div class="content">
         <div class="main">⛵ Milford Sound Signature Cruise</div>
         <div class="sub"><span data-en="Until ~1PM — waterfalls, seals, maybe dolphins!" data-th="ถึง ~13:00 — น้ำตก แมวน้ำ อาจมีโลมา!">Until ~1PM — waterfalls, seals, maybe dolphins!</span></div>
-        <a href="https://www.realnz.com/en/experiences/day-cruises/milford-sound-signature-cruise/" class="book-link">📅 <span data-en="Book Cruise" data-th="จองล่องเรือ">Book Cruise</span></a>
+        <div class="sub" style="color: #27ae60;">✅ <span data-en="Booked!" data-th="จองแล้ว!">Booked!</span></div>
       </div>
-    </div>
-    
-    <div class="parking-tip">
-      🅿️ <strong>Milford <span data-en="Parking — IMPORTANT!" data-th="ที่จอดรถ — สำคัญ!">Parking — IMPORTANT!</span></strong><br>
-      • <span data-en="Use" data-th="ใช้">Use</span> <strong><span data-en="FREE parking" data-th="ที่จอดฟรี">FREE parking</span></strong> — <a href="https://maps.app.goo.gl/cbM4Z8kftusCmPsY6" style="color: #2e7d32; font-weight: bold;"><span data-en="This car park" data-th="ที่จอดนี้">This car park</span></a> (<span data-en="10 min walk" data-th="เดิน 10 นาที">10 min walk</span>)<br>
-      • ❌ <strong><span data-en="Do NOT" data-th="อย่า">Do NOT</span></strong> <span data-en="park at visitor centre — $25+!" data-th="จอดที่ศูนย์บริการ — $25+!">park at visitor centre — $25+!</span><br>
-      • 💡 <span data-en="Drop elderly at pier, young ones walk" data-th="ส่งผู้สูงอายุที่ท่าเรือ คนหนุ่มเดิน">Drop elderly at pier, young ones walk</span>
     </div>
     
     <div class="timeline-item">
       <div class="time">1:00 PM</div>
       <div class="content">
         <div class="main">🍽️ <span data-en="Lunch at" data-th="กลางวันที่">Lunch at</span> <span class="restaurant">Pio Pio Restaurant</span></div>
-        <div class="sub" style="color: #d35400;">⚠️ <span data-en="Needs booking via email" data-th="ต้องจองทางอีเมล">Needs booking via email</span></div>
+        <div class="sub" style="color: #27ae60;">✅ <span data-en="Booked! Group 1: 1:15 PM (Sarat, 6 pax) · Group 2: 1:30 PM (Sunee, 6 pax)" data-th="จองแล้ว! กลุ่ม 1: 13:15 (Sarat, 6 คน) · กลุ่ม 2: 13:30 (Sunee, 6 คน)">Booked! Group 1: 1:15 PM (Sarat, 6 pax) · Group 2: 1:30 PM (Sunee, 6 pax)</span></div>
         <a href="https://maps.app.goo.gl/ujiTdAfHv7Zexc2T6" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
       </div>
     </div>
@@ -1544,7 +1577,7 @@
       <div class="content">
         <div class="main">🍽️ <span data-en="Lunch at" data-th="กลางวันที่">Lunch at</span> <span class="restaurant">Riverstone Kitchen</span> <span style="color: #666; font-size: 11px;">+1.5hrs</span></div>
         <div class="sub"><span data-en="Award-winning restaurant with garden-to-table cuisine" data-th="ร้านอาหารได้รางวัล อาหารจากสวนสู่โต๊ะ">Award-winning restaurant with garden-to-table cuisine</span></div>
-        <div class="sub" style="color: #d35400;">⚠️ <span data-en="Booking required for 8+ people! Call +64 3 431 3505" data-th="ต้องจองสำหรับ 8+ คน! โทร +64 3 431 3505">Booking required for 8+ people! Call +64 3 431 3505</span></div>
+        <div class="sub" style="color: #d35400; font-weight: 500;">⚠️ <span data-en="Booking required for 8+ people! Call +64 3 431 3505" data-th="ต้องจองสำหรับ 8+ คน! โทร +64 3 431 3505">Booking required for 8+ people! Call +64 3 431 3505</span></div>
         <a href="https://maps.app.goo.gl/eTmV83uBpMVvcN1v6" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
         <a href="https://www.riverstonekitchen.co.nz/reservations" class="book-link">📅 <span data-en="Book" data-th="จอง">Book</span></a>
       </div>
@@ -1554,19 +1587,10 @@
       <div class="time">5:30 PM</div>
       <div class="content"><div class="main"><span data-en="Arrive Christchurch & check in" data-th="ถึง Christchurch & เช็คอิน">Arrive Christchurch & check in</span></div></div>
     </div>
-    <div class="timeline-item">
-      <div class="time"><span data-en="Before 10PM" data-th="ก่อน 4 ทุ่ม">Before 10PM</span></div>
-      <div class="content">
-        <div class="main"><strong>🚗 <span data-en="Return rental cars" data-th="คืนรถเช่า">Return rental cars</span></strong></div>
-        <div class="sub">Ezi Car Rental — <span data-en="Airport rental car section" data-th="ส่วนรถเช่าสนามบิน">Airport rental car section</span></div>
-        <div class="sub"><span data-en="Drop keys in key drop box if unattended" data-th="หย่อนกุญแจในกล่องถ้าไม่มีคน">Drop keys in key drop box if unattended</span></div>
-      </div>
-    </div>
-    
     <div id="day18-dinner" class="section-anchor">
       <div class="section-title">🍽️ <span data-en="Final Dinner" data-th="มื้อเย็นสุดท้าย">Final Dinner</span></div>
     </div>
-    
+
     <div class="timeline-item">
       <div class="time">6:30 PM</div>
       <div class="content">
@@ -1574,6 +1598,15 @@
         <div class="sub">One Good Horse Restaurant — <span data-en="Big steaks!" data-th="สเต็กจานโต!">Big steaks!</span></div>
         <div class="sub">🅿️ <span data-en="Big parking lot — easy access" data-th="ที่จอดรถใหญ่ — เข้าง่าย">Big parking lot — easy access</span></div>
         <a href="https://maps.app.goo.gl/BqB1oP5wqPeZsDwu9" class="map-link">📍 <span data-en="Location" data-th="ที่ตั้ง">Location</span></a>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="time"><span data-en="After Dinner" data-th="หลังอาหาร">After Dinner</span></div>
+      <div class="content">
+        <div class="main"><strong>🚗 <span data-en="Return rental cars" data-th="คืนรถเช่า">Return rental cars</span></strong></div>
+        <div class="sub">Ezi Car Rental — <span data-en="Airport rental car section" data-th="ส่วนรถเช่าสนามบิน">Airport rental car section</span></div>
+        <div class="sub"><span data-en="Drop keys in key drop box if unattended. Must return before 10PM." data-th="หย่อนกุญแจในกล่องถ้าไม่มีคน ต้องคืนก่อน 4 ทุ่ม">Drop keys in key drop box if unattended. Must return before 10PM.</span></div>
       </div>
     </div>
     
@@ -1592,6 +1625,7 @@
   </div>
   <div class="day-content">
     <div class="alert alert-warning">⏰ <strong><span data-en="EARLY START!" data-th="ออกเช้ามาก!">EARLY START!</span></strong> <span data-en="Wake up at 3:00 AM!" data-th="ตื่น 3:00 AM!">Wake up at 3:00 AM!</span></div>
+    <div class="alert alert-info">🚌 <span data-en="Airport transfer: Hotel shuttle available, or it's walkable from Novotel CHC Airport." data-th="รถรับส่งสนามบิน: มีรถรับส่งจากโรงแรม หรือเดินได้จาก Novotel CHC Airport">Airport transfer: Hotel shuttle available, or it's walkable from Novotel CHC Airport.</span></div>
     
     <div class="flight-box business">
       <div class="flight-header">
@@ -1847,7 +1881,6 @@ const searchData = [
   { name: "Shotover Jet", day: "Apr 14", section: "day14" },
   { name: "Skyline Gondola", day: "Apr 14", section: "day14" },
   { name: "Luge", day: "Apr 14", section: "day14" },
-  { name: "TSS Earnslaw", day: "Apr 14", section: "day14" },
   { name: "Glowworm Caves", day: "Apr 15", section: "day15" },
   { name: "Milford Sound", day: "Apr 16", section: "day16" },
   { name: "Moeraki Boulders", day: "Apr 18", section: "day18" },
